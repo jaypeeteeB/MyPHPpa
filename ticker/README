@@ -1,0 +1,9 @@
+To configure:
+
+core_sql.c (fallback logins)
+mypa.cfg       (logins)
+
+then type make all ...
+
+To call it in game: run tick.sh in the background, it 
+calls every 30 s the ticker.

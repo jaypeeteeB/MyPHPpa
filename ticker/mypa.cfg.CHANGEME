@@ -1,0 +1,16 @@
+
+# Parameters for ticker
+
+db_db     = db_mypa
+db_host   = localhost
+db_user   = dbuser_mypa
+db_passwd = 123dbpassword_x$
+db_socket = /var/run/mysql/mysql.sock
+db_port   = 3306
+
+#sql_log = ticker.sql
+logfile   = ticker.log
+
+#alt: havoc, normal
+#resource  = havoc
+resource  = normal
