@@ -1,0 +1,64 @@
+This buffer is for notes you don't want to save, and for Lisp evaluation.
+If you want to create a file, visit that file with C-x C-f,
+then enter the text in that file's own buffer.
+
+
+
+Population:  25  unbound 5
+
+pop conversion: 10 C
+
+Scientist :   5  -> 50  research
+Engineer  :   5  -> 50  production
+Farmer    :   5  -> 50  food 
+Miner     :   5  -> 50
+Pilot     :   0 
+
+1 Miner per Roidmining
+3 Miner per Mine
+6 Miner per core mine
+
+pop growth = (food_prod - pop * 1.25)/10 ( -> am anfang 3 / tick )
+    shrink = (pop - food_prod)/10
+
+1 h research = 100 research
+1 h contruction = 50 production / 50 research
+
+Needs free engineers/scientist in production, resource, waves, pds, rc
+
+Production to construct  pds, ship, scan:        
+
+cost = num of X * cost/100 * build_ticks
+
+
+(possible: increase science / scientist, production / per engineer
+ -> school,
+
+    Werkzeugfabrik ? Mining
+
+    college
+    university     (scientist)
+
+    Kraftwerk
+    Fusion         (engineers)
+
+    Military camp
+    academy        (pilots)
+      
+    hydropnonic
+    genetic tranformation (farming)
+
+-> production in prod_pnts
+   prod spent on ship type -> time
+   
+Pirate        (CR)    Steal Ships (steals only stunned ships, t1, t2, t3)
+              (BS)
+ STEAL_SHIP
+
+Thieve        (CO)    Steal Metal, Crystal, Eonium (in percent of exist, 
+ CAP2                                               max per ship ?)
+Slave Trader  (FR)    Steal Population
+ CAP3
+Astro Pos     (FR)    Steal Roids
+ CAP1
+All have to return home to base ?
