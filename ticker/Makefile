@@ -20,7 +20,7 @@
 LIB =	/usr/lib/libmysqlclient.a -lz
 LIB =	-lmysqlclient -lcrypt -lz
 LIB =	-lmariadb -lcrypt  -lm
-SRC =	ticker.c score.c update.c core_sql.c helper.c battle.c cleanup.c logging.c
+SRC =	ticker.c score.c update.c core_sql.c helper.c battle.c cleanup.c logging.c options.c
 OBJ =	$(SRC:.c=.o)
 
 CC =	gcc
@@ -40,8 +40,8 @@ test:	$(OBJ)
 ticker:	$(OBJ)
 	gcc -O -g $(OBJ) -o ticker $(LIB)
 
-sql:	test_sql.o core_sql.o
-	gcc -O -g test_sql.o core_sql.o -o test_sql $(LIB)
+sql:	test_sql.o core_sql.o options.o
+	gcc -O -g test_sql.o core_sql.o options.o -o test_sql $(LIB)
 
 tick_sleep: tick_sleep.o
 	gcc -O -g tick_sleep.o -o tick_sleep

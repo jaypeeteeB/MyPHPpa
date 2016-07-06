@@ -25,7 +25,6 @@
 #else
 #include <mysql/mysql.h>
 #endif
-#include "ticker.h"
 
 #define DEBUG 5
 
@@ -77,5 +76,8 @@ void calc_score (MYSQL *mysql);
 
 /* cleanup.c *** remove/perform cyclic actions ****/
 void do_clean_ups (MYSQL *mysql);
+
+/* options.c  *** parse db config ****/
+options *read_cfg (int argc, char *argv[]);
 
 #endif /* __ticker_h__ */

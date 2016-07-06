@@ -33,17 +33,25 @@ int main(int argc, char *argv[])
   MYSQL *mysql;
   MYSQL_RES *res;
   MYSQL_ROW row;
+  options *opt = NULL;
+  char *search = argv[1];
 
-  if (argc!=2) 
+  if (argc<2) { 
+    fprintf( stderr, "Usage: %s [mpa.cfg] search_string\n", argv[0]);
     exit (1);
+  }
 
   logfile = stdout;
+  if (argc > 2) {
+    opt = read_cfg (argc, argv);
+    search = argv[2];
+  } 
+  mysql = init_connection(opt);
 
-  mysql = init_connection(NULL);
   res = vx_query (mysql,"SELECT id, leader, planetname, x, y, z "\
 	          "FROM planet WHERE leader like '%%%s%%' " \
                   "OR planetname like '%%%s%%'",
-                  argv[1]);
+                  search);
 
   if (res && mysql_num_rows(res)) {
     while ((row = mysql_fetch_row (res))) {
@@ -54,7 +62,7 @@ int main(int argc, char *argv[])
     check_error (mysql);
     mysql_free_result(res);
   } else 
-    fprintf (stdout, "No such Planet.\n");
+    fprintf (stdout, "No such Planet [%s].\n", search);
 
   return (0);
 }
