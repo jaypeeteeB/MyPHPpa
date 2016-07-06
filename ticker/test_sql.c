@@ -24,7 +24,6 @@
 #include <sys/time.h>
 #include <signal.h>
 
-#include <mysql/mysql.h>
 #include "ticker.h"
 
 FILE *logfile;

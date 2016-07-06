@@ -23,7 +23,6 @@
 #include <time.h>
 #include <sys/time.h>
 
-#include <mysql/mysql.h>
 #include "ticker.h"
 #include "logging.h"
 

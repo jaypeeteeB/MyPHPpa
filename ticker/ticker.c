@@ -25,7 +25,6 @@
 #include <assert.h>
 #include <string.h>
 
-#include <mysql/mysql.h>
 #include "ticker.h"
 
 void print_runtime (struct timeval *);

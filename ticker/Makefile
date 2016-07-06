@@ -19,11 +19,13 @@
 
 LIB =	/usr/lib/libmysqlclient.a -lz
 LIB =	-lmysqlclient -lcrypt -lz
+LIB =	-lmariadb -lcrypt  -lm
 SRC =	ticker.c score.c update.c core_sql.c helper.c battle.c cleanup.c logging.c
 OBJ =	$(SRC:.c=.o)
 
 CC =	gcc
 CFLAGS=	-O3 -g -Wall
+CFLAGS=	-O3 -g -Wall -I/usr/include/mariadb -DMARIADB
 LDFLAGS= -O3 $(LIB)
 
 .SUFFIXES: .c .o

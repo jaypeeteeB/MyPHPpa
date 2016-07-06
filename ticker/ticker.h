@@ -20,7 +20,12 @@
 #ifndef __ticker_h__
 #define __ticker_h__
 
+#ifdef MARIADB
+#include <mariadb/mysql.h>
+#else
 #include <mysql/mysql.h>
+#endif
+#include "ticker.h"
 
 #define DEBUG 5
 
