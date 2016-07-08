@@ -110,12 +110,12 @@ if ($res && mysqli_num_rows ($res)>0) {
 
     if ($row[1] ==  $number_of_fleets) {
       $fmsg = "Missile attack on $rowt[planetname] (".
-	 print_coords($rowt[x],$rowt[y],$rowt[z]).") ETA $row[2] ticks";
+	 print_coords($rowt['x'],$rowt['y'],$rowt['z']).") ETA $row[2] ticks";
     } else {
       $fmsg = "Fleet $row[1] ";
 
       $ftarget = "$rowt[planetname] (".
-	 print_coords($rowt[x],$rowt[y],$rowt[z]).")";
+	 print_coords($rowt['x'],$rowt['y'],$rowt['z']).")";
     
       $type = $row[3];
 
