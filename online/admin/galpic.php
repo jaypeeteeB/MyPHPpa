@@ -22,7 +22,8 @@
 require_once "admhead.php";
 require_once "admform.php";
 
-if (ISSET($rid)) {
+if (ISSET($_REQUEST["rid"])) {
+  $rid = $_REQUEST["rid"];
   $q = "UPDATE galaxy set pic='' WHERE id=$rid";
   $res = mysqli_query ($db, $q );
   echo "Pic of [$rid] deleted<br>\n";
@@ -36,7 +37,7 @@ if (ISSET($rid)) {
   
     while ($row=mysqli_fetch_row($res)) {
       echo "<tr><td>($row[0],$row[1])</td>\n";
-      echo "<td><a href=\"$_SERVER['PHP_SELF']?rid=$row[4]\">Remove</a></td>\n";
+      echo "<td><a href=\"".$_SERVER['PHP_SELF']."?rid=$row[4]\">Remove</a></td>\n";
       echo "<td><img src=\"$row[3]\" height=\"200\"></td></tr>\n";
     }
     echo "</table>\n";

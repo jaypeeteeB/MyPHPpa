@@ -27,8 +27,8 @@ require_once "../alliance_func.inc";
 
 echo "<center>\n";
 
-if ($allid && $Planetid<=2) {
-
+if (ISSET($_REQUEST["allid"]) && $Planetid<=2) {
+  $allid = $_REQUEST["allid"];
   $myrow["alliance_id"] = $allid;
   $myrow["status"] = 0;
   $all = get_alliance ();
@@ -38,7 +38,7 @@ if ($allid && $Planetid<=2) {
   $myrow["alliance_id"] = 0;
   print_alliance_status ($all);
 } else {
-  $ref = "$_SERVER['PHP_SELF']?allid=";
+  $ref = $_SERVER['PHP_SELF']."?allid=";
   list_alliances_admin($ref);
 }
 

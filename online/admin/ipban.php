@@ -22,14 +22,14 @@
 require_once "admhead.php";
 require_once "admform.php";
 
-if (ISSET($submit)) echo "Found submit<br>";
-if (ISSET($playerid)) echo "Playerid $playerid<br>";
-if (ISSET($verification)) echo "Verification: $verification<br>";
+if (ISSET($_REQUEST["submit"])) echo "Found submit<br>";
+if (ISSET($_REQUEST["playerid"])) echo "Playerid ".$_REQUEST["playerid"]."<br>";
+if (ISSET($_REQUEST["verification"])) echo "Verification: ".$_REQUEST["verification"]."<br>";
 
-if (ISSET($submit) && ISSET($ip) ) {
+if (ISSET($_REQUEST["submit"]) && ISSET($_REQUEST["ip"]) ) {
 
-  if (ISSET($verification) && $verification==$ip) {
-      $q = "INSERT INTO iptables set ip='$ip',comment='$comment'";
+  if (ISSET($_REQUEST["verification"]) && $_REQUEST["verification"]==$_REQUEST["ip"]) {
+      $q = "INSERT INTO iptables set ip='".$_REQUEST["ip"]."',comment='$comment'";
       mysqli_query ($db, $q );
       echo "<center>IP banned</center>";
   } else {
@@ -37,7 +37,7 @@ if (ISSET($submit) && ISSET($ip) ) {
 <center>
 <table  width="640" border="1" cellpadding="2" >
 <tr><td>Really ban this IP?</td><td><b>$ip</b></td></tr>
-<tr><td align="center"><a href="$_SERVER['PHP_SELF']?submit=1&ip=$ip&verification=$ip">Yes</a></td></tr>
+<tr><td align="center"><a href="$_SERVER[PHP_SELF]?submit=1&ip=$ip&verification=$ip">Yes</a></td></tr>
 </table>
 
 EOF;
@@ -47,7 +47,7 @@ EOF;
 <center>
 <table  width="640" border="1" cellpadding="2" >
 <tr>
-<form method="post" action="$_SERVER['PHP_SELF']">
+<form method="post" action="$_SERVER[PHP_SELF]">
   <td align="center" bgcolor="#c0c0c0">Enter target id:</td>
   <td align="center"><input type="text" name="ip" size="25"></td></tr>
 <tr><td colspan=2><input type="text" name="comment" size="80"></td></tr>

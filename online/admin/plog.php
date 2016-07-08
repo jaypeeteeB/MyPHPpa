@@ -264,7 +264,7 @@ if ((ISSET($id) && $id>0) ||
 
 	if ($row[3] != "") {
 	  $data = $row[3];
-          if ( ereg ("([^\[]*)\[([0-9]*)].*", $data, $out_id)) {
+          if ( preg_match ("/([^\[]*)\[([0-9]*)].*/", $data, $out_id)) {
             // echo "<td><a href=\"$_SERVER['PHP_SELF']?submit=1&data=$data$f\">$out_id[1]</a> [";
             echo "<td>$out_id[1] [";
             echo "<a href=\"/admin/pinfo.php?submit=1&playerid=$out_id[2]\">$out_id[2]</a>]</td>";
@@ -277,7 +277,7 @@ if ((ISSET($id) && $id>0) ||
         } else 
 	  echo "<td></td>";
 
-        echo "<td><a href=\"/admin/pinfo.php?submit=1".
+        echo "<td><a href=\"$base_path/pinfo.php?submit=1".
 	     "&playerid=$row[4]\">$row[4]</td>".
              "</tr>\n";
     }

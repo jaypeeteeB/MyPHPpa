@@ -33,7 +33,9 @@ if ($game_closed == 1) {
   die();
 }
 
-if (!empty($_POST) && $_POST["submit"]) {
+if (!empty($_POST["submit"]) && $_POST["submit"]) {
+
+  $mres = TRUE;
 
   if ($_POST["login"] && $_POST["email"]) {
     $login = $_POST["login"];
@@ -46,14 +48,18 @@ if (!empty($_POST) && $_POST["submit"]) {
     if ($result && mysqli_num_rows($result) == 1) {
       $row = mysqli_fetch_row($result);
 
-      mail("$email", "$game password reminder", 
+      $mres = mail("$email", "$game password reminder", 
 	   "\nLogin: $login\nPassword: $row[0]\n\nHave Fun!!\n",
 	   "From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\nX-Mailer: PHP/" . phpversion());
-      
+
+     //  echo "<br>SEnding $email $game password reminder Login: $login\nPassword: $row[0]\n\nHave Fun!! From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\nX-Mailer: PHP/" . phpversion(); 
     }
     // If login / email is wrong you wont get a different message
-
-    echo "<br><center><b>The password has been mailed to you</b>";
+    if ($mres == FALSE) {
+      echo "<br>Could not send mail to ".$email." and login ".$login ;
+    } else {
+      echo "<br><center><b>The password has been mailed to you ($email, $login)</b>";
+    }
     echo "<br><br><a href=\"index.php\" target=\"_top\">Login</a></center>";
     die;
   } 

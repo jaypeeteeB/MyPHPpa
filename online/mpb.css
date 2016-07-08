@@ -21,6 +21,7 @@ INPUT
 {
     font-family: verdana, arial, sans-serif;
     font-size: 12px;
+    border: 1px solid;
 }
 TABLE
 {

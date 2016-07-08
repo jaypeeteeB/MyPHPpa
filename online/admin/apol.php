@@ -31,14 +31,19 @@ $mysettings=0;
 require_once "../forum.inc";
 
 
-if (ISSET($fthread) && $Planetid<=2) {
+if (ISSET($_REQUEST["fthread"]) && $Planetid<=2) {
   $res = mysqli_query($db, "SELECT gal_id FROM politics ".
         "WHERE id='$fthread'" );
   $row = mysqli_fetch_row($res);
   $galid = $row[0];
+
+  $fthread = $_REQUEST["fthread"];
 }
 
 echo "<center>\n";
+if (!ISSET($galid) && ISSET($_REQUEST["galid"]) && $Planetid<=2)
+  $galid = $_REQUEST["galid"];
+
 
 if (ISSET($galid) && $Planetid<=2) {
 
@@ -71,7 +76,7 @@ EOF;
     while ($row=mysqli_fetch_row($res)) {
       echo "<tr><td align=center>($row[0]:$row[1])</td>".
            "<td align=center>$row[4]</td><td>".
-           "<a href=$_SERVER['PHP_SELF']?galid=$row[3]>$row[2]</a></td></tr>\n";
+           "<a href=".$_SERVER['PHP_SELF']."?galid=$row[3]>$row[2]</a></td></tr>\n";
     }
     echo "</table>\n";
   } else {

@@ -46,7 +46,8 @@ titlebox("Journal", $msg);
 <center>
 
 <?php
-if (ISSET($tid) && $tid>0) {
+if (ISSET($_REQUEST["tid"]) && $_REQUEST["tid"]>0) {
+  $tid = $_REQUEST["tid"];
   $who = get_coord_name ($tid);
 
   echo <<<EOF

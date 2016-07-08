@@ -44,11 +44,11 @@ echo <<<EOF
 <br>
 EOF;
 
-if (!ISSET($_POST["type"])) {
+if (!ISSET($_REQUEST["type"])) {
   $rtype = 1;
-} else if ($_POST["type"]=="galaxy") {
+} else if ($_REQUEST["type"]=="galaxy") {
   $rtype = 2;
-} else if ($_POST["type"]=="alliance") {
+} else if ($_REQUEST["type"]=="alliance") {
   $rtype = 3;
 }
 

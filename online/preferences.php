@@ -240,14 +240,14 @@ if (ISSET($_POST["delete"])) {
 
 if (ISSET($_REQUEST["setting"])) {
   $new_setting = 0;
-  $new_setting |= (ISSET($_REQUEST["set_1"])?1:0);
-  $new_setting |= (ISSET($_REQUEST["set_2"])?2:0);
-  $new_setting |= (ISSET($_REQUEST["set_4"])?4:0);
-  $new_setting |= (ISSET($_REQUEST["set_8"])?8:0);
-  $new_setting |= (ISSET($_REQUEST["set_16"])?16:0);
-  $new_setting |= (ISSET($_REQUEST["set_32"])?32:0);
-  $new_setting |= (ISSET($_REQUEST["set_64"])?64:0);
-  $new_setting |= (ISSET($_REQUEST["set_128"])?128:0);
+  $new_setting |= ((ISSET($_REQUEST["set_1"]) && $_REQUEST["set_1"])?1:0);
+  $new_setting |= ((ISSET($_REQUEST["set_2"]) && $_REQUEST["set_2"])?2:0);
+  $new_setting |= ((ISSET($_REQUEST["set_4"]) && $_REQUEST["set_4"])?4:0);
+  $new_setting |= ((ISSET($_REQUEST["set_8"]) && $_REQUEST["set_8"])?8:0);
+  $new_setting |= ((ISSET($_REQUEST["set_16"]) && $_REQUEST["set_16"])?16:0);
+  $new_setting |= ((ISSET($_REQUEST["set_32"]) && $_REQUEST["set_32"])?32:0);
+  $new_setting |= ((ISSET($_REQUEST["set_64"]) && $_REQUEST["set_64"])?64:0);
+  $new_setting |= ((ISSET($_REQUEST["set_128"]) && $_REQUEST["set_128"])?128:0);
 
   $mysettings = $new_setting;
   mysqli_query ($db, "UPDATE user SET settings='$mysettings' ".

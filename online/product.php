@@ -91,7 +91,7 @@ function prod_unit ($unit, $num) {
   }
 }
 
-if (ISSET($submit)) {
+if (ISSET($_REQUEST["submit"])) {
 
   /* aeusserst uncooles handling */
   if (ISSET($_POST["ship_1"])) prod_unit (1, $_POST["ship_1"]);
@@ -221,6 +221,10 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 ?>
+<tr>
+  <td colspan="25" align="center" class="tdlink">
+    <a href="<?php echo $_SERVER['PHP_SELF']; ?>">  Reload  </a></td>
+</tr>
 </table>
 </center>
 

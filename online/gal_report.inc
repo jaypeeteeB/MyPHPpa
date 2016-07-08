@@ -51,7 +51,7 @@ function print_gal_row ($row, $x, $y, $scans, $tag="") {
   }
 
   if ($scans != "")
-    $sc = ereg_replace ("%s", $row[0], $scans);
+    $sc = preg_replace ("/%s/", $row[0], $scans);
   else
     $sc = "";
  

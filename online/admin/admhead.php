@@ -57,4 +57,7 @@ mysqli_query($db, "UPDATE user set last=NOW(),last_tick='$mytick'".
 	     "ip='$_SERVER[REMOTE_ADDR]' ".
 	     "WHERE planet_id='$Planetid'"); 
 
+$pathInfo = pathinfo($_SERVER['PHP_SELF']);
+$base_path = $pathInfo['basename'];
+
 ?>

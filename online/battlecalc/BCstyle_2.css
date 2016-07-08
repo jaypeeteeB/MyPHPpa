@@ -1,0 +1,92 @@
+body 		{font-size:8pt;background-color:#759CEE;layer-background-color:#759CEE;color:#000000;}
+table 		{background-color:#000000;layer-background-color:#000000;border-width:0px;}
+.maintable	{width:700px;}
+.logtable	{width:700px;}
+.header		{width:700px;}
+.border		{background-color:#759CEE;layer-background-color:#759CEE;
+
+p.normal    {font-size:9pt;font-weight:normal}
+
+td
+{
+	background-color:#C1D0F0;layer-background-color:#C1D0F0;
+	color:black;
+	font-family:tahoma,arial,helvetica,geneva;
+	font-size:8pt;
+	text-align:center;
+	padding:0px;
+	margin:0px;
+}
+.headtext
+{
+	font-size:8pt;
+	font-family:arial,verdana,geneva;
+	text-align:left;
+	padding:4px;
+}
+.newsbit
+{
+	font-size:8pt;
+	font-family:arial,verdana,geneva;
+	text-align:left;
+}
+.top, .toplog
+{
+	font-size:12pt;font-weight:600;
+	font-family:arial,verdana,geneva;
+	text-align:center;
+	padding:10px;
+	color:white;
+	background-color:#3366CC;layer-background-color:#3366CC;
+}
+.friendly	{color:#00FF00;font-weight:600;background-color:#8BA8E2;layer-background-color:#8BA8E2;height:25px;}
+.hostile	{color:#FF0000;font-weight:600;background-color:#8BA8E2;layer-background-color:#8BA8E2;height:25px;}
+.inputcel	{width:7%;padding:0px;}
+.lostcel	{width:14%;padding:0px;color:#FF0000}
+.stunnedcel	{width:14%;padding:0px;color:#blue}
+.infocel	{width:50%;padding:2px;text-align:left;padding-left:15px;}
+.valuecel	{width:50%;padding:0px;}
+.warningcel	{color:#FF0000;font-weight:600;background-color:#C1D0F0;layer-background-color:#C1D0F0;padding:4px;}
+.bottom		{font-size:9pt;font-weight:600;text-align:center;padding:5px;}
+.bottom2	{font-size:9pt;padding:5px;}
+
+th
+{
+	background-color:#3366CC;layer-background-color:#3366CC;
+	color:white;
+	font-family:tahoma,arial,helvetica;
+	font-size:8pt;
+	font-weight:600;
+	text-align:center;
+}
+.lostcel		{color:red}
+.stunnedheader 	{color:white}
+.stunnedcel		{color:blue}
+.stunnedheader 	{color:white}
+.wrapper {color:#000000;background-color:#000000;layer-background-color:#000000;}
+
+A {text-decoration:none}
+A:link    { color: black }
+A:visited { color: black }
+A:hover   { color: red }
+A:active  { color: black }
+
+A.help {text-decoration:underline}
+A.help:link    { color: blue }
+A.help:visited { color: blue }
+A.help:hover   { color: red }
+A.help:active  { color: blue }
+
+
+input		{ font-size:8pt; }
+input.text 	{ width:auto; }
+
+span.subscript {font-size:7pt;color:gray}
+span.counter {font-size:7pt;color:black}
+span.disclaimer {font-size:7pt;color:#C1D0F0;}
+span.losttext {color:red;}
+span.estimate {font-size:7pt;font-weight:normal;}
+
+span.defender 	{color:#00C000;font-weight:bold;}
+span.attacker 	{color:#FF0000;font-weight:bold;}
+span.title 		{font-size:10pt;font-weight:bold;text-decoration:underline;}

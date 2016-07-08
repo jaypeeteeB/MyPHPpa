@@ -34,8 +34,10 @@ require "news_util.php";
 
 require "scan_util_2.inc";
 
+$msg = "";
 $save_link = "";
-if ($_REQUEST["scan"] && $_REQUEST["number"] && $_REQUEST["x"] && $_REQUEST["y"] && $_REQUEST["z"]) {
+if (ISSET($_REQUEST["scan"]) && ISSET($_REQUEST["number"]) 
+    && $_REQUEST["x"] && $_REQUEST["y"] && $_REQUEST["z"]) {
   $scan= (int) $_REQUEST["scan"];
   $x = (int) $_REQUEST["x"];
   $y = (int) $_REQUEST["y"];
@@ -47,8 +49,12 @@ if ($_REQUEST["scan"] && $_REQUEST["number"] && $_REQUEST["x"] && $_REQUEST["y"]
   $reach = scan_target ($scan, $x, $y, $z, $number);
   echo "<center>";
   if ($reach && $scan != 7) $save_link = 
-     "<a href=\"$_SERVER['PHP_SELF']?save=$scan&x=$x&y=$y&z=$z\">Save scan</a>";
-} else if ($save && $x && $y && $z ) {
+     "<a href=\"".$_SERVER['PHP_SELF']."?save=$scan&x=$x&y=$y&z=$z\">Save scan</a>";
+} else if (ISSET($_REQUEST["save"]) && $_REQUEST["x"] && $_REQUEST["y"] && $_REQUEST["z"] ) {
+  $save = $_REQUEST["save"];
+  $x = (int) $_REQUEST["x"];
+  $y = (int) $_REQUEST["y"];
+  $z = (int) $_REQUEST["z"];
   $tid = get_id ($x, $y, $z);
 
   if ($tid) {

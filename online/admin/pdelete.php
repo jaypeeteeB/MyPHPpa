@@ -23,13 +23,16 @@ require_once "admhead.php";
 require_once "admform.php";
 
 
-if (ISSET($submit)) echo "Found submit<br>";
-if (ISSET($playerid)) echo "Playerid $playerid<br>";
-if (ISSET($verification)) echo "Verification: $verification<br>";
+if (ISSET($_REQUEST["submit"])) echo "Found submit<br>";
+if (ISSET($_REQUEST["playerid"])) echo "Playerid ".$_REQUEST["playerid"]."<br>";
+if (ISSET($_REQUEST["verification"])) echo "Verification: ".$_REQUEST["verification"]."<br>";
 
-if (ISSET($submit) && ISSET($playerid) && $playerid != 1) {
+if (ISSET($_REQUEST["submit"]) && ISSET($_REQUEST["playerid"]) && $_REQUEST["playerid"] != 1) {
 
-  if (ISSET($verification) && $verification==$playerid) {
+
+  if (ISSET($_REQUEST["verification"]) && $_REQUEST["verification"]==$_REQUEST["playerid"]) {
+    $playerid = $_REQUEST["playerid"];
+    
 
     $q = "SELECT x,y,alliance_id FROM planet WHERE id='$playerid'";
     $result = mysqli_query ($db, $q );
@@ -140,7 +143,7 @@ if (ISSET($submit) && ISSET($playerid) && $playerid != 1) {
 	"<table  width=640 border=1 cellpadding=2 >".
 	"<tr><td>Really delete this player?</td></tr>".
 	"<tr><td>$row[0] of $row[1] ($row[2]:$row[3]:$row[4])</td></tr>".
-	"<tr><td align=\"center\"><a href=\"$_SERVER['PHP_SELF']?submit=1&playerid=$playerid&verification=$playerid\">Yes</a></td></tr>".
+	"<tr><td align=\"center\"><a href=\"".$_SERVER['PHP_SELF']."?submit=1&playerid=$playerid&verification=$playerid\">Yes</a></td></tr>".
 	"</table>";
     } else {
       echo "<center> No such Planet </center>";
@@ -151,7 +154,7 @@ if (ISSET($submit) && ISSET($playerid) && $playerid != 1) {
 <center>
 <table  width="640" border="1" cellpadding="2" >
 <tr>
-<form method="post" action="$_SERVER['PHP_SELF']">
+<form method="post" action="$_SERVER[PHP_SELF]">
   <td align="center" bgcolor="#c0c0c0">Enter target id:</td>
   <td><input type="text" name="playerid" size="25"></td>
   <td colspan="2"><input type=submit value="  Delete  " name=submit></td>

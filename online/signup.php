@@ -42,8 +42,8 @@ function db_error ($txt="Database error") {
 
 function check_legal ($n, $p) {
 
-  if (ereg ("<", $n) || ereg ("<", $p) ||  
-      eregi ("admin",  $n) || eregi ("admin", $p) ) { 
+  if (preg_match ("/</", $n) || preg_match ("/</", $p) ||  
+      preg_match ("/admin/i",  $n) || preg_match ("/admin/i", $p) ) { 
      return 7;
   }
   return 0;
@@ -95,7 +95,7 @@ function check_taken_user ($l, $e) {
 
 function check_email ($e) {
 
-  if ($e && (!eregi ("@", $e) || !eregi ("\.", $e) ||
+  if ($e && (!preg_match ("/@/", $e) || !preg_match ("/\./", $e) ||
 	     strlen ($e) < 7))
     return 4;
   /* should check domain here */
@@ -150,7 +150,8 @@ function send_password($pid) {
   die;
 } 
 
-if ($signupclosed == 1 || !check_ip(get_ip()) || $mytick > $end_of_round) {
+// if ($signupclosed == 1 || !check_ip(get_ip()) || $mytick > $end_of_round) {
+if ($signupclosed == 1 || !check_ip(get_ip())) {
   my_header("",0,0);
   echo "<center><br><img src=\"img/logo.jpg\"" .
      "width=\"290\" height=\"145\"><br>\n";
@@ -174,8 +175,12 @@ if (ISSET($_COOKIE["Valid"]) && $_COOKIE["Valid"] != "") {
 }
 
 /* hier gehts los */
+$login = "";
+$email = "";
+$nick = "";
+$planet = "";
 
-if ($_POST["submit"] && $_POST["submit"] != "") {
+if (ISSET($_POST["submit"]) && $_POST["submit"] != "") {
 
   $taken = 0;
 
@@ -255,7 +260,7 @@ my_header(0,0,0);
 echo "<center><br><img src=\"img/logo.jpg\"" .
      "width=\"290\" height=\"145\"><br>\n";
 
-if ($submit) {
+if (ISSET($_POST["submit"])) {
 
   /* Failed signup */
   echo "<b>";

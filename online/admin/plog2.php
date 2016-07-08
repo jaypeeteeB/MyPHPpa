@@ -58,7 +58,7 @@ if ($submit && $playerid && $playerid !="") {
 <form method="post" action="
 <?php 
   if($submit==1||$id>0) 
-    echo "$_SERVER['PHP_SELF']?submit=1&playerid=$id"; 
+    echo $_SERVER['PHP_SELF']."?submit=1&playerid=$id"; 
   else 
    echo $_SERVER["PHP_SELF"]; 
 ?>">
@@ -227,14 +227,14 @@ if ($id != 0 || ($data!="" && $submit==1)) {
 	if ($row[3] != "") {
 	  $data = $row[3];
           if ( ereg ("([^\[]*)\[([0-9]*)].*", $data, $out_id)) {
-            echo "<td><a href=\"$_SERVER['PHP_SELF']?submit=1&data=$data$f\">$out_id[1]</a> [";
-            echo "<a href=\"/admin/pinfo.php?submit=1&playerid=$out_id[2]\">$out_id[2]</a>]</td>";
+            echo "<td><a href=\"".$_SERVER['PHP_SELF']."?submit=1&data=$data$f\">$out_id[1]</a> [";
+            echo "<a href=\"$base_path/pinfo.php?submit=1&playerid=$out_id[2]\">$out_id[2]</a>]</td>";
           } else 
-            echo "<td><a href=\"$_SERVER['PHP_SELF']?submit=1&data=$row[3]$f\">$row[3]</a></td>";
+            echo "<td><a href=\"".$_SERVER['PHP_SELF']."?submit=1&data=$row[3]$f\">$row[3]</a></td>";
         } else 
 	  echo "<td></td>";
 
-        echo "<td><a href=\"/admin/pinfo.php?submit=1".
+        echo "<td><a href=\"$base_path/pinfo.php?submit=1".
 	     "&playerid=$row[4]\">$row[4]</td>".
              "</tr>\n";
     }

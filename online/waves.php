@@ -403,6 +403,10 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 ?>
+<tr>
+  <td colspan="18" align="center" class="tdlink">
+    <a href="<?php echo $_SERVER['PHP_SELF']; ?>">  Reload  </a></td>
+</tr>
 </table>
 </center>
 

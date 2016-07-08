@@ -62,7 +62,7 @@ if (ISSET($allid) && $Planetid<=2) {
 
 
 } else {
-  $ref = "$_SERVER['PHP_SELF']?allid=";
+  $ref = $_SERVER['PHP_SELF']."?allid=";
   list_alliances_admin($ref);
 }
 

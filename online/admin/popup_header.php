@@ -19,6 +19,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+require_once "../options.php";
+
 $extra_header = "   <TITLE>$game $version</TITLE>\n\n".
 "<SCRIPT LANGUAGE=\"javascript\">\n".
 "<!--\n".

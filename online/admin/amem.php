@@ -31,8 +31,8 @@ require_once "../planet_util.inc";
 
 echo "<center>\n";
 
-if (ISSET($allid) && $Planetid<=2) {
-
+if (ISSET($_REQUEST["allid"]) && $Planetid<=2) {
+  $allid = $_REQUEST["allid"];
   $myrow["alliance_id"] = $allid;
   $myrow["status"] = 0;
   $all = get_alliance ();
@@ -42,7 +42,7 @@ if (ISSET($allid) && $Planetid<=2) {
        "<a href=\"afor.php?allid=$allid\">Forum</a><br><br>\n";
   list_alliance_members($all);
 } else {
-  $ref = "$_SERVER['PHP_SELF']?allid=";
+  $ref = $_SERVER['PHP_SELF']."?allid=";
   list_alliances_admin($ref);
 }
 

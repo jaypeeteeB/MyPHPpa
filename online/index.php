@@ -124,7 +124,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
         echo "<tr><td><b>Your account is already logged in</b> or ".
              "<b>You logged out during the past 5 minutes.</b><br>";
         echo "You will have to wait up to 5 minutes to ".
-             "<a href=\"/index.php\">login</a> again.";
+             "<a href=\"".$_SERVER['PHP_SELF']."\">login</a> again.";
         echo "</td></tr></table></center></body></html>";
         die; 
     } else if ($myrow[1] == 0) {
