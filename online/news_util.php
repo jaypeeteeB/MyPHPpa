@@ -102,25 +102,25 @@ function send_msg_fleet_move ($target_id, $eta, $order, $flnum, $name="ship") {
 
   if ($num != 1) {
     $text = "We sent <b>". (int) $num ."</b> ".$name."s to $do_what " .
-       coord_ref($tc[x], $tc[y], "<b>$tc[planetname] ".
+       coord_ref($tc['x'], $tc['y'], "<b>$tc[planetname] ".
        "($tc[x]:$tc[y]:$tc[z])</b>") .
        ". They will arrive in <b>$eta</b> ticks.";
 
     $text_other = "Our sensors have discovered a jumpgate opening in ".
        "our sector.  The origin seems to be ".
-       coord_ref($myrow[x],$myrow[y], "<b>$myrow[planetname] ".
+       coord_ref($myrow['x'],$myrow['y'], "<b>$myrow[planetname] ".
        "($myrow[x]:$myrow[y]:$myrow[z])</b>") .
        ". Expect company of <b>". (int) $num ."</b> $do_type ".$name."s ".
        "in <b>$eta</b> ticks.";
    } else {
     $text = "We sent <b>1</b> ".$name." to $do_what " .
-       coord_ref($tc[x], $tc[y], "<b>$tc[planetname] ".
+       coord_ref($tc['x'], $tc['y'], "<b>$tc[planetname] ".
        "($tc[x]:$tc[y]:$tc[z])</b>") .
        ". It will arrive in <b>$eta</b> ticks.";
 
     $text_other = "Our sensors have discovered a jumpgate opening in ".
        "our sector.  The origin seems to be ".
-       coord_ref($myrow[x],$myrow[y], "<b>$myrow[planetname] ".
+       coord_ref($myrow['x'],$myrow['y'], "<b>$myrow[planetname] ".
        "($myrow[x]:$myrow[y]:$myrow[z])</b>") .
        ". Expect company of <b>1</b> $do_type ".$name." ".
        "in <b>$eta</b> ticks.";

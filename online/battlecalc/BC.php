@@ -1,18 +1,19 @@
 <?
-import_request_variables ("GPC", "");
+// import_request_variables ("GPC", "");
 
-if ( ISSET($style_input) && $style_input != null )
+if ( ISSET($_COOKIE["style_input"]) && $_COOKIE["style_input"] != null )
 {
   setcookie("style", "$style_input",  time()+360000000, "/" );
+  $style_input = $_COOKIE["style_input"];
   $style = $style_input;
 }
 
 $version = "2.1b-2";
 
-if ( ISSET($showversion) )
+if ( ISSET($_REQUEST["showversion"]) )
      die( $version );
 
-     if ( !ISSET($style) || (int)$style != $style )
+     if ( !ISSET($_REQUEST["style"]) || (int)$_REQUEST["style"] != $style )
      $style = 0;
 
      switch( $style )
@@ -23,6 +24,21 @@ if ( ISSET($showversion) )
  case 2 : $style_prim = "green";  $style_sec = "blue"; $style_tert = "#666666"; break;
  case 3 : $style_prim = "lightblue";  $style_sec = "lightgreen"; $style_tert = "pink"; break;
 }
+
+if (ISSET($_REQUEST["shipdata"])) $shipdata = $_REQUEST["shipdata"];
+if (ISSET($_REQUEST["ViewShip"])) $ViewShip = $_REQUEST["ViewShip"];
+if (ISSET($_REQUEST["NumCalcs"])) $NumCalcs = $_REQUEST["NumCalcs"];
+if (ISSET($_REQUEST["Checker"])) $Checker = $_REQUEST["Checker"];
+if (ISSET($_REQUEST["Addtype"])) $Addtype = $_REQUEST["Addtype"];
+if (ISSET($_REQUEST["CapRule"])) $CapRule = $_REQUEST["CapRule"];
+if (ISSET($_REQUEST["ShowLog"])) $ShowLog = $_REQUEST["ShowLog"];
+if (ISSET($_REQUEST["ShowTotals"])) $ShowTotals = $_REQUEST["ShowTotals"];
+if (ISSET($_REQUEST["dplanetscore"])) $dplanetscore = $_REQUEST["dplanetscore"];
+if (ISSET($_REQUEST["input"])) $input = $_REQUEST["input"];
+if (ISSET($_REQUEST["ToGetAll"])) $ToGetAll = $_REQUEST["ToGetAll"];
+
+include "vars.php";
+
 ?>
      <html>
      <head>
