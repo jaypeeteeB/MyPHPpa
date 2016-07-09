@@ -48,8 +48,8 @@ header ("Pragma: no-cache");
     else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">\n";
   }
+  echo "  <TITLE>$game $version</TITLE>\n";
 ?>
-   <TITLE><?echo $game." ",$version?></TITLE>
 </head>
 
 
