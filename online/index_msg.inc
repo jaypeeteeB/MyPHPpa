@@ -1,5 +1,5 @@
 <b>MyPHPpa</b><br>
-Copyright (C) 2003, 2007 Jens Beyer<br>
+Copyright (C) 2003, 2007, 2016 Jens Beyer<br>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -14,3 +14,7 @@ GNU General Public License for more details.<br>
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+<br><br>
+This site uses cookies to enhance the game experience. By login in
+or signing in you accept this.
