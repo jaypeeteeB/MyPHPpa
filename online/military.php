@@ -729,11 +729,11 @@ Hint: to move all ships of a type dont fill in any number</td></tr>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
 <table border="1" width="650">
 <tr><th colspan="5" class="a">Fleet Movement</th></tr>
-<tr><th width="55">Fleet</th>
-    <th width="55">Mission</th>
-    <th width="190">Location</th>
-    <th width="120">New Order</th>
-    <th width="140">Target</th>
+<tr><th width="53">Fleet</th>
+    <th width="53">Mission</th>
+    <th width="289">Location</th>
+    <th width="100">New Order</th>
+    <th width="155">Target</th>
 </tr>
 <?php
 $q = "SELECT target_id, num, ticks, type FROM fleet WHERE planet_id=$Planetid ".
