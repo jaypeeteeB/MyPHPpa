@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # MyPHPpa ticker
 # Copyright (C) 2003, 2007 Jens Beyer
