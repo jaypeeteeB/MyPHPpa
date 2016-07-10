@@ -252,7 +252,7 @@ if (!$subject || $subject == "") {
 
 </td></tr>
 <tr><td colspan="2" width="50">
-<textarea name="text" cols="60" rows="12" wrap="virtual"><? echo $text ?></textarea>
+<textarea name="text" cols="60" rows="12" wrap="virtual"><?php echo $text ?></textarea>
 </td></tr><tr><td colspan="2" align="center">
 <input type="submit" name="submit" value="      Submit      ">
 &nbsp;&nbsp; &nbsp;
