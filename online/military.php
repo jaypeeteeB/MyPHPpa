@@ -731,9 +731,9 @@ Hint: to move all ships of a type dont fill in any number</td></tr>
 <tr><th colspan="5" class="a">Fleet Movement</th></tr>
 <tr><th width="55">Fleet</th>
     <th width="55">Mission</th>
-    <th width="290">Location</th>
+    <th width="190">Location</th>
     <th width="120">New Order</th>
-    <th width="120">Target</th>
+    <th width="140">Target</th>
 </tr>
 <?php
 $q = "SELECT target_id, num, ticks, type FROM fleet WHERE planet_id=$Planetid ".

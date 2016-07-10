@@ -66,9 +66,9 @@ require "headerf.php";
 
 ?>
 
-<FRAMESET COLS="150,*">
-  <FRAME SRC="navigation.php" NAME="navigation" noresize>
-  <FRAME SRC="overview.php" NAME="main">
+<FRAMESET COLS="150,*"  frameborder="0" framespacing="0">
+  <FRAME SRC="navigation.php" NAME="navigation" noresize frameborder="0">
+  <FRAME SRC="overview.php" NAME="main" frameborder="0">
   <NOFRAMES>
     <A HREF="navigation.php">Navigation</A><br>
     <A HREF="overview.php">Overview</A>
