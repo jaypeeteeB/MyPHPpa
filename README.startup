@@ -1,0 +1,41 @@
+
+You will need a Unix machine (probably linux) to run this.
+
+I've run it originially on a MySQL-3 (You need to create a database there - 
+mine was named pa), and PHP-4.
+
+Version 0.8.16 is an update to run on PHP-5 (eg 5.1) and
+MySQL-4.1/5.0 (the 5.0 is less tested as is 0.8.16 at all).
+
+On GitHUb there is a realease called 0.9-rc working on MariaDB-10 and 
+PHP 5.6 / 7.0.
+
+
+To get it runnable edit:
+
+online/options.php  (especially dbname/login/pass)
+online/sendpass.php (fill in your email)
+ticker/myppa.cfg    (especially dbname/login/pass
+online/motd.php for message-of-the.day
+
+To create the database struct use paDump.sql, pipe it to mysql to the
+created db. 
+eg: mysql -u my_db_user -p myphppa_db  < test.sql
+
+You probably should edit the 'send_pass' to put in an email 
+account scanned by yourself, and edit the frontpage (index.php)
+for email and index_msg.inc for messages. 
+
+Same goes for all places with links to 'khan.stoney.cinetic.de'.
+
+The admin pw is per default admin, mod's pw is moderator, both set
+in last line of paDump.sql and ./online/admin/admin_pw.inc
+
+
+Go to the directory ticker, read the README.
+
+If you want to provide stats to the users, edit ./scripts/dump_stat.sh
+according to your needs and run it per cron.
+
+Have fun, khan 
+myphpa@web.de
