@@ -38,21 +38,32 @@ if (!empty($_POST["submit"]) && $_POST["submit"]) {
   $mres = TRUE;
 
   if ($_POST["login"] && $_POST["email"]) {
+    require_once "logging.php";
+    require_once "get_ip.php";
+
     $login = $_POST["login"];
     $email = $_POST["email"];
 
-    $q = "SELECT password FROM user WHERE login='$login' ".
+
+    $q = "SELECT password, planet_id FROM user WHERE login='$login' ".
        "AND email='$email'";
     $result = mysqli_query($db, $q);
     
     if ($result && mysqli_num_rows($result) == 1) {
+      require_once "strong-passwords.php";
+
       $row = mysqli_fetch_row($result);
 
-      $mres = mail("$email", "$game password reminder", 
-	   "\nLogin: $login\nPassword: $row[0]\n\nHave Fun!!\n",
-	   "From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\nX-Mailer: PHP/" . phpversion());
+      $pw = generateStrongPassword(8);
+      $q = "UPDATE user SET password='$pw' WHERE login='$login' ".
+         "AND email='$email'";
+      $result = mysqli_query($db, $q);
 
-     //  echo "<br>SEnding $email $game password reminder Login: $login\nPassword: $row[0]\n\nHave Fun!! From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\nX-Mailer: PHP/" . phpversion(); 
+      do_log_id($row[1], 6, 3, "Request new pw from ". get_ip() );
+      
+      $mres = mail("$email", "$game password reminder", 
+	   "\nLogin: $login\nPassword: ". $pw ."\n\nHave Fun!!\n",
+	   "From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\nX-Mailer: PHP/" . phpversion());
     }
     // If login / email is wrong you wont get a different message
     if ($mres == FALSE) {

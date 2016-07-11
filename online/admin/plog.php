@@ -48,7 +48,7 @@ if (ISSET($_REQUEST["submit"]) && ISSET($_REQUEST["playerid"]) && $_REQUEST["pla
 <table  width="650" border="1" cellpadding="2" >
 <tr>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-  <td align="center" class="a">Enter target leader:</td>
+  <td align="center" class="a">Enter target leader id:</td>
   <td><input type="text" name="playerid" size="25"></td>
   <td colspan="2"><input type=submit value="  Search  " name=submit></td>
 </form>
@@ -60,7 +60,8 @@ if (ISSET($_REQUEST["submit"]) && ISSET($_REQUEST["playerid"]) && $_REQUEST["pla
 <tr>
 <form method="post" action="
 <?php 
-  if(ISSET($_REQUEST["submit"]) && $_REQUEST["submit"]==1||$id>0) 
+  if(ISSET($_REQUEST["submit"]) && $_REQUEST["submit"]==1
+     || (ISSET($id) && $id>0))
     echo $_SERVER['PHP_SELF']."?submit=1&playerid=$id"; 
   else 
    echo $_SERVER["PHP_SELF"]; 
@@ -248,6 +249,7 @@ if ((ISSET($id) && $id>0) ||
 		echo "signup</td><td>";
                 if ($row[2] == 1) echo "IP";
                 else if ($row[2] == 2) echo "browser";
+                else if ($row[2] == 3) echo "reset pw";
                 break;
 	case 7:
 		echo "Auto</td><td>";

@@ -103,7 +103,7 @@ function check_email ($e) {
 }
 
 function send_password($pid) {
-  global $game, $db, $round;
+  global $game, $db, $round, $imgpath;
 
   $q = "SELECT email, login, password FROM user WHERE planet_id=$pid ";
   $result = mysqli_query($db, $q);
@@ -213,13 +213,13 @@ if (ISSET($_POST["submit"]) && $_POST["submit"] != "") {
 
   if (!$taken) {
     /* jetzt sollte es tun */
+    require_once "strong-passwords.php";
 
     $result = mysqli_query($db, "SELECT tick FROM general"); 
     $row = mysqli_fetch_row($result);
     $mytick = $row[0];
 
-    $pw_tmp = md5 (uniqid (rand()));
-    $pw = substr($pw_tmp, 0, 8);
+    $pw = generateStrongPassword(8);
 
     $res = get_new_coords ($x, $y, $z);
     if ($res) db_error("Sorry universe is full!!");
