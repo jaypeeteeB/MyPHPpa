@@ -127,7 +127,7 @@ if (ISSET($_REQUEST["id"]) && $researching == 0) {
   $researching = build_research($_REQUEST["id"]);
 }
 
-if (ISSET($_REQUEST["toggleÂ"])) {
+if (ISSET($_REQUEST["toggle"])) {
   if ($_REQUEST["toggle"]==1) $mysettings -= 128;
   else $mysettings += 128;
   mysqli_query ($db, "UPDATE user SET settings='$mysettings' ".
