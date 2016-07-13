@@ -44,12 +44,12 @@ require "gal_report.inc";
 $target_x = $myrow["x"];
 $target_y = $myrow["y"];
 
-if (ISSET($_POST["submit"]) || ISSET($_POST["plus"]) || ISSET($_POST["minus"])) {
-  if (ISSET($_POST["x"]) && ISSET($_POST["y"])) {
-    $x = min(max(1,$_POST["x"]),$universe_size);
-    $y = min(max(1,$_POST["y"]),$cluster_size);
+if (ISSET($_REQUEST["submit"]) || ISSET($_REQUEST["plus"]) || ISSET($_REQUEST["minus"])) {
+  if (ISSET($_REQUEST["x"]) && ISSET($_REQUEST["y"])) {
+    $x = min(max(1,$_REQUEST["x"]),$universe_size);
+    $y = min(max(1,$_REQUEST["y"]),$cluster_size);
 
-    if(ISSET($_POST["plus"])) {
+    if(ISSET($_REQUEST["plus"])) {
       if ($y == $cluster_size) {
 	$y = 1;
 	if ($x == $universe_size) {
@@ -60,7 +60,7 @@ if (ISSET($_POST["submit"]) || ISSET($_POST["plus"]) || ISSET($_POST["minus"])) 
       } else {
 	$y = $y + 1;
       }
-    } else if (ISSET($_POST["minus"])) {
+    } else if (ISSET($_REQUEST["minus"])) {
       if ($y == 1) {
 	$y = $cluster_size;
 	if ($x == 1) {

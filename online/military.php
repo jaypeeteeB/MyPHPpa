@@ -152,10 +152,10 @@ function check_valid ($id,$type) {
   }
 
   if ( $high_prot!=0 && ($target_score / $high_prot) > $myrow["score"] ) 
-    return "Target is to big - want to kill Your fleet ?";
+    return " Target is too big - want to kill Your fleet ?";
 
   if ( $noob_prot!=0 && ($target_score * $noob_prot) < $myrow["score"] ) 
-    return "Target is to small - get real enemies!";
+    return " Target is too small - get real enemies!";
 
   return "";
 }
@@ -279,11 +279,11 @@ function print_target_row($flnum, $x, $y, $z, $pname, $type, $ticks) {
       "<option value=6>Defend 6 tick</option></select>\n";
     echo "</td><td align=\"center\">\n".
       "<input type=\"text\" name=\"fleet_" . 
-      $flnum . "_x\" size=\"4\" maxlength=\"3\">".
+      $flnum . "_x\" size=\"3\" maxlength=\"3\">".
       "&nbsp;<input type=\"text\" name=\"fleet_" . 
-      $flnum . "_y\" size=\"3\" maxlength=\"2\">".
+      $flnum . "_y\" size=\"2\" maxlength=\"2\">".
       "&nbsp;<input type=\"text\" name=\"fleet_" . 
-      $flnum . "_z\" size=\"3\" maxlength=\"2\">".
+      $flnum . "_z\" size=\"2\" maxlength=\"2\">".
       "</td></tr>\n";
   } else {
     echo "&nbsp;</td><td height=25 align=\"center\">&nbsp;</td></tr>\n";
@@ -296,7 +296,7 @@ function send_fleet ($flnum, $order, $x, $y, $z) {
   $msg = "";
 
   if ($x==$myrow["x"] && $y==$myrow["y"] && $z==$myrow["z"]) {
-    return "Target coords banned ;-)";
+    return "Target planet banned ;-)";
   }
 
   $q = "SELECT sum(units.num) FROM units,fleet WHERE fleet.planet_id='$Planetid' ".
@@ -359,7 +359,7 @@ function send_fleet ($flnum, $order, $x, $y, $z) {
     $target_id = get_id ($x, $y, $z);
       
       if (!$target_id)
-	return "Target coords ($x, $y, $z) are invalid!";
+	return "Target coords ($x, $y, $z) are invalid!!";
       
       $msg = check_valid ($target_id,$order);
       if ($msg != "") 
@@ -416,7 +416,7 @@ function send_missile ($num, $x, $y, $z) {
   }
 
   if ($x==$myrow[x] && $y==$myrow[y] && $z==$myrow[z]) {
-    return "Target coords banned ;-)";
+    return "Target planet banned ;-)";
   }
 
   $q = "SELECT sum(units.num) FROM units,fleet ".
@@ -559,11 +559,12 @@ if (ISSET($_POST["transfer"])) {
 
 
 if (ISSET($_POST["execute"])) {
-  if (ISSET($_POST["fleet_1"])) 
+  // msg .= "[". $_POST["fleet_1_x"].",". $_POST["fleet_1_y"]." ,".$_POST["fleet_1_z"]."]";
+  if (ISSET($_POST["fleet_1"])&& $_POST["fleet_1"] != 0 ) 
     $msg .= send_fleet (1, $_POST["fleet_1"], $_POST["fleet_1_x"], $_POST["fleet_1_y"] ,$_POST["fleet_1_z"]);
-  if (ISSET($_POST["fleet_2"])) 
+  if (ISSET($_POST["fleet_2"])&& $_POST["fleet_2"] != 0 ) 
     $msg .= send_fleet (2, $_POST["fleet_2"], $_POST["fleet_2_x"], $_POST["fleet_2_y"] ,$_POST["fleet_2_z"]);
-  if (ISSET($_POST["fleet_3"])) 
+  if (ISSET($_POST["fleet_3"])&& $_POST["fleet_3"] != 0 ) 
     $msg .= send_fleet (3, $_POST["fleet_3"], $_POST["fleet_3_x"], $_POST["fleet_3_y"] ,$_POST["fleet_3_z"]);
 }
 

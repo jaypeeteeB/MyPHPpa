@@ -289,9 +289,9 @@ if ($result && mysqli_num_rows($result) > 0) {
      echo "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\">".
        "<tr><td align=\"center\"><select name=\"scan\">$opt</select></td>".
        "<td align=\"center\">".
-       "<input type=\"text\" name=\"x\" size=\"4\" maxlength=\"3\" value=\"$xx\">&nbsp".
-       "<input type=\"text\" name=\"y\" size=\"3\" maxlength=\"2\" value=\"$yy\">&nbsp".
-       "<input type=\"text\" name=\"z\" size=\"3\" maxlength=\"2\" value=\"$zz\"></td>".
+       "<input type=\"text\" name=\"x\" size=\"3\" maxlength=\"3\" value=\"$xx\">&nbsp".
+       "<input type=\"text\" name=\"y\" size=\"2\" maxlength=\"2\" value=\"$yy\">&nbsp".
+       "<input type=\"text\" name=\"z\" size=\"2\" maxlength=\"2\" value=\"$zz\"></td>".
        "<td align=\"center\">".
        "<input type=\"text\" name=\"number\" size=\"8\" maxlength=\"4\" value=\"$number\"></td>".
        "<td align=\"center\">".
