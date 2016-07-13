@@ -22,7 +22,7 @@
 require_once "admhead.php";
 require_once "admform.php";
 require_once "../create_user.php";
-require_once "admin_pw.inc"
+require_once "admin_pw.inc";
 
 function create_gal ($x, $y) {
   global $db;
