@@ -659,7 +659,7 @@ for ($i=1; $i<$number_of_fleets; $i++) {
   $info[$i]["fuel"] = get_fuel($i);
 }
 
-echo "<tr><td>Galaxy Time<BR>Galaxy Cost</td><td>&nbsp;</td>\n";
+echo "<tr><td>Galaxy travel time<BR>Galaxy Eon cost</td><td>&nbsp;</td>\n";
 
 for ($i=1; $i<$number_of_fleets; $i++) {
   if ($ship_in_fleet && $ship_in_fleet[$i] && !$fleet_on_the_way[$i]) {
@@ -670,7 +670,7 @@ for ($i=1; $i<$number_of_fleets; $i++) {
   }
 
 }
-echo "</tr><tr><td>Cluster Time<BR>Cluster Cost</td><td>&nbsp;</td>";
+echo "</tr><tr><td>Cluster travel time<BR>Cluster Eon cost</td><td>&nbsp;</td>";
 for ($i=1; $i<$number_of_fleets; $i++) {
   if ($ship_in_fleet && $ship_in_fleet[$i] && !$fleet_on_the_way[$i]) {
     echo "<td align=\"right\">". $info[$i]["eta"][1] . " ticks<br>". 
@@ -680,7 +680,7 @@ for ($i=1; $i<$number_of_fleets; $i++) {
   }
 
 }
-echo "</tr><tr><td>Universe Time<BR>Universe Cost</td><td>&nbsp;</td>";
+echo "</tr><tr><td>Universe travel time<BR>Universe Eon cost</td><td>&nbsp;</td>";
 
 for ($i=1; $i<$number_of_fleets; $i++) {
   if ($ship_in_fleet && $ship_in_fleet[$i] && !$fleet_on_the_way[$i]) {
