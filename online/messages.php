@@ -41,8 +41,8 @@ function print_mail ($r) {
   global $Planetid, $folder;
 
   $id = $r["id"];
-  $txt = ereg_replace ("<", "&lt;", $r["text"]);
-  $text = ereg_replace ("\n", "<br>", $txt);
+  $txt = preg_replace ("/</", "&lt;", $r["text"]);
+  $text = preg_replace ("/\n/", "<br>", $txt);
 
   if ($r["sender"] == $Planetid) {
     $ir = get_coord_name($r["receiver"]);
@@ -210,9 +210,11 @@ if ($myrow["has_mail"] == 1) {
 /* top table is written now */
 top_header($myrow);
 
-if (!ISSET($folder)) $folder=1;
+if (!ISSET($_REQUEST["folder"])) $folder=1;
+else $folder=$_REQUEST["folder"];
 
-if (ISSET($delete)) {
+if (ISSET($_REQUEST["delete"])) {
+  $delete = $_REQUEST["delete"];
   // if mail is sent to myself it doesnt work :-(
   $q = "UPDATE msg SET folder=0 WHERE mail_id='$delete' AND planet_id='$Planetid' ".
        "AND folder='$folder'";
@@ -224,7 +226,7 @@ if (ISSET($delete)) {
   }
 }
 
-if (ISSET($delete_all)) {
+if (ISSET($_REQUEST["delete_all"])) {
   $q = "SELECT mail_id FROM msg ".
      "WHERE planet_id='$Planetid' AND folder='$folder'";
   $res = mysqli_query($db, $q );
@@ -240,13 +242,13 @@ if (ISSET($delete_all)) {
   }
 }
 
-if (ISSET($save) && $folder!=3) {
+if (ISSET($_REQUEST["save"]) && $folder!=3) {
   $res = mysqli_query($db, "UPDATE msg SET folder=3 ".
-		     "WHERE mail_id='$save' AND planet_id='$Planetid' ".
+		     "WHERE mail_id='".$_REQUEST["save"]."' AND planet_id='$Planetid' ".
 		     "AND folder='$folder'" );
 }
 
-if (ISSET($save_all) && $folder!=3) {
+if (ISSET($_REQUEST["save_all"]) && $folder!=3) {
   $res = mysqli_query($db, "UPDATE msg SET folder=3 ".
 		     "WHERE planet_id='$Planetid' ".
 		     "AND folder='$folder'" );
@@ -262,7 +264,8 @@ if (mysqli_num_rows($res) == 1 || $Planetid==1) {
   moc_menu($myrow["x"], $myrow["y"]);
 }
 
-if (ISSET($new) || ISSET($reply) || ISSET($forward) || ISSET($send_to)) {
+if (ISSET($_REQUEST['new']) || ISSET($_REQUEST['reply']) 
+    || ISSET($_REQUEST['forward']) || ISSET($_REQUEST['send_to'])) {
   send_message_form(650);
 } else {
   $q = "SELECT mail.id AS id, mail.date AS date, mail.subject AS subject, ".

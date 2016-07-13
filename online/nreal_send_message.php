@@ -44,7 +44,7 @@ function insert_message ($target_id,  $tname, $subject, $text, $copy=1) {
 }
 
 function send_message_form ($width, $moc=0) {
-  global $send_to, $mail_id, $Planetid, $db;
+  global $Planetid, $db,  $send_to ,  $mail_id;
 
   if(ISSET($_REQUEST["reply"])) $reply = $_REQUEST["reply"];
   if(ISSET($_REQUEST["forward"])) $forward = $_REQUEST["forward"];
@@ -52,6 +52,8 @@ function send_message_form ($width, $moc=0) {
   if(ISSET($_REQUEST["gal"])) $gal = $_REQUEST["gal"];
   if(ISSET($_REQUEST["hc"])) $hc = $_REQUEST["hc"];
   if(ISSET($_REQUEST["alc"])) $alc = $_REQUEST["alc"];
+  if(ISSET($_REQUEST["send_to"])) $send_to = $_REQUEST["send_to"];
+  if(ISSET($_REQUEST["mail_id"])) $mail_id = $_REQUEST["mail_id"];
 
   echo <<<EOF
 <form method="post" action="$_SERVER[PHP_SELF]">
@@ -65,17 +67,19 @@ EOF;
   $y = "";
   $z = "";
 
-  if (ISSET($_REQUEST["reply"]) || ISSET($_REQUEST["forward"])) {
+  if (ISSET($reply) || ISSET($forward)) {
 
-    if(ISSET($_REQUEST["reply"])) {
+    if(ISSET($reply)) {
+      $mail_id = $reply;
       $q = "SELECT mail.subject AS subject, mail.text AS text, ".
 	 "planet.x AS x, planet.y AS y, planet.z AS z FROM mail, planet ".
 	 "WHERE mail.id='$mail_id' AND mail.planet_id='$Planetid' ".
 	 "AND planet.id=mail.sender_id";
     } else {
+      $mail_id = $forward;
       $q = "SELECT mail.subject AS subject, mail.text AS text, mail.sender_id ".
 	 "FROM mail, msg WHERE mail.id='$mail_id' AND msg.mail_id=mail.id ".
-	 "AND msg.planet_id='$Planetid'";
+	 "AND msg.planet_id='$Planetid' limit 1";
     }
 
     $result = mysqli_query ($db, $q );
@@ -84,7 +88,7 @@ EOF;
       $row=mysqli_fetch_array($result);
 
       $subject = $row[0];
-      $text = ereg_replace ("<", "&lt;", $row[1]);
+      $text = preg_replace ("/</", "&lt;", $row[1]);
       if ($reply) {
         $x = $row[2];
         $y = $row[3];
@@ -94,7 +98,7 @@ EOF;
       }
     }
 
-    if (ISSET($_REQUEST["reply"])) {
+    if (ISSET($reply)) {
       echo "Reply to message</th></tr>";
       $subject = "Re: $subject";
       $text = "--------------------\n$text";
@@ -107,15 +111,15 @@ EOF;
     }
 
   } else {
-    if (ISSET($_REQUEST["cluster"]) && $moc==1) {
-      if(ISSET($_REQUEST["gal"])) {
+    if (ISSET($cluster) && $moc==1) {
+      if(ISSET($gal)) {
         echo "Send galaxy message</th></tr>";
       } else {
         echo "Send cluster message</th></tr>";
       }
-    } else if (ISSET($_REQUEST["hc"])) {
+    } else if (ISSET($hc)) {
       echo "Send HC message</th></tr>";
-    } else if (ISSET($_REQUEST["alc"])) {
+    } else if (ISSET($alc)){
       echo "Send alliance member message</th></tr>";
     } else {
       echo "Send new message</th></tr>";
@@ -133,34 +137,34 @@ EOF;
   }
 
   echo <<<EOF
-<tr><th align="left" class="a" width="22%">To:</th>
+<tr><th align="left" class="a" width="30%">To:</th>
 <th align="left" class="a">Subject:</th></tr>
-<tr><td width="22%">
+<tr><td width="30%">
 EOF;
-  if (ISSET($_REQUEST["cluster"]) && $moc==1) {
-    if (ISSET($_REQUEST["gal"])) {
+  if (ISSET($cluster) && $moc==1) {
+    if (ISSET($gal)) {
       echo "<b>Galaxy ($cluster:$gal)</b>";
       echo "<input type=\"hidden\" name=\"gal\" value=\"$gal\">\n";
     } else {
       echo "<b>Cluster #$cluster</b>";
     }
     echo "<input type=\"hidden\" name=\"cluster\" value=\"$cluster\">\n";
-  } else if (ISSET($_REQUEST["hc"])) {
+  } else if (ISSET($hc)) {
     echo "<b>HC of [$hc]</b>".
       "<input type=\"hidden\" name=\"hc\" value=\"$hc\">\n";
-  } else if (ISSET($_REQUEST["alc"])) {
+  } else if (ISSET($alc)) {
     echo "<b>Members of [$alc]</b>".
       "<input type=\"hidden\" name=\"alc\" value=\"$alc\">\n";
   } else {
     echo <<<EOF
-<input type="text" name="x" size="2" maxlength="2" value="$x">
+<input type="text" name="x" size="2" maxlength="3" value="$x">
 <input type=text name="y" size="2 maxlength="2" value="$y">
 <input type=text name="z" size="2 maxlength="2" value="$z">
 EOF;
   }
 
   echo <<<EOF
-</td><td width="78%" align="left">
+</td><td width="70%" align="left">
 <input type="text" name="subject" size="30" maxlength="50" value="$subject">
 </td></tr><tr><td colspan="2">
 <textarea name="text" cols="60" rows="8" wrap="virtual">$text</textarea>
@@ -200,7 +204,7 @@ if (ISSET($_REQUEST["submit"])) {
     $target_id = get_id ($x, $y, $z);
 
     if ($target_id) {
-      $msg = insert_message ($target_id, "($x:$y:$z)", $subject, $text);
+      $msg = insert_message ($target_id, "[$x:$y:$z]", $subject, $text);
     } else {
       $msg = "<span class=\"red\">Invalid target coordinates</span>";
     }
