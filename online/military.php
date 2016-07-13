@@ -279,11 +279,11 @@ function print_target_row($flnum, $x, $y, $z, $pname, $type, $ticks) {
       "<option value=6>Defend 6 tick</option></select>\n";
     echo "</td><td align=\"center\">\n".
       "<input type=\"text\" name=\"fleet_" . 
-      $flnum . "_x\" size=\"4\" maxlength=\"3\">".
+      $flnum . "_x\" size=\"3\" maxlength=\"3\">".
       "&nbsp;<input type=\"text\" name=\"fleet_" . 
-      $flnum . "_y\" size=\"3\" maxlength=\"2\">".
+      $flnum . "_y\" size=\"2\" maxlength=\"2\">".
       "&nbsp;<input type=\"text\" name=\"fleet_" . 
-      $flnum . "_z\" size=\"3\" maxlength=\"2\">".
+      $flnum . "_z\" size=\"2\" maxlength=\"2\">".
       "</td></tr>\n";
   } else {
     echo "&nbsp;</td><td height=25 align=\"center\">&nbsp;</td></tr>\n";
