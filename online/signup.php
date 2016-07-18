@@ -128,11 +128,15 @@ function send_password($pid) {
 
   my_header(0, 0, 0);
 
+  $pu = parse_url($_SERVER["PHP_SELF"]);
+  $gameurl = "http://" . $pu["host"] . $pu["path"];
+
   mail("$rowu[email]", "$game signup password", 
        "\nLogin: $rowu[login]\n".
        "Password: $rowu[password]\n".
        "Email: $rowu[email]\nCoords: [$rowp[x]:$rowp[y]:$rowp[z]] ".
        "$rowp[leader] of $rowp[planetname]\n\nHave Fun!!\n\n".
+       "Return to MyPHPpa: $gameurl\n\n".
        "PS: Remember that idle planets with less then 4 roids will ".
        "be deleted\n    after 12 hours.\n",
        "From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\n".
