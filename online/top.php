@@ -19,6 +19,15 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+function rval ($val) {
+  if ($val < 200000) // 200 thousand
+    return pval($val) . "g";
+  else if ($val < 10000000) // 10 Millionen
+    return pval($val/1000) . "k";
+  else 
+    return pval($val/1000000). "t";
+}
+
 function pval ($val) {
   return number_format($val, 0, ",", ".");
 }
@@ -48,12 +57,12 @@ function top_header($myrow) {
   $news = "<td  width=\"20%\" align=center>News";
   if ($myrow["has_news"]) {
     $news = "<td  width=\"20%\" align=center bgcolor=\"lightblue\">".
-	"<a class=\"x\" href=\"news.php\">News</a>";
+	"<a class=\"x\" href=\"news.php\" accesskey=\"n\">News</a>";
   }
   $mail = "<td  width=\"20%\" align=center>Mail";
   if ($myrow["has_mail"]) {
     $mail = "<td  width=\"20%\" align=center bgcolor=\"lightblue\">".
-	"<a class=\"x\" href=\"messages.php\">Mail</a>";
+	"<a class=\"x\" href=\"messages.php\" accesskey=\"m\">Mail</a>";
   }
   $hostile = "<td  width=\"20%\" align=center>Hostile";
   if ($myrow["has_hostile"]) {
@@ -73,7 +82,7 @@ function top_header($myrow) {
   } else {
     if ($myrow["has_politics"] & 1) {
       $galaxy = "<td  width=\"20%\" align=center bgcolor=\"lightblue\">".
-	"<a class=\"x\" href=\"politics.php\">Politics</a>";
+	"<a class=\"x\" href=\"politics.php\" accesskey=\"p\">Politics</a>";
     } else if ($myrow["has_politics"] & 2) {
       $galaxy = "<td  width=\"20%\" align=center bgcolor=\"lightblue\">".
         "<a class=\"x\" href=\"allforum.php\">Alliance</a>";
@@ -124,11 +133,11 @@ function top_header($myrow) {
   echo "$galaxy</td>$mail</td>$news</td></tr>\n";
   
   echo "<tr><td align=left width=\"20%\"><b>Metal</b>: ".
-    pval($myrow["metal"])."</td>\n";
-  echo "<td align=left width=\"20%\"><b>Crystal</b>: "
-    .pval($myrow["crystal"])."</td>\n";
+    rval($myrow["metal"])."</td>\n";
+  echo "<td align=left width=\"20%\"><b>Crystal</b>: ".
+    rval($myrow["crystal"])."</td>\n";
   echo "<td align=left width=\"20%\"><b>Eonium</b>: ".
-    pval($myrow["eonium"]).
+    rval($myrow["eonium"]).
     "</td><td colspan=2 width=\"40%\" align=\"right\">$online</td></tr>\n";
 
   echo "</TABLE></center>\n";
