@@ -190,7 +190,7 @@ $numonline = $myrow[0];
 
 
 if (file_exists('/tmp/ticker.run')) {
-   $tdate = date("d/m/y H:i:s", filemtime('/tmp/ticker.run'));
+  $tdate = date("d/M H:i e", filemtime('/tmp/ticker.run'));
 } else {
    $tdate = "<b><span class=\"red\">Ticker stopped</span></b>";
 }
