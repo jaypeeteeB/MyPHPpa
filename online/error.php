@@ -35,7 +35,7 @@ $Planetid = -1;
 $Username = "";
 $Password = "";
 $Valid = 0;
-$imgpath="true";
+$imgpath="img";
 require "header.php";
 
 $topscript="<script type=\"text/javascript\">\n".

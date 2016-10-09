@@ -32,7 +32,7 @@ include_once "session.inc";
 if (ISSET($_COOKIE["imgpath"])) 
   $imgpath = $_COOKIE["imgpath"];
 else 
-  $imgpath = "true";
+  $imgpath = "img";
 require "header.php";
 
 if (ISSET($_POST['submit']) && $game_closed) {
