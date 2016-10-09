@@ -24,7 +24,7 @@ require_once "dblogon.php";
 
 require_once "header.php";
 
-$imgpath="true";
+$imgpath="img";
 $_SESSION["ImgPath"] = $imgpath;
 my_header(0,0);
 

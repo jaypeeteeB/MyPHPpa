@@ -89,7 +89,9 @@ function top_header($myrow) {
     }
   }
 
-  $gdate = date("d/m H:i:s");
+  // $gdate = date("d/m H:i:s");
+  global $date_format;
+  $gdate = date($date_format);
   $online = get_online();
 
   if (file_exists('/tmp/ticker.run')) {
@@ -122,7 +124,7 @@ function top_header($myrow) {
     $myrow["leader"]." of ".
     $myrow["planetname"]."</span></td></tr>\n";
   
-  echo "<tr><td align=left><span class=\"tiny\">Date: $gdate</span></td>\n".
+  echo "<tr><td align=left><span class=\"tiny\">$gdate</span></td>\n".
     "<td align=left><span class=\"tiny\">Last: $tdate</span></td>\n".
     "<td align=center><span class=\"tiny\"><b>MyT</b>: ".
     "<span id=\"mtt\">$mytick</span></span></td>\n".

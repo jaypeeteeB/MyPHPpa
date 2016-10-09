@@ -97,7 +97,7 @@ function create_admin () {
 
 <?php
 
-if (ISSET($submit)) {
+if (ISSET($_POST["submit"])) {
   trunc_table ("fleet");
   trunc_table ("fleet_cap");
   trunc_table ("galaxy");
