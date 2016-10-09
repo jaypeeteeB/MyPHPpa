@@ -82,18 +82,25 @@ EOF;
    } else {
      echo "   <TITLE>$game $version</TITLE>\n";
    }
-  if (ISSET($imgpath) && $imgpath != "") { 
+require_once "mobile.inc";
+ 
+  if ($mobile_detect) {
+     echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
+  } else {
+   if (ISSET($imgpath) && $imgpath != "") { 
     
     if ($mysettings&32)
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
     else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
-  } else {
+   } else {
     if ($mysettings&32)
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npa.css\">";
     else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">";
+   }
   }
+    
   
   if (file_exists('/tmp/ticker.run') && ($mysettings &16) && $tickjs==1) {
     echo "</head>\n<body class=\"a\" ".

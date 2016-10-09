@@ -2,28 +2,29 @@
 MyPHPpa
 Copyright (C) 2003, 2007 Jens Beyer
 
-Small font, bright theme
+Flexible font, bright theme
 -->
 <STYLE>
-OPTION { font-size: 8pt; }
 SELECT
 {
     border: 1px solid;
-    font-size: 7pt
+    font-family: verdana, arial, sans-serif;
+    font-size: medium;
 }
 TEXTAREA
 {
     border: 1px solid;
     font-family: monospace;
-    font-size: 10pt
+    font-size: medium;
 }
 INPUT
 {
-    font-size: 8pt;
+    font-family: verdana, arial, sans-serif;
+    font-size: medium;
 }
 TABLE
 {
-    font-size: 12px;
+    font-size: large;
     border: 0px solid;
     border-color: gray;
     font-family: verdana, arial, sans-serif;
@@ -95,10 +96,10 @@ a:focus { color:#0010ff; text-decoration:underline; }
 .self { color:#20C030; font-weight:bold; }
 .bold  { font-weight:bold }
 
-.medium { font-size:10pt }
-.big   { font-size:12pt }
-.small { font-size:8pt; font-family: verdana, arial, sans-serif; }
-.tiny { font-size:7pt; font-family: verdana, arial, sans-serif; }
+.medium { font-size: medium; }
+.big   { font-size: large; }
+.small { font-size: small; font-family: verdana, arial, sans-serif; }
+.tiny { font-size:x-small; font-family: verdana, arial, sans-serif; }
 
 td.tdlink {
   text-align: center;

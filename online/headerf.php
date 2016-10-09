@@ -37,16 +37,22 @@ header ("Pragma: no-cache");
    <META NAME="Author" CONTENT="khan@web.de (Jens Beyer)">
 
 <?php
-  if (ISSET($imgpath) && $imgpath != "") { 
+require_once "mobile.inc";
+
+  if ($mobile_detect) {
+     echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
+  } else {
+   if (ISSET($imgpath) && $imgpath != "") { 
     if ($mysettings&32)
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
     else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">\n";
-  } else {
+   } else {
     if ($mysettings&32)
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npa.css\">\n";
     else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">\n";
+   }
   }
   echo "  <TITLE>$game $version</TITLE>\n";
 ?>

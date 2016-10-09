@@ -25,7 +25,7 @@ require "options.php";
 
 include_once "session.inc";
 session_init();
-if (session_check(get_ip())) {
+if (session_check()) {
   echo "error check session";
   Header("Location: index.php");
   die;
@@ -75,10 +75,15 @@ if ($mysettings & 32 ||
 if (ISSET($imgpath) && $imgpath != "") {
   
 echo "<html>\n<head>\n";
-if ($mysettings&32)
-  echo "<LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
-else
-  echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
+require_once "mobile.inc";
+if ($mobile_detect) {
+  echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
+} else {
+  if ($mysettings&32)
+    echo "<LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
+  else
+    echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
+}
 echo <<<EOF
 </head>
 <body background="$imgpath/myphppa/navbg.jpg" text="#FFFFFF">
