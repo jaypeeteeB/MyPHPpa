@@ -1,5 +1,4 @@
 <?php
-
 /*
  * MyPHPpa
  * Copyright (C) 2005, 2007 Jens Beyer
@@ -45,23 +44,35 @@ function session_create($ip, $login, $pw_hash, $planetid, $imgpath="")
     //    setcookie("Planetid",$myrow[0]);
 
   //global $Planetid;
-
+/*
   if (isset ($_SESSION["Planetid"]) && 
       isset ($_SESSION["Password"]) &&
       isset ($_SESSION["Username"])) 
     return 1;
-
+*/
   $_SESSION["Username"] = $login;
   $_SESSION["Password"] = $pw_hash;
   $_SESSION["Planetid"] = $planetid;
   $_SESSION["ImgPath"] = $imgpath;
   $_SESSION["IP"] = $ip;
   $_SESSION["TimeStamp"] = getmicrotime();
+  $_SESSION["UserAgent"] = getenv("HTTP_USER_AGENT");
 
   // TODO
   // generate a session_hash
   // return the session_hash
   // or put it in db
+  return 0;
+}
+
+function _session_agent_check()
+{
+  if (!isset($_SESSION["UserAgent"]))
+    return 1;
+
+  if ($_SESSION["UserAgent"] != getenv("HTTP_USER_AGENT"))
+    return 2;
+
   return 0;
 }
 
@@ -76,7 +87,7 @@ function _session_ip_check($ip)
   return 0;
 }
 
-function session_check($ip)
+function session_check($ip=0)
 {
   global $Planetid, $Username, $Password, $imgpath;
 
@@ -85,9 +96,12 @@ function session_check($ip)
       !isset ($_SESSION["Username"])) 
     return 1;
 
-  if (_session_ip_check(get_ip()))
+  if (_session_agent_check())
     return 2;
 
+  if ($ip && _session_ip_check($ip))
+    return 3;
+  
   $Planetid = $_SESSION["Planetid"];
   $Username = $_SESSION["Username"];
   $Password = $_SESSION["Password"];
@@ -102,6 +116,7 @@ function session_check($ip)
 function session_kill()
 {
   global $Planetid;
+  session_cache_expire(0);
   session_destroy();
 
   $Planetid = -1;

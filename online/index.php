@@ -179,6 +179,9 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
   } else {
     setcookie("Username","");
   }
+} else {
+  // not submit
+  session_kill();
 }
 
 $result = mysqli_query($db, "SELECT COUNT(*) from user");

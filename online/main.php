@@ -23,7 +23,7 @@ require "options.php";
 include_once "session.inc";
 
 session_init();
-if (session_check(get_ip())) {
+if (session_check()) {
   echo "error check session";
   Header("Location: index.php");
   die;
