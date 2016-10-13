@@ -1,6 +1,11 @@
 <?
 // import_request_variables ("GPC", "");
 
+if ( ISSET($_COOKIE["style"]) && $_COOKIE["style"] != null )
+  $style = $_COOKIE["style"];
+else
+  $style = 0;
+
 if ( ISSET($_COOKIE["style_input"]) && $_COOKIE["style_input"] != null )
 {
   setcookie("style", "$style_input",  time()+360000000, "/" );
@@ -13,10 +18,10 @@ $version = "2.1b-2";
 if ( ISSET($_REQUEST["showversion"]) )
      die( $version );
 
-     if ( !ISSET($_REQUEST["style"]) || (int)$_REQUEST["style"] != $style )
-     $style = 0;
+if ( !ISSET($_REQUEST["style"]) || (int)$_REQUEST["style"] != $style )
+  $style = 0;
 
-     switch( $style )
+switch( $style )
 {
  default :
  case 0 : $style_prim = "red";  $style_sec = "orange"; $style_tert = "green"; break;
