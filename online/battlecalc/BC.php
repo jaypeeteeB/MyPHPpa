@@ -1,4 +1,4 @@
-<?
+<?php
 // import_request_variables ("GPC", "");
 
 if ( ISSET($_COOKIE["style"]) && $_COOKIE["style"] != null )
@@ -47,11 +47,11 @@ include "vars.php";
 ?>
      <html>
      <head>
-     <link rel="stylesheet" type="text/css" href=BCstyle_<? echo $style ?>.css>
+     <link rel="stylesheet" type="text/css" href=BCstyle_<?php echo $style ?>.css>
      <title>MyPHPpa Battle Calculator</title>
      </head>
 
-     <?
+     <?php
      //	set_time_limit( 60 );
      include "BCcode.php";
 
@@ -73,7 +73,7 @@ FillFleet( "New", $_POST );
 ?>
 
 <script>
-<?
+<?php
 echo "   ShipTargets = new Array;\n";
 WriteJSInfo( $Fleet[0]["Ships"], $Fleet[1]["Ships"], 0 );
 WriteJSInfo( $Fleet[1]["Ships"], $Fleet[0]["Ships"], 1 );
@@ -112,11 +112,11 @@ function OnNameOver( Side, FltNr, Over )
 	      if ( Over )
 		{
 		  if ( i == 0 )
-		    setStyle( LinkName,"", "color", "<? echo $style_prim ?>" );
+		    setStyle( LinkName,"", "color", "<?php echo $style_prim ?>" );
 		  else if ( i == 1 )
-		    setStyle( LinkName,"", "color", "<? echo $style_sec ?>" );
+		    setStyle( LinkName,"", "color", "<?php echo $style_sec ?>" );
 		  else if ( i == 2 )
-		    setStyle( LinkName,"", "color", "<? echo  $style_tert ?>" );
+		    setStyle( LinkName,"", "color", "<?php echo  $style_tert ?>" );
 
 		}
 	      else
@@ -150,16 +150,16 @@ function ResetBtnClick( form, notscores )
 <table class=border cellspacing=2 border=0 cellpadding=0 width=100%>
 <tr><td class=wrapper>
 <table cellspacing=1 cellpadding=0 border=0 class=header width=100%>
-<? if ( filesize("news.php") > 0 ) : ?>
+<?php if ( filesize("news.php") > 0 ) : ?>
 <tr>
 <td class=headtext width=100% colspan=3>
-<? include "news.php"; ?>
+<?php include "news.php"; ?>
 </td>
 </tr>
-<? endif ?>
+<?php endif ?>
 <tr>
 <td class=headtext width=100%>
-<span class=subscript>Version <? echo $version ?>, last update: <? echo date( "jS M Y",max(filemtime("BCcode.php"),max(filemtime("BC.php"),filemtime("ShipTypes.php")))) ?>, Original Made by Joror, (c) WolfPack 2001, <? echo round(filesize("logs.php") / 4) ?> hits since installment</span>
+<span class=subscript>Version <?php echo $version ?>, last update: <?php echo date( "jS M Y",max(filemtime("BCcode.php"),max(filemtime("BC.php"),filemtime("ShipTypes.php")))) ?>, Original Made by Joror, (c) WolfPack 2001, <?php echo round(filesize("logs.php") / 4) ?> hits since installment</span>
 </td>
 <td class=headtext align=center nowrap>
 [<a href='mailto:daan@parse.nl?subject=[Battlecalc]'>Mail creator</a>]
@@ -185,7 +185,7 @@ function ResetBtnClick( form, notscores )
 <tr>
 <td colspan='8' class=top valign=center>
 <input type=hidden name=Checker value="true">
-<input type=hidden name=shipdata value="<? echo (ISSET($shipdata)?$shipdata:"") ?>">
+<input type=hidden name=shipdata value="<?php echo (ISSET($shipdata)?$shipdata:"") ?>">
 MyPHPpa Battle Calculator<br>
 <span class=disclaimer>
 (disclaimer: calculations are based on average, so calculations on <u>small</u> numbers may have a significant difference with reality)
@@ -194,7 +194,7 @@ MyPHPpa Battle Calculator<br>
 </tr>
 <tr>
 <td colspan='8' class=namecel valign=center>
-Mouseover Legend : <span style="color:<? echo $style_prim?>">Primary target</span>, <span style="color:<? echo $style_sec?>">Secondary target</span>, <span style="color:<? echo $style_tert?>">Tertiary target</span></span>
+Mouseover Legend : <span style="color:<?php echo $style_prim?>">Primary target</span>, <span style="color:<?php echo $style_sec?>">Secondary target</span>, <span style="color:<?php echo $style_tert?>">Tertiary target</span></span>
 </td>
 </tr>
 <tr>
@@ -208,14 +208,14 @@ Mouseover Legend : <span style="color:<? echo $style_prim?>">Primary target</spa
 <th class=lostheader>Lost</th><th class=stunnedheader>Stunned</th>
 </tr>
 </thead>
-<?
+<?php
 WriteFleets( $Fleet[0], $Fleet[1] );
 ?>
 <tr><td colspan='8'>
 <table cellpadding=0 border=0 cellspacing=0 width=100%>
 <tr>
 <td style="padding:2;width:50%;">
-Ticks to calculate &nbsp;<input type=text size=3 name='NumCalcs' value=<? echo $NumCalcs ?>>
+Ticks to calculate &nbsp;<input type=text size=3 name='NumCalcs' value=<?php echo $NumCalcs ?>>
 </td>
 <td style="padding:2;width:25%;">
 <input class=checkbox type=checkbox value=1 name="ShowLog" CHECKED>Show calculation logs
@@ -243,10 +243,10 @@ Paste a unit scan/overview count/battle report : <textarea name=input cols=20 ro
 <tr>
 <td colspan='8' style="padding:2">
 Choose a battlecalc-style :
-<input class=checkbox type=radio name=style_input value=0 <? echo ( $style == 0 )? 'CHECKED' : '' ?>>WolfPack
-<input class=checkbox type=radio name=style_input value=1 <? echo ( $style == 1 )? 'CHECKED' : '' ?>>Pilkara.com style (red)
-     <input class=checkbox type=radio name=style_input value=2 <? echo ( $style == 2 )? 'CHECKED' : '' ?>>Old Elysium style (blue)
-     <input class=checkbox type=radio name=style_input value=3 <? echo ( $style == 3 )? 'CHECKED' : '' ?>>Old Concordium style (old PA colors)
+<input class=checkbox type=radio name=style_input value=0 <?php echo ( $style == 0 )? 'CHECKED' : '' ?>>WolfPack
+<input class=checkbox type=radio name=style_input value=1 <?php echo ( $style == 1 )? 'CHECKED' : '' ?>>Pilkara.com style (red)
+     <input class=checkbox type=radio name=style_input value=2 <?php echo ( $style == 2 )? 'CHECKED' : '' ?>>Old Elysium style (blue)
+     <input class=checkbox type=radio name=style_input value=3 <?php echo ( $style == 3 )? 'CHECKED' : '' ?>>Old Concordium style (old PA colors)
      </td>
 </tr>
 <tr>
@@ -269,7 +269,7 @@ Choose a battlecalc-style :
 </form>
 </table>
 <br>
-<? 	if ( ISSET($ShowLog) ) : ?>
+<?php 	if ( ISSET($ShowLog) ) : ?>
 <table class=border cellspacing=2 border=0 cellpadding=2 width=700>
 <tr><td class=wrapperborder>
 <table class=border cellspacing=2 border=0 cellpadding=0 width=100%>
@@ -278,7 +278,7 @@ Choose a battlecalc-style :
 <thead>
 <tr><td class=toplog>Calculator logs for this combat:</td></tr>
 </thead>
-<?
+<?php
 if ( $CalcLog == "" )
      $CalcLog = "<center>No data.</center>";
 
@@ -289,11 +289,11 @@ if ( $CalcLog == "" )
      </table>
      </td></tr>
      </table>
-     <?
+     <?php
      endif;
 ?>
      </center>
-     <?
+     <?php
 
      /* log file */
 
