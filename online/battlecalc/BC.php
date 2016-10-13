@@ -159,7 +159,7 @@ function ResetBtnClick( form, notscores )
 <? endif ?>
 <tr>
 <td class=headtext width=100%>
-<span class=subscript>Version <?= $version ?>, last update: <?= date( "jS M Y",max(filemtime("BCcode.php"),max(filemtime("BC.php"),filemtime("ShipTypes.php")))) ?>, Original Made by Joror, (c) WolfPack 2001, <?= round(filesize("logs.php") / 4) ?> hits since installment</span>
+<span class=subscript>Version <? echo $version ?>, last update: <? echo date( "jS M Y",max(filemtime("BCcode.php"),max(filemtime("BC.php"),filemtime("ShipTypes.php")))) ?>, Original Made by Joror, (c) WolfPack 2001, <?= round(filesize("logs.php") / 4) ?> hits since installment</span>
 </td>
 <td class=headtext align=center nowrap>
 [<a href='mailto:daan@parse.nl?subject=[Battlecalc]'>Mail creator</a>]
@@ -185,7 +185,7 @@ function ResetBtnClick( form, notscores )
 <tr>
 <td colspan='8' class=top valign=center>
 <input type=hidden name=Checker value="true">
-<input type=hidden name=shipdata value="<?= (ISSET($shipdata)?$shipdata:"") ?>">
+<input type=hidden name=shipdata value="<? echo (ISSET($shipdata)?$shipdata:"") ?>">
 MyPHPpa Battle Calculator<br>
 <span class=disclaimer>
 (disclaimer: calculations are based on average, so calculations on <u>small</u> numbers may have a significant difference with reality)
@@ -194,7 +194,7 @@ MyPHPpa Battle Calculator<br>
 </tr>
 <tr>
 <td colspan='8' class=namecel valign=center>
-Mouseover Legend : <span style="color:<?=$style_prim?>">Primary target</span>, <span style="color:<?=$style_sec?>">Secondary target</span>, <span style="color:<?=$style_tert?>">Tertiary target</span></span>
+Mouseover Legend : <span style="color:<? echo$style_prim?>">Primary target</span>, <span style="color:<?=$style_sec?>">Secondary target</span>, <span style="color:<?=$style_tert?>">Tertiary target</span></span>
 </td>
 </tr>
 <tr>
@@ -215,7 +215,7 @@ WriteFleets( $Fleet[0], $Fleet[1] );
 <table cellpadding=0 border=0 cellspacing=0 width=100%>
 <tr>
 <td style="padding:2;width:50%;">
-Ticks to calculate &nbsp;<input type=text size=3 name='NumCalcs' value=<?= $NumCalcs ?>>
+Ticks to calculate &nbsp;<input type=text size=3 name='NumCalcs' value=<? echo $NumCalcs ?>>
 </td>
 <td style="padding:2;width:25%;">
 <input class=checkbox type=checkbox value=1 name="ShowLog" CHECKED>Show calculation logs
@@ -243,10 +243,10 @@ Paste a unit scan/overview count/battle report : <textarea name=input cols=20 ro
 <tr>
 <td colspan='8' style="padding:2">
 Choose a battlecalc-style :
-<input class=checkbox type=radio name=style_input value=0 <?= ( $style == 0 )? 'CHECKED' : '' ?>>WolfPack
-<input class=checkbox type=radio name=style_input value=1 <?= ( $style == 1 )? 'CHECKED' : '' ?>>Pilkara.com style (red)
-     <input class=checkbox type=radio name=style_input value=2 <?= ( $style == 2 )? 'CHECKED' : '' ?>>Old Elysium style (blue)
-     <input class=checkbox type=radio name=style_input value=3 <?= ( $style == 3 )? 'CHECKED' : '' ?>>Old Concordium style (old PA colors)
+<input class=checkbox type=radio name=style_input value=0 <? echo ( $style == 0 )? 'CHECKED' : '' ?>>WolfPack
+<input class=checkbox type=radio name=style_input value=1 <? echo ( $style == 1 )? 'CHECKED' : '' ?>>Pilkara.com style (red)
+     <input class=checkbox type=radio name=style_input value=2 <? echo ( $style == 2 )? 'CHECKED' : '' ?>>Old Elysium style (blue)
+     <input class=checkbox type=radio name=style_input value=3 <? echo ( $style == 3 )? 'CHECKED' : '' ?>>Old Concordium style (old PA colors)
      </td>
 </tr>
 <tr>
