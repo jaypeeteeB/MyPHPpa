@@ -1,4 +1,4 @@
-<?
+<?php
 	include "ShipTypes.php";
 
    	/* fleet data */
@@ -696,11 +696,11 @@
 			$stunned = MakeResult( $amount, $report, $ShipBattleRep );
 ?>
 <tr>
-<td class=namecel><a tabindex=-1 href='BCview.php?ViewShip=<?= $t ?>&style=<?=$style?>' name=d<?= $t ?> onMouseOver="OnNameOver( 0, <?= $t ?>, 1)" onMouseOut="OnNameOver( 0, <?= $t ?>, 0)"><?= $Def[$t]["Type"]["Name"] ?></a></td>
-<td class=inputcel><input tabindex=<?= $t + 30 ?> type='text' size=5 name='td<?= $Def[$t]["Type"]["FormName"] ?>' value='<?=$Def[$t]["Amount"]?>'></td>
-<td class=lostcel><?= $lost ?></td>
-<td class=stunnedcel><?= $stunned ?></td>
-<?
+<td class=namecel><a tabindex=-1 href='BCview.php?ViewShip=<?php= $t ?>&style=<?php=$style?>' name=d<?php= $t ?> onMouseOver="OnNameOver( 0, <?php= $t ?>, 1)" onMouseOut="OnNameOver( 0, <?php= $t ?>, 0)"><?php= $Def[$t]["Type"]["Name"] ?></a></td>
+<td class=inputcel><input tabindex=<?php= $t + 30 ?> type='text' size=5 name='td<?php= $Def[$t]["Type"]["FormName"] ?>' value='<?php=$Def[$t]["Amount"]?>'></td>
+<td class=lostcel><?php= $lost ?></td>
+<td class=stunnedcel><?php= $stunned ?></td>
+<?php
 		if ( array_key_exists($t, $Att) && $Att[$t] )
 		{
 			$amount = $Att[$t]["BeginAmount"]- $Att[$t]["Amount"];
@@ -713,12 +713,12 @@
 
 
 ?>
-<td class=namecel><a tabindex=-1 href='BCview.php?ViewShip=<?= $t ?>&style=<?=$style?>' class=normal name=a<?= $t ?> onMouseOver="OnNameOver( 1, <?= $t ?>, 1)" onMouseOut="OnNameOver( 1, <?= $t ?>, 0)"><?= $Att[$t]["Type"]["Name"] ?></a></td>
-<td class=inputcel><input tabindex=<?= $t + count($Def) + 30 ?> type='text' size=5 name='ta<?= $Att[$t]["Type"]["FormName"] ?>' value='<?=$Att[$t]["Amount"]?>'></td>
-<td class=lostcel><?= $lost ?></td>
-<td class=stunnedcel><?=$stunned ?></td>
+<td class=namecel><a tabindex=-1 href='BCview.php?ViewShip=<?php= $t ?>&style=<?php=$style?>' class=normal name=a<?php= $t ?> onMouseOver="OnNameOver( 1, <?php= $t ?>, 1)" onMouseOut="OnNameOver( 1, <?php= $t ?>, 0)"><?php= $Att[$t]["Type"]["Name"] ?></a></td>
+<td class=inputcel><input tabindex=<?php= $t + count($Def) + 30 ?> type='text' size=5 name='ta<?php= $Att[$t]["Type"]["FormName"] ?>' value='<?php=$Att[$t]["Amount"]?>'></td>
+<td class=lostcel><?php= $lost ?></td>
+<td class=stunnedcel><?php=$stunned ?></td>
 </tr>
-<?
+<?php
 	} else {
 ?>
 <td class=namecel>&nbsp;</td>
@@ -726,7 +726,7 @@
 <td class=lostcel>&nbsp;</td>
 <td class=stunnedcel>&nbsp;</td>
 </tr>
-<?
+<?php
 		}
 	}
 
@@ -736,80 +736,80 @@
 ?>
 <tr>
 <td class=namecel>Totals</td>
-<td class=inputcel><?= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Amount"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Amount"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Amount"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Amount"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Amount"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Amount"]) ?></td>
 <td class=namecel>Totals</td>
-<td class=inputcel><?= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Amount"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Amount"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Amount"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Amount"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Amount"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Amount"]) ?></td>
 </tr>
 <tr>
 <td class=namecel>Total Metal</td>
-<td class=inputcel><?= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Metal"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Metal"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Metal"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Metal"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Metal"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Metal"]) ?></td>
 <td class=namecel>Total Metal</td>
-<td class=inputcel><?= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Metal"])?></td>
-<td class=lostcel><?= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Metal"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Metal"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Metal"])?></td>
+<td class=lostcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Metal"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Metal"]) ?></td>
 </tr>
 <tr>
 <td class=namecel>Total Crystal</td>
-<td class=inputcel><?= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Crystal"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Crystal"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Crystal"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Crystal"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Crystal"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Crystal"]) ?></td>
 <td class=namecel>Total Crystal</td>
-<td class=inputcel><?= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Crystal"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Crystal"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Crystal"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Crystal"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Crystal"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Crystal"]) ?></td>
 </tr>
 <tr>
 <td class=namecel>Total Eonium</td>
-<td class=inputcel><?= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Eonium"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Eonium"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Eonium"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Eonium"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Eonium"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Eonium"]) ?></td>
 <td class=namecel>Total Eonium</td>
-<td class=inputcel><?= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Eonium"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Eonium"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Eonium"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Eonium"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Eonium"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Eonium"]) ?></td>
 </tr>
 <tr>
 <td class=namecel>Fuel costs</td>
-<td class=inputcel><?= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Fuel"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Fuel"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Fuel"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Fuel"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Fuel"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Fuel"]) ?></td>
 <td class=namecel>Fuel costs</td>
-<td class=inputcel><?= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Fuel"]) ?></td>
-<td class=lostcel><?= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Fuel"]) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Fuel"]) ?></td>
+<td class=inputcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Fuel"]) ?></td>
+<td class=lostcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Fuel"]) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Fuel"]) ?></td>
 </tr>
 <tr>
 <td class=namecel>Fleet Points</td>
-<td class=inputcel><?= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Worth"] ) ?></td>
-<td class=lostcel><?= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Worth"] ) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Worth"] ) ?></td>
+<td class=inputcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalShips"]["Worth"] ) ?></td>
+<td class=lostcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalLost"]["Worth"] ) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $DefFlt["Totals"]["TotalStunned"]["Worth"] ) ?></td>
 <td class=namecel>Fleet Points</td>
-<td class=inputcel><?= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Worth"] ) ?></td>
-<td class=lostcel><?= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Worth"] ) ?></td>
-<td class=stunnedcel><?= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Worth"] ) ?></td>
+<td class=inputcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalShips"]["Worth"] ) ?></td>
+<td class=lostcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalLost"]["Worth"] ) ?></td>
+<td class=stunnedcel><?php= AddKilosMils( $AttFlt["Totals"]["TotalStunned"]["Worth"] ) ?></td>
 </tr>
-	<?
+	<?php
 		endif;
 	?>
 <tr>
-<input type=hidden name=CapRule value=<?= (ISSET($CapRule)?$CapRule:"") ?>>
+<input type=hidden name=CapRule value=<?php= (ISSET($CapRule)?$CapRule:"") ?>>
 <td class=namecel>Planet score</td>
 <td class=inputcel colspan=3 align=left>
-<input tabindex=1000 type='text' size=15 name='dplanetscore' value='<?=$DefFlt["PlanetScore"]?>'> points
-<?
+<input tabindex=1000 type='text' size=15 name='dplanetscore' value='<?php=$DefFlt["PlanetScore"]?>'> points
+<?php
 	if (  ($DefFlt["OriginalScore"] - $DefFlt["PlanetScore"]) > 0 && $DefFlt["PlanetScore"] > 0 )
 		echo "<br>Lost : <span class=losttext>". (int)($DefFlt["OriginalScore"] - $DefFlt["PlanetScore"]) ."</span> points"
 ?>
 </td><td class=namecel colspan=4>&nbsp;</td></tr>
-<? if ( $DefFlt["PlanetScore"] > 0 ) { ?>
+<?php if ( $DefFlt["PlanetScore"] > 0 ) { ?>
 <tr><td class=namecel>Capture info</td><td class=inputcell colspan=7>
-<?
+<?php
 		global $NumCalcs, $RoidChance, $RoidChanceHistory;
 
 
@@ -856,14 +856,14 @@
 <tr>
 	<td class=namecel>Salvage</td>
 	<td class=inputcel colspan=3>
-		<span class=losttext><?= AddKilosMils( floor($DefFlt["Totals"]["TotalLost"]["Metal"] * 0.25) ) ?></span> Metal,
-		<span class=losttext><?= AddKilosMils( floor($DefFlt["Totals"]["TotalLost"]["Crystal"] * 0.25) ) ?></span> Crystal,
-		<span class=losttext><?= AddKilosMils( floor($DefFlt["Totals"]["TotalLost"]["Eonium"] * 0.25) ) ?></span> Eonium
+		<span class=losttext><?php= AddKilosMils( floor($DefFlt["Totals"]["TotalLost"]["Metal"] * 0.25) ) ?></span> Metal,
+		<span class=losttext><?php= AddKilosMils( floor($DefFlt["Totals"]["TotalLost"]["Crystal"] * 0.25) ) ?></span> Crystal,
+		<span class=losttext><?php= AddKilosMils( floor($DefFlt["Totals"]["TotalLost"]["Eonium"] * 0.25) ) ?></span> Eonium
 	</td>
 	<td class=inputcel colspan=4>&nbsp</td>
 </tr>
 </tr>
-<?
+<?php
 		if ( $Warning )
 			echo "<tr><td class=warningcel colspan=8>$Warning</td></tr>";
 

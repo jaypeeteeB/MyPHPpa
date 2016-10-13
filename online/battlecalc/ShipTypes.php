@@ -1,4 +1,4 @@
-<?
+<?php
     function CreateShipType( &$ShipType, $TypeNr, $Name, $FormName, $ShipClass, $T1, $T2, $T3, $Init, $Agility, $WP_SP, $Guns, $GunPwr, $Armour, $EMP_res, $Metal, $Crystal, $Eonium, $Fuel, $Travel, $Special )
     {
         $ShipType = Array(
