@@ -557,15 +557,21 @@ if (ISSET($_POST["transfer"])) {
       transfer_ship ($_POST["ship_move_3"], $_POST["ship_number_3"], $_POST["ship_from_3"], $_POST["ship_to_3"]);
 }
 
+/* hack so "Recall" from galstatus (GET) works */
+$fleet_post = array();
+if (ISSET($_POST["execute"]))
+  $fleet_post = $_POST;
+if (ISSET($_GET["execute"]))
+  $fleet_post = $_GET;
 
-if (ISSET($_POST["execute"])) {
+if (ISSET($fleet_post["execute"])) {
   // msg .= "[". $_POST["fleet_1_x"].",". $_POST["fleet_1_y"]." ,".$_POST["fleet_1_z"]."]";
-  if (ISSET($_POST["fleet_1"])&& $_POST["fleet_1"] != 0 ) 
-    $msg .= send_fleet (1, $_POST["fleet_1"], $_POST["fleet_1_x"], $_POST["fleet_1_y"] ,$_POST["fleet_1_z"]);
-  if (ISSET($_POST["fleet_2"])&& $_POST["fleet_2"] != 0 ) 
-    $msg .= send_fleet (2, $_POST["fleet_2"], $_POST["fleet_2_x"], $_POST["fleet_2_y"] ,$_POST["fleet_2_z"]);
-  if (ISSET($_POST["fleet_3"])&& $_POST["fleet_3"] != 0 ) 
-    $msg .= send_fleet (3, $_POST["fleet_3"], $_POST["fleet_3_x"], $_POST["fleet_3_y"] ,$_POST["fleet_3_z"]);
+  if (ISSET($fleet_post["fleet_1"])&& $fleet_post["fleet_1"] != 0 ) 
+    $msg .= send_fleet (1, $fleet_post["fleet_1"], $fleet_post["fleet_1_x"], $fleet_post["fleet_1_y"] ,$fleet_post["fleet_1_z"]);
+  if (ISSET($fleet_post["fleet_2"])&& $fleet_post["fleet_2"] != 0 ) 
+    $msg .= send_fleet (2, $fleet_post["fleet_2"], $fleet_post["fleet_2_x"], $fleet_post["fleet_2_y"] ,$fleet_post["fleet_2_z"]);
+  if (ISSET($fleet_post["fleet_3"])&& $fleet_post["fleet_3"] != 0 ) 
+    $msg .= send_fleet (3, $fleet_post["fleet_3"], $fleet_post["fleet_3_x"], $fleet_post["fleet_3_y"] ,$fleet_post["fleet_3_z"]);
 }
 
 if (ISSET($_POST["launch"])) {
