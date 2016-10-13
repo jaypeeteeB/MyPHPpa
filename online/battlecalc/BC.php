@@ -47,7 +47,7 @@ include "vars.php";
 ?>
      <html>
      <head>
-     <link rel="stylesheet" type="text/css" href=BCstyle_<?= $style ?>.css>
+     <link rel="stylesheet" type="text/css" href=BCstyle_<? echo $style ?>.css>
      <title>MyPHPpa Battle Calculator</title>
      </head>
 
@@ -112,11 +112,11 @@ function OnNameOver( Side, FltNr, Over )
 	      if ( Over )
 		{
 		  if ( i == 0 )
-		    setStyle( LinkName,"", "color", "<?= $style_prim ?>" );
+		    setStyle( LinkName,"", "color", "<? echo $style_prim ?>" );
 		  else if ( i == 1 )
-		    setStyle( LinkName,"", "color", "<?= $style_sec ?>" );
+		    setStyle( LinkName,"", "color", "<? echo $style_sec ?>" );
 		  else if ( i == 2 )
-		    setStyle( LinkName,"", "color", "<?= $style_tert ?>" );
+		    setStyle( LinkName,"", "color", "<? echo  $style_tert ?>" );
 
 		}
 	      else
