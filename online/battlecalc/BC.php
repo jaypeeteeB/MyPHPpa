@@ -63,14 +63,14 @@ if ( !function_exists("FillFleet") )
 
      if ( ISSET($Checker) && $Checker )
 { 
-  $post_arr = $HTTP_POST_VARS;
-  FillFleet( "Load", $post_arr );
+  if(ISSET($_POST) )
+    FillFleet( "Load", $_POST );
   if ( $Addtype != "att" && $Addtype != "def" && $Addtype != "skip" )
     MainLoop( $NumCalcs);
 }
 else {
-  $post_arr = $HTTP_POST_VARS;
-  FillFleet( "New", $post_arr );
+  if(ISSET($_POST) )
+    FillFleet( "New", $_POST );
 }
 
 ?>
