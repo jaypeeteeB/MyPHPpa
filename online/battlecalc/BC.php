@@ -159,7 +159,7 @@ function ResetBtnClick( form, notscores )
 <? endif ?>
 <tr>
 <td class=headtext width=100%>
-<span class=subscript>Version <? echo $version ?>, last update: <? echo date( "jS M Y",max(filemtime("BCcode.php"),max(filemtime("BC.php"),filemtime("ShipTypes.php")))) ?>, Original Made by Joror, (c) WolfPack 2001, <?= round(filesize("logs.php") / 4) ?> hits since installment</span>
+<span class=subscript>Version <? echo $version ?>, last update: <? echo date( "jS M Y",max(filemtime("BCcode.php"),max(filemtime("BC.php"),filemtime("ShipTypes.php")))) ?>, Original Made by Joror, (c) WolfPack 2001, <? echo round(filesize("logs.php") / 4) ?> hits since installment</span>
 </td>
 <td class=headtext align=center nowrap>
 [<a href='mailto:daan@parse.nl?subject=[Battlecalc]'>Mail creator</a>]
@@ -194,7 +194,7 @@ MyPHPpa Battle Calculator<br>
 </tr>
 <tr>
 <td colspan='8' class=namecel valign=center>
-Mouseover Legend : <span style="color:<? echo$style_prim?>">Primary target</span>, <span style="color:<?=$style_sec?>">Secondary target</span>, <span style="color:<?=$style_tert?>">Tertiary target</span></span>
+Mouseover Legend : <span style="color:<? echo $style_prim?>">Primary target</span>, <span style="color:<? echo $style_sec?>">Secondary target</span>, <span style="color:<? echo $style_tert?>">Tertiary target</span></span>
 </td>
 </tr>
 <tr>
