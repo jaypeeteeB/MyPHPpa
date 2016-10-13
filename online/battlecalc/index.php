@@ -1,1 +1,1 @@
-<? include "BC.php" ?>
+<?php include "BC.php" ?>
