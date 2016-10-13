@@ -62,13 +62,16 @@ if ( !function_exists("FillFleet") )
      $NumCalcs = 1;
 
      if ( ISSET($Checker) && $Checker )
-{
-  FillFleet( "Load", $_POST );
+{ 
+  $post_arr = $HTTP_POST_VARS;
+  FillFleet( "Load", $post_arr );
   if ( $Addtype != "att" && $Addtype != "def" && $Addtype != "skip" )
     MainLoop( $NumCalcs);
 }
-else
-FillFleet( "New", $_POST );
+else {
+  $post_arr = $HTTP_POST_VARS;
+  FillFleet( "New", $post_arr );
+}
 
 ?>
 
