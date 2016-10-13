@@ -905,9 +905,10 @@
 
         $Fleet[0]["Side"] = "<span class=attacker>Attacker</span>";
         $Fleet[1]["Side"] = "<span class=defender>Defender</span>";
-		$Fleet[0]["Totals"] = null;
-		$Fleet[1]["Totals"] = null;
+	$Fleet[0]["Totals"] = null;
+	$Fleet[1]["Totals"] = null;
 
+	if (ISSET( $Array["input"] )) {
 		/* Edit input value for netscape */
 		$Array["input"] = preg_replace( "/^\x20+(.*)$/m", "\\1", $Array["input"]);
 		$Array["input"] = preg_replace( "/\n\r/", "\n \r", $Array["input"]);
@@ -915,13 +916,14 @@
 		$Array["input"] = preg_replace( "/\r\n/", " ", $Array["input"]);
 
 		$PasteText = $Array["input"];
+	}
 
         /* process unit scan/overview/military pastes */
-		if ( $Array["input"] && $Array["Addtype"] != "BattleReport" )
-		{
+	if ( $Array["input"] && $Array["Addtype"] != "BattleReport" )
+	{
 		// $Array["input"] = preg_replace( "/\r/", " ", $Array["input"]);
 		// $Array["input"] = preg_replace( "/\n/", " ", $Array["input"]);
-			if ( $Array["fleetbase"] || $Array["fleet1"] || $Array["fleet2"] || $Array["fleet3"] )
+		if ( $Array["fleetbase"] || $Array["fleet1"] || $Array["fleet2"] || $Array["fleet3"] )
 				preg_match_all( "/(\w*\s?[\w]+)\s([0-9]+|\s)\s([0-9]+|\s)\s([0-9]+|\s)\s([0-9]+|\s)([^0-9a-zA-Z]|$)/iU", $Array["input"], $output, PREG_SET_ORDER  );
 			else
 				preg_match_all( "/(\w*\s?[\w]+)\s([0-9]+)([^0-9]|$)/isU", $Array["input"], $output, PREG_SET_ORDER  );
