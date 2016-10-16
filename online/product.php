@@ -108,6 +108,8 @@ if (ISSET($_REQUEST["submit"])) {
   if (ISSET($_POST["ship_12"])) prod_unit (12, $_POST["ship_12"]);
   if (ISSET($_POST["ship_13"])) prod_unit (13, $_POST["ship_13"]);
   if (ISSET($_POST["ship_14"])) prod_unit (14, $_POST["ship_14"]);
+  // Missile
+  if (ISSET($_POST["ship_26"])) prod_unit (26, $_POST["ship_26"]);
 }
 
 /* top table is written now */
