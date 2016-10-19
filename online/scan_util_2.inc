@@ -474,7 +474,7 @@ function scan_target ($sid, $x, $y, $z, $num) {
       $noticed = 0;
       $msg = "Scan Blocked!";
       $text = "Blocked $sname from ".
-         coord_ref($myrow[x],$myrow[y], 
+         coord_ref($myrow['x'],$myrow['y'], 
                    "$myrow[planetname] ($myrow[x]:$myrow[y]:$myrow[z])");
       insert_into_news ($target_id, 5, $text);
       if ($blocks) {
