@@ -74,7 +74,7 @@ function send_msg_fleet_recall ($target_id, $eta, $order) {
      ". It will be home in <b>$eta</b> ticks.";
 
   $text_other =  "A fleet from " .
-     coord_ref($myrow[x], $myrow[y], "<b>$myrow[planetname] ($myrow[x]:$myrow[y]:$myrow[z])</b>") .
+     coord_ref($myrow['x'], $myrow['y'], "<b>$myrow[planetname] ($myrow[x]:$myrow[y]:$myrow[z])</b>") .
      " has been recalled."; 
 
   /* type == 9 -> recall */
