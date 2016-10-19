@@ -925,7 +925,7 @@
 	{
 		// $Array["input"] = preg_replace( "/\r/", " ", $Array["input"]);
 		// $Array["input"] = preg_replace( "/\n/", " ", $Array["input"]);
-		if ( $Array["fleetbase"] || $Array["fleet1"] || $Array["fleet2"] || $Array["fleet3"] )
+		if ( ISSET($Array["fleetbase"]) || ISSET($Array["fleet1"]) || ISSET($Array["fleet2"]) || ISSET($Array["fleet3"]) )
 				preg_match_all( "/(\w*\s?[\w]+)\s([0-9]+|\s)\s([0-9]+|\s)\s([0-9]+|\s)\s([0-9]+|\s)([^0-9a-zA-Z]|$)/iU", $Array["input"], $output, PREG_SET_ORDER  );
 			else
 				preg_match_all( "/(\w*\s?[\w]+)\s([0-9]+)([^0-9]|$)/isU", $Array["input"], $output, PREG_SET_ORDER  );
