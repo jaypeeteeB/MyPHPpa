@@ -150,7 +150,11 @@ if (ISSET($_POST["submit"])) {
   }
   if (ISSET($_POST["trade"])) {
     $tn = (int) ($_POST["trade_num"] * 1.05);
-    $tg = (int) ($$_POST["trade_num"]);
+    $tg = (int) ($_POST["trade_num"]);
+    
+    $trade_from = (int) ($_POST["trade_from"]); 
+    $trade_to = (int) ($_POST["trade_to"]);
+
     if ($trade_from == $trade_to) {
       $msg .= "You dont want to do that.";
     }
