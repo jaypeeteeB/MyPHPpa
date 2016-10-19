@@ -420,7 +420,7 @@
 					$DefShips["ToBeKilled"] = $DefShips["MaxGrab"];
 
 				if (ISSET($_REQUEST["ToGetAll"])) $ToGetAll = $_REQUEST["ToGetAll"];
-				else ToGetAll = 0;
+				else $ToGetAll = 0;
 
 				CalcLog ( "ExcessShots : $ExcessShots, ToGetAll : $ToGetAll<br>");
 				CalcLog ( "ToBeGotten: ". $DefShips["ToBeKilled"] ."<br>\n");
