@@ -50,5 +50,4 @@ if (ISSET($_REQUEST["tametalroid"])) $tametalroid = $_REQUEST["tametalroid"];
 if (ISSET($_REQUEST["tacrystalroid"])) $tacrystalroid = $_REQUEST["tacrystalroid"];
 if (ISSET($_REQUEST["taeoniumroid"])) $taeoniumroid = $_REQUEST["taeoniumroid"];
 if (ISSET($_REQUEST["tauninitroid"])) $tauninitroid = $_REQUEST["tauninitroid"];
-
 ?>

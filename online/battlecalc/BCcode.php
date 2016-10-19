@@ -921,7 +921,7 @@
 	}
 
         /* process unit scan/overview/military pastes */
-	if ( $Array["input"] && $Array["Addtype"] != "BattleReport" )
+	if ( ISSET($Array["input"]) && $Array["Addtype"] != "BattleReport" )
 	{
 		// $Array["input"] = preg_replace( "/\r/", " ", $Array["input"]);
 		// $Array["input"] = preg_replace( "/\n/", " ", $Array["input"]);
