@@ -25,7 +25,7 @@ require_once "admform.php";
 function print_mail ($r) {
   
   $id = $r["id"];
-  $text = ereg_replace ("<", "&lt;", $r["text"]);
+  $text = preg_replace ("/</", "&lt;", $r["text"]);
 
   echo "<br>".
 "<table width=640 border=1 cellpadding=4>".
