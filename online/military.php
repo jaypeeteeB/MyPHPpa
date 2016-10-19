@@ -415,7 +415,7 @@ function send_missile ($num, $x, $y, $z) {
     $fleet_id = $row[1];
   }
 
-  if ($x==$myrow[x] && $y==$myrow[y] && $z==$myrow[z]) {
+  if ($x==$myrow['x'] && $y==$myrow['y'] && $z==$myrow['z']) {
     return "Target planet banned ;-)";
   }
 
