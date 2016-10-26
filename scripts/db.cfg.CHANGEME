@@ -1,0 +1,13 @@
+
+# temporary area
+BASEDIR=/tmp
+# webserver download area 
+TARGETDIR=/online/img
+
+#database parameter
+DBNAME="mydb"
+DBUSER="myus"
+DBPASS="mypw"
+DBHOST="myip"
+
+
