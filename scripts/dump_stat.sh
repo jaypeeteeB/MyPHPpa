@@ -12,12 +12,15 @@ if [ -z ${BASEDIR} -o -z ${DBNAME} ]; then
   exit 2
 fi
 
-exit
+if [ ! -d ${BASEDIR} ]; then
+  mkdir -p ${BASEDIR}
+fi
+
 rm -f ${BASEDIR}/universe.db
 rm -f ${BASEDIR}/galaxy.db
 rm -f ${BASEDIR}/tick.db
 
-mysql -u $DBUSER -h $DBHOST -p$DBPASS $DBNAME <<EOF
+mysql -u ${DBUSER} -h ${DBHOST} -p${DBPASS} ${DBNAME} <<EOF
 
 SELECT now(), tick FROM general
  INTO OUTFILE '${BASEDIR}/tick.db'
@@ -37,6 +40,11 @@ SELECT p.x AS x , p.y AS y, g.name, SUM(p.score) AS score,
  INTO OUTFILE '${BASEDIR}/galaxy.db'
  FIELDS terminated by ';';
 EOF
+
+if [ ! -f ${BASEDIR}/tick.db ]; then
+  echo "DBaccess failed"
+  exit 3
+fi
 
 echo '# Date, Tick' > ${BASEDIR}/universe.txt 
 echo -n '# ' >> ${BASEDIR}/universe.txt
