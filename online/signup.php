@@ -129,7 +129,18 @@ function send_password($pid) {
   my_header(0, 0, 0);
 
   $pu = parse_url($_SERVER["PHP_SELF"]);
-  $gameurl = "http://" . $pu["host"] . $pu["path"];
+  
+  if (ISSET($pu['scheme'])) {
+    $game_proto = $pu['scheme'] . '://';
+  } else {
+    if (ISSET($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+      $game_proto = 'https://';
+    } else {
+      $game_proto = 'http://';
+    } 
+  } 
+  
+  $gameurl = $game_proto . $_SERVER['HTTP_HOST'] . $pu['path'];
 
   mail("$rowu[email]", "$game signup password", 
        "\nLogin: $rowu[login]\n".
