@@ -1,0 +1,15 @@
+/*
+MyPHPpa
+Copyright (C) 2016 Jens Beyer
+*/
+
+#gpl{
+  display:none;
+  font-size: 80%;
+  color: #e0e0e0;
+  margin: 20px;
+}
+#index_txt:hover #gpl{
+  display:block;
+}
+

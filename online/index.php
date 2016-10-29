@@ -78,8 +78,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
 	if ($stat[0] == 1) {
           my_header($topscript,0,0);
 
-          echo "<center><br><img src=\"".
-               "img/logo.jpg\"" .
+          echo "<center><br><img src=\"img/logo.jpg\" alt=\"MyPHPpa logo\" " .
                "width=\"290\" height=\"145\"><br><br>\n";
 	  echo "<b>Your account is in Vacation until ".
 	    "$stat[1]</b></center>";
@@ -117,8 +116,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
                && $mytick>0 && $myrow[0]>2) {
         // just logged out
         my_header("",0,0);
-        echo "<center><br><img src=\"".
-               "img/logo.jpg\"" .
+        echo "<center><br><img src=\" img/logo.jpg\" alt=\"MyPHPpa logo\" " .
                "width=\"290\" height=\"145\"><br><br>\n";
         echo "<table border=\"1\" cellpadding=\"15\">\n";
         echo "<tr><td><b>Your account is already logged in</b> or ".
@@ -140,8 +138,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
 
       my_header($topscript,0,0);
 
-      echo "<center><br><img src=\"".
-           "img/logo.jpg\"" .
+      echo "<center><br><img src=\" img/logo.jpg\"  alt=\"MyPHPpa logo\" " .
            "width=\"290\" height=\"145\"><br><br>\n";
       echo "Your account has been <b>banned</b>, reason: \"$reason\"<br>".
            "Have a look at the <a href=help_general.php>".
@@ -203,9 +200,12 @@ $topscript="<TITLE>MyPHPpa</TITLE>".
   "<!--\n if(top!=self)\n top.location=self.location;\n".
   "//-->\n </script>\n";
 
+$topscript = $topscript . 
+  "<LINK rel=stylesheet type=\"text/css\" href=\"all_style.css\">\n";
+
 my_header($topscript,0,0);
 
-echo "<center><br><img src=\"img/logo.jpg\"" .
+echo "<center><br><img src=\"img/logo.jpg\" alt=\"MyPHPpa logo\" " .
      "width=\"290\" height=\"145\"><br><br>\n";
 
 echo <<<EOF
