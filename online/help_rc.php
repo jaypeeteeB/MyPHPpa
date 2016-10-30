@@ -22,6 +22,8 @@
 require "options.php";
 require "dblogon.php";
 
+$imgpath="true";
+
 require "header.php";
 my_header("",0,0);
 
@@ -73,7 +75,7 @@ titlebox("Res / Con");
 ?>
 <center>
 <table border="0" width="650" style="font-size: 12px;">
-<tr class="a"><th colspan="6">Research paths</th></tr>
+<tr class="a"><th colspan="7">Research paths</th></tr>
 <tr class="b">
   <th width="108">War</th>
   <th width="108">Science</th>

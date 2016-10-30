@@ -22,6 +22,7 @@
 require "options.php";
 require "dblogon.php";
 
+$imgpath="true";
 require "header.php";
 my_header("",0,0);
 
@@ -33,18 +34,16 @@ titlebox("Links");
 <center>
 <table border=1 width="650" cellpadding="3">
 <tr class="a"><th colspan=2>A collection of links related to this game</th></tr>
-<tr class="b"><th width="100">Link</th>
-              <th>Description</th></tr>
+<tr class="b"><th width="100">Link</th><th>Description</th></tr>
+<tr><td align="center"><a href="https://github.com/jaypeeteeB/MyPHPpa">GitHub</a></td><td>Clone or contribute at GitHub</td></tr>
+<tr><td align="center"><a href="http://MyPHPpa.de">MyPHPpa</a></td><td>Home page of MyPHPpa. Find old code for download.</td></tr>
 <tr><td>&nbsp;</td><td>If you want to build your own toolbox: database 
 dumps can be found every 15 minutes on<br>
 &nbsp;&nbsp;/img/universe.txt<br>
 &nbsp;&nbsp;/img/galaxy.txt</td></tr>
 
-<tr><td align="center"><a href="http://www.planetarion.com" target="_blank">PA</a>
-</td><td>
-<br>For all who didnt know it - Real PA is still alive
-<br>
-</td></tr>
+<tr><td align="center"><a href="http://www.planetarion.com" target="_blank">PA</a></td>
+<td><br>For all who didnt know it - Real PA is still alive<br></td></tr>
 <!--
 <tr><td colspan=2>
 <table border=0 width=100%>

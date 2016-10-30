@@ -22,6 +22,7 @@
 require "options.php";
 require "dblogon.php";
 
+$imgpath="true";
 require "header.php";
 my_header("",0,0);
 
@@ -37,9 +38,9 @@ titlebox("General");
 This means: I make the rules
 how and whenever I want. If You dont have fun leave the game.</td></tr>
 <tr><td valign="top">2.</td><td>If I dont have fun anymore the game stops.</td></tr>
-<tr><td valign="top">3.</td><td>Socalled multies arent allowed - account sharing is interpreted as multiing, as is account switching/hopping.</td></tr>
-<tr><td valign="top">4.</td><td>Socalled bots, scripting and farming or donating roids, ships or salvage is forbidden.</td></tr>
-<tr><td valign="top">5.</td><td>Spamming the Forum or via Mail isnt allowed.</td></tr>
+<tr><td valign="top">3.</td><td>So called multies arent allowed - account sharing is interpreted as multiing, as is account switching/hopping.</td></tr>
+<tr><td valign="top">4.</td><td>So called bots, scripting and farming or donating roids, ships or salvage is forbidden.</td></tr>
+<tr><td valign="top">5.</td><td>Spamming the forum or via mail isnt allowed.</td></tr>
 <tr><td valign="top">6.</td><td>If you and friends or whatever play over
 the same IP (LAN), you should send the Mod (1:1:2) or Admin (1:1:1) an ingame 
 message  - multiple accounts from one IP as are those coming through 
