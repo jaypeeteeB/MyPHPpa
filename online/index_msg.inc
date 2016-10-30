@@ -19,7 +19,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 </div></div>
 <br>
-This is a webrowser (text!) based multi user ticker driven science fiction space game.<br>
+This is a fast paced webrowser (text!) based multi user ticker driven science fiction space game.<br>
 Download code at <a href="https://github.com/jaypeeteeB/MyPHPpa">GitHub</a> 
 or visit <a href="http://myphppa.de">MyPHPpa Homepage</a>.
 <br>
