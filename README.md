@@ -9,4 +9,7 @@ An PHP &amp; MySQL based multi user browser game.
   - Upgraded code to recent php (7.x), mysql/mariadb (10.x).
   - Upgraded license to GPLv3
 
+To run this game on an own (linux) server clone the github code, edit
+the configs, create a mysql/mariadb database and compile the ticker.
+
 (c) khan 2003, 2007, 2016
