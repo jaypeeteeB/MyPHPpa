@@ -22,6 +22,7 @@
 require "options.php";
 require "dblogon.php";
 
+$imgpath = "true";
 require "header.php";
 my_header("",0,0);
 

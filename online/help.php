@@ -36,6 +36,8 @@ titlebox("Help");
 <tr><td align="center"><a href="help_goal.php">Game goals</a></td></tr>
 <tr><td align="center"><a href="help_stat.php">Military stats</a></td></tr>
 <tr><td align="center"><a href="help_rc.php">Research tree</a></td></tr>
+<tr><td align="center"><a href="help_startup.php">How to start successfully</a></td></tr>
+<tr><td align="center"><a href="help_story.php">How did you get in here? The story!</a></td></tr>
 <tr><td align="center"><br><a href="index.php">Back to login</a></td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td align="center"><span class="red">To signup, login and play this game you need to enable cookies in your browser!</span></td></tr>
