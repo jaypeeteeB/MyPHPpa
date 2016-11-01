@@ -77,7 +77,7 @@ function print_mail ($r) {
   echo "</td></tr></table>";
 }
 
-function print_td ($text, $cp, $link="", $jscript=0) {
+function print_jtd ($text, $cp, $link="", $jscript=0) {
   global $browser_type, $imgpath;
 
   $width = (100. / 6. ) * $cp;
@@ -126,7 +126,7 @@ function msg_menu ($folder) {
 <tr><th class="a" colspan="6">Global Message Options</th></tr>
 <tr>
 EOF;
-  print_td("New message", 6, 
+  print_jtd("New message", 6, 
            make_popup_link('New_Message','nsend_message.php','new=1'), 1);
   echo "</tr>\n<tr>";
 
@@ -151,21 +151,21 @@ EOF;
     case 3: $name="Saved messages"; break;
     }
     if ($i==$folder) {
-      print_td("<b>$name</b>&nbsp;:&nbsp;$num[$i]", 2);
+      print_jtd("<b>$name</b>&nbsp;:&nbsp;$num[$i]", 2);
     } else {
-      print_td("$name&nbsp;:&nbsp;$num[$i]", 2, $_SERVER['PHP_SELF']."?folder=$i");
+      print_jtd("$name&nbsp;:&nbsp;$num[$i]", 2, $_SERVER['PHP_SELF']."?folder=$i");
     }
   }
 
   echo "</tr>\n<tr>";
-  print_td("Delete all messages in current folder",3, 
+  print_jtd("Delete all messages in current folder",3, 
            $_SERVER['PHP_SELF']."?folder=$folder&delete_all=1");
 
   if ($folder != 3) {
-    print_td ("Save all messages in current folder", 3, 
+    print_jtd ("Save all messages in current folder", 3, 
               $_SERVER['PHP_SELF']."?folder=$folder&save_all=1");
   } else {
-    print_td ("Save all messages in current folder", 3);
+    print_jtd ("Save all messages in current folder", 3);
 
     if ($folder == 1) {
       $q = "UPDATE msg SET old=1 WHERE planet_id='$Planetid' ".
@@ -185,9 +185,9 @@ function moc_menu ($x, $y) {
 <tr>
 EOF;
 
-  print_td("Send message to all galaxy members", 3,
+  print_jtd("Send message to all galaxy members", 3,
            make_popup_link('Galaxy_Message','nsend_message.php','cluster='.$x.'&gal='.$y), 1);
-  print_td("Send message to all MoC in Cluster", 3,
+  print_jtd("Send message to all MoC in Cluster", 3,
            make_popup_link('Cluster_Message','nsend_message.php','cluster='.$x), 1);
 
   echo "</tr></table>\n";
@@ -206,6 +206,10 @@ if ($myrow["has_mail"] == 1) {
   $myrow["has_mail"] = 0;
   mysqli_query ($db, "UPDATE planet SET has_mail=0 WHERE id='$Planetid'" );
 }
+
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 
 /* top table is written now */
 top_header($myrow);
@@ -283,6 +287,8 @@ if (ISSET($_REQUEST['new']) || ISSET($_REQUEST['reply'])
     }
   }
 }
+
+echo "</div>\n";
 
 require "footer.php";
 ?>

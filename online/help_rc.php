@@ -71,6 +71,17 @@ function rrow ($a_id) {
   echo "</tr>";
 }
 
+require_once "session.inc";
+session_init();
+$need_navigation=0;
+if (!session_check())
+  $need_navigation=1;
+
+if($need_navigation == 1) {
+  require_once "navigation.inc";
+  echo "<div id=\"main\">\n";
+}
+
 titlebox("Res / Con");
 ?>
 <center>
@@ -121,5 +132,8 @@ To Scan new Asteroids you have to research till
 </center>
 
 <?php
+if($need_navigation == 1)
+  echo "</div>\n";
+
 require "footer.php";
 ?>

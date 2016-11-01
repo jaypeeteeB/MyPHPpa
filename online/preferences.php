@@ -262,9 +262,11 @@ if (ISSET($extra_header)) {
   my_header("",0,0);
 }
 
-/* top table is written now */
-/* top_header ($myrow); */
+require_once "navigation.inc";
 
+echo "<div id=\"main\">\n";
+
+/* top_header ($myrow); */
 titlebox ("Preferences", $msg);
 ?>
 
@@ -455,6 +457,7 @@ EOF;
 ?>
 
 </center>
+</div>
 
 <?php
 

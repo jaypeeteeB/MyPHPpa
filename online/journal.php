@@ -33,6 +33,10 @@ if (ISSET($_GET["hide"]) && $_GET["hide"] != 0) {
     "WHERE planet_id='$Planetid' AND target_id='$hide'" );
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -169,6 +173,8 @@ EOF;
 ?>
 
 </center>
+</div>
+
 <?php
 require "footer.php";
 ?>

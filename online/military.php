@@ -588,6 +588,9 @@ function rtime () {
   echo "Runtime: ". number_format($diff_time, 3) ." s<br>";
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -835,6 +838,9 @@ EOF;
 
 }
 ?>
+
+</center>
+</div>
 
 <?php
 require "footer.php";

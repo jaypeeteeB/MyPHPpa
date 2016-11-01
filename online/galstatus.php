@@ -200,6 +200,9 @@ function print_outgoing ($x, $y) {
   print_total ($x, $y, 1);
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -236,6 +239,7 @@ print_outgoing ($myrow["x"], $myrow["y"]);
 ?>
 </table>
 </center>
+</div>
 
 <?php
 require "footer.php";

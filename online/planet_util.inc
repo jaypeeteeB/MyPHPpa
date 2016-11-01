@@ -58,7 +58,7 @@ function get_coord_name ($id) {
 }
 
 function coord_ref($x, $y, $text) {
-  return "<a href=galaxy.php?submit=search&x=$x&y=$y>$text</a>";
+  return "<a href=\"galaxy.php?submit=search&x=$x&y=$y\">$text</a>";
 }
 
 function get_status ($id) {

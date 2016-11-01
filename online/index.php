@@ -170,7 +170,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
     do_log_id($myrow[0], 1, 2, get_type()); 
     // event:login=1, class:login/out=1    
  
-    Header("Location: main.php");
+    Header("Location: overview.php");
 
     die;
   } else {

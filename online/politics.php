@@ -31,6 +31,9 @@ $fid = get_galaxy_id($myrow["x"], $myrow["y"]);
 if (!ISSET($msg)) $msg = "";
 $msg .= forum_init ($fstyle, $fid);
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 top_header ($myrow);
 
 if (ISSET($_REQUEST["fthread"]))
@@ -58,5 +61,6 @@ if (ISSET($_REQUEST["fthread"])) {
   forum_list_thread ($fstyle, $fid);
 }
 
+echo "</div>\n";
 require "footer.inc";
 ?>

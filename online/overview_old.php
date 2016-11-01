@@ -26,10 +26,8 @@ function print_coords ($x, $y, $z) {
   return "<A HREF=\"galaxy.php?submit=1&x=$x&y=$y\">$x:$y:$z</A>";
 }
 
-require_once "navigation.inc";
-
-echo "<div id=\"main\">\n";
 /* top table is written now */
+
 top_header($myrow);
 titlebox("Overview");
 ?>
@@ -291,7 +289,7 @@ if ($unit_res && mysqli_num_rows ($unit_res) > 0) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"25%\"></td><td width=\"15%\"></td></tr>";
     echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<tr><th class=\"a\" colspan=\"5\">" .
+      "<th class=\"a\" colspan=\"5\">" .
       "Ships ($total units total)</th></tr>\n$table";
     echo "</table>";
   }
@@ -326,7 +324,7 @@ if ($pds_res && mysqli_num_rows ($pds_res) > 0) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"25%\"></td><td width=\"15%\"></td></tr>";
     echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<tr><th class=\"a\" colspan=\"5\">" .
+      "<th class=\"a\" colspan=\"5\">" .
       "Planetarian Defence System ($total units total)</th></tr>\n$table";
     echo "</table>";
   }
@@ -339,20 +337,19 @@ $total = $myrow["metalroids"] + $myrow["crystalroids"] + $myrow["eoniumroids"]
          + $myrow["uniniroids"];
 
 echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<tr><th class=\"a\" colspan=\"5\">" .
+      "<th class=\"a\" colspan=\"5\">" .
       "Asteroids ($total total)</th></tr>";
 
-echo "<tr><td width=\"25%\">Metal</td><td width=\"15%\" align=\"right\">".
+echo "<td width=\"25%\">Metal</td><td width=\"15%\" align=\"right\">".
       $myrow["metalroids"] . "</td><td width=\"20%\">&nbsp;</td>";
 echo "<td width=\"25%\">Crystal</td><td width=\"15%\" align=\"right\">".
       $myrow["crystalroids"] . "</td></tr>\n";
-echo "<tr><td width=\"25%\">Eonium</td><td width=\"15%\" align=\"right\">".
+echo "<td width=\"25%\">Eonium</td><td width=\"15%\" align=\"right\">".
       $myrow["eoniumroids"] . "</td><td width=\"20%\">&nbsp;</td>";
 echo "<td width=\"25%\">Uninitiated</td><td width=\"15%\" align=\"right\">".
       $myrow["uniniroids"] . "</td></tr>\n";
 
 echo "</table>\n</center>\n";
-echo "</div>\n";
 
 require "footer.php";
 ?>

@@ -2,7 +2,7 @@
 
 /*
  * MyPHPpa
- * Copyright (C) 2003, 2007 Jens Beyer
+ * Copyright (C) 2016 Jens Beyer
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,41 +19,51 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-require "options.php";
-include_once "session.inc";
+require "auth_check.php";
 
+require "options.php";
+
+include_once "session.inc";
 session_init();
 if (session_check()) {
   echo "error check session";
   Header("Location: index.php");
   die;
  }
+pre_auth($Username,$Password,$Planetid,$_COOKIE["Valid"]);
 
 require "dblogon.php";
+db_auth($db,$Username,$Password,$Planetid);
 
-$result = mysqli_query($db, "SELECT login,settings FROM user ".
-                      "WHERE planet_id='$Planetid'");
+require_once "mobile.inc";
 
-if (!$result || mysqli_num_rows($result) != 1) {
-  session_kill();
-  echo "No such user error";
-  Header("Location: error.php");
-  die;
+if (ISSET($imgpath) && $imgpath != "") {
+  echo "<html>\n<head>\n";
+  if ($mobile_detect) {
+    echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
+  } else {
+    if ($mysettings&32)
+      echo "<LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
+    else
+      echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
+  }
+} else {
+  echo "<html>\n<head>\n";
+  if ($mysettings&32)
+    echo "<LINK rel=stylesheet type=\"text/css\" href=\"npa.css\">";
+  else
+    echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">";
 }
+echo <<<EOF
+</head>
+<body class="nav">
+EOF;
 
-require "headerf.php";
+
+require_once "navigation.inc";
 
 ?>
 
-<FRAMESET COLS="150,*"  frameborder="0" framespacing="0">
-  <FRAME SRC="nav.php" NAME="navigation" noresize frameborder="0">
-  <FRAME SRC="overview.php" NAME="main" frameborder="0">
-  <NOFRAMES>
-    <A HREF="nav.php">Navigation</A><br>
-    <A HREF="overview.php">Overview</A>
-  </NOFRAMES>
-</FRAMESET>
+</body>
+</html>
 
-<?php
-require "footerf.php";
-?>

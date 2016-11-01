@@ -41,6 +41,9 @@ if ($all) {
     $msg = "You havent joined an alliance.";
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 top_header ($myrow);
 
 if ($all) {
@@ -76,5 +79,7 @@ if ($all) {
   titlebox ("Alliance", $msg);
 }
 
+echo "</center>\n";
+echo "</div>\n";
 require "footer.inc";
 ?>

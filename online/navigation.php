@@ -85,6 +85,8 @@ if ($mobile_detect) {
     echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
 }
 echo <<<EOF
+<meta name="viewport" content="width=150,initial-scale=1.0" />
+
 </head>
 <body background="$imgpath/myphppa/navbg.jpg" text="#FFFFFF">
 <div class="nav">

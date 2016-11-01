@@ -28,6 +28,17 @@ my_header("",0,0);
 
 require "msgbox.php";
 
+require_once "session.inc";
+session_init();
+$need_navigation=0;
+if (!session_check())
+  $need_navigation=1;
+
+if($need_navigation == 1) {
+  require_once "navigation.inc";
+  echo "<div id=\"main\">\n";
+}
+
 titlebox("Goals");
 ?>
 <center>
@@ -75,5 +86,8 @@ universe.
 </center>
 
 <?php
+if($need_navigation == 1)
+  echo "</div>\n";
+
 require "footer.php";
 ?>

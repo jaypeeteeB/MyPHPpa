@@ -134,6 +134,10 @@ if (ISSET($_REQUEST["toggle"])) {
                "WHERE planet_id='$Planetid'");
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -179,7 +183,9 @@ if (mysqli_num_rows($result) > 0) {
 } else {
   echo "<tr><td colspan=4>No researches available</td></tr>";
 }
-echo "</table>\n";
+echo "</table>\n</center>\n";
+
+echo "</div>\n";
 
 require "footer.php";
 ?>

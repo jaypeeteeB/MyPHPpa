@@ -257,6 +257,10 @@ require "news_util.php";
   }
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -429,10 +433,12 @@ EOF;
 </table>
 EOF;
       }
-    }
     echo "</form>\n";
+    }
   }
 }
+echo "</center>\n";
+echo "</div>\n";
 
 require "footer.php";
 ?>

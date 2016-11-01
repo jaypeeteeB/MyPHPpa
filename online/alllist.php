@@ -23,6 +23,9 @@ require "popup_header.inc";
 require "standard.php";
 include_once "alliance_func.inc";
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -34,6 +37,7 @@ echo "<center>\n";
 list_alliances();
 ?>
 </center>
+</div>
 
 <?php
 require "footer.php";

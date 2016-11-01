@@ -103,6 +103,9 @@ if (ISSET($_POST["submit"])) {
   if (ISSET($_POST["pds_27"])) prod_unit (27, $_POST["pds_27"]);
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -205,6 +208,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 ?>
 </table>
 </center>
+</div>
 
 <?php
 require "footer.php";

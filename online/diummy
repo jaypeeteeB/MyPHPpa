@@ -1,0 +1,12 @@
+
+
+
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
+
+
+echo "</div>\n";
+</div>
+

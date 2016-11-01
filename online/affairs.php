@@ -122,6 +122,10 @@ function calc_exile_cost() {
   return (int) ($row[0]*0.05);
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header ($myrow);
 
@@ -484,7 +488,7 @@ EOF;
         Resources are taken from Galaxy Fund in the order E, C and last M.</td></tr>
     <tr><td>Start Exile</td>
 	  <td><select name="exilevote">
-              <option value="-1">Clear</option>$moc_list</select></td></td>
+              <option value="-1">Clear</option>$moc_list</select></td>
 	  <td align="center">
             <input type=submit value="  Exile  " name="startexile"></td></tr>
 EOF;
@@ -496,6 +500,7 @@ EOF;
 }
 
 echo "\n</center>\n";
+echo "</div>\n";
 
 require "footer.php";
 ?>

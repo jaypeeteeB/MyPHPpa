@@ -112,6 +112,10 @@ if (ISSET($_REQUEST["submit"])) {
   if (ISSET($_POST["ship_26"])) prod_unit (26, $_POST["ship_26"]);
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -229,6 +233,7 @@ if (mysqli_num_rows($result) > 0) {
 </tr>
 </table>
 </center>
+</div>
 
 <?php
 require "footer.php";

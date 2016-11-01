@@ -89,6 +89,10 @@ if (ISSET($_REQUEST["hide"])) {
     "WHERE planet_id='$Planetid' AND id='$hide'" );
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -163,6 +167,8 @@ if ($result && mysqli_num_rows($result) > 0) {
 ?>
 </table>
 </center>
+</div>
+
 <?php
 
 require "footer.php";

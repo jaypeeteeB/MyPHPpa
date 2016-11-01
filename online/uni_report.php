@@ -49,7 +49,7 @@ function print_uni_row ($rank, $row) {
     }
   } else {
     if ($row[8] != 0) {
-      $tag_cell="<td align=\"center\ align=\"center\">".
+      $tag_cell="<td align=\"center\">".
                "<span class=\"red\"><b>". get_alliance_tag($row[8]) .
                "</b></span></td>\n";
     } else {

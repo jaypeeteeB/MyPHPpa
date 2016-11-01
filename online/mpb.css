@@ -130,38 +130,6 @@ div.st table a {
 }
 div.st table a:hover { background-color: #686888; }
 
-div.nav {
-  height: 100%;
-  width: 100%;
-}
-table.nav { 
-  width: 100%;
-  border: 0px solid;
-}
-div.nav table.nav a {
- color: white;
- display: block;
- width: 100%;
- text-decoration: none;
-}
-div.nav > a:link { color: white; }
-div.nav > a:visited { color: white; }
-div.nav > a:active { color: white; }
-div.nav > a:focus { color: white; }
-table.nav a:hover { background-color: #A8A8A8; }
-
-table.nav td {
-  border-top: 0px solid gray;
-  border-left: 0px solid gray;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
-}
-table.nav td.hidden {
-  visibility: hidden;
-  border-width: 0px;
-  height: 7px;
-}
-
 div.cent {
   width: auto;
   text-align: center;
@@ -237,5 +205,102 @@ table.scm td {
   border-right-color: #b8e0b8;
   border-bottom-color: #b8e0b8;
 }
+
+div.nav {
+  width: 150px;
+  position: fixed;
+}
+
+#nav {
+    font-size: 14px;
+    border: 0px solid;
+    border-color: gray;
+    font-family: verdana, arial, sans-serif;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: auto;
+    height: 100%;
+}
+#nav a {
+ color: white;
+ display: block;
+ text-decoration: none;
+}
+
+div.nav > a:link { color: white; }
+div.nav > a:visited { color: white; }
+div.nav > a:active { color: white; }
+div.nav > a:focus { color: white; }
+#nav a:hover { background-color: #A8A8A8; }
+
+#nav li {
+  border-top: 0px solid gray;
+  border-left: 0px solid gray;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+}
+#nav li.hidden {
+  visibility: hidden;
+  border-width: 0px;
+  height: 7px;
+}
+
+#nav ul {
+  border: 1px  solid;
+  border-color: white;
+  padding: 1em;
+  padding-left: 1.5em;
+  margin: 0px;
+  margin-left: 20px;
+  display: none;
+  width: 120px;
+  background-color: #000020;
+  position: absolute;
+  z-index: 1;
+}
+
+#nav li:hover > ul {
+  display: block;
+}
+
+
+@media screen and (max-width: 850px) {
+#menu-icon {
+		color: #000;
+		width: 42px;
+		height: 30px;
+		background: #ecebeb url(img/menu-icon.png) no-repeat 10px center;
+		padding: 8px 10px 0px 42px;
+		cursor: pointer;
+		border: solid 1px #666;
+		display: block; /* show menu icon */
+	}
+div.nav {
+  width: 0px;
+}
+#nav {
+  display: none; 
+}
+#main {
+  margin-left: 0px;
+}
+#menu-icon nav:hover > ul {
+  display: inline-block;
+}
+}
+
+@media screen and (min-width: 850px) {
+#menu-icon {
+	display: none; /* hide menu icon initially */
+}
+#main {
+  margin-left: 151px;
+}
+}
+
+
+
+
 
 </STYLE>

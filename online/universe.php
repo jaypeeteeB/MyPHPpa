@@ -22,6 +22,9 @@
 require "standard.php";
 require "uni_report.php";
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -119,6 +122,8 @@ EOF;
   print_universe_alliance_report ();
   echo "</table>\n";
 }
+
+echo "</center></div>\n";
 
 require "footer.php";
 ?>
