@@ -99,23 +99,22 @@ function top_header($myrow) {
     if ($diff < 60) {
       //  $tdate = "$diff sec ago";
       if ($diff < 30) 
-	$tdate = "<span class=\"norm\" id=\"myt\">$diff</span> sec ago";
+	$tdate = "Last: <span class=\"norm\" id=\"myt\">$diff</span> sec ago";
       else
-        $tdate = "<span class=\"red\" id=\"myt\">$diff</span> sec ago";
+        $tdate = "Last: <span class=\"red\" id=\"myt\">$diff</span> sec ago";
     } else {
-      $tdate = sprintf("%02d:%02d:%02d ago", ($diff/3600),($diff%3600)/60, $diff%60);
+      $tdate = sprintf("Last: %02d:%02d:%02d ago", ($diff/3600),($diff%3600)/60, $diff%60);
     }
     // $tdate = date("d/m H:i:s", filemtime('/tmp/ticker.run'));
   } else {
-    $tdate = "<b><span class=\"red\">Ticks stopped</span></b>";
+    $tdate = "<span class=\"red\">Ticks stopped</span>";
   }
 
   echo "<center>\n";
   if ($imgpath && $imgpath != "") {
-    echo "<TABLE class=\"small\" WIDTH=\"670\" border=\"1\" ".
-	"background=\"$imgpath/myphppa/top.jpg\">\n";
+    echo "<TABLE class=\"top\">\n";
   } else {
-    echo "<TABLE class=\"small\" WIDTH=\"670\" border=\"1\" bgcolor=\"#efefef\">\n";
+    echo "<TABLE class=\"top\">\n";
   }
   echo "<tr><td colspan=3 align=left width=\"60%\"><span class=\"medium\">".
     "<b>Score</b>: ".
@@ -125,7 +124,7 @@ function top_header($myrow) {
     $myrow["planetname"]."</span></td></tr>\n";
   
   echo "<tr><td align=left><span class=\"tiny\">$gdate</span></td>\n".
-    "<td align=left><span class=\"tiny\">Last: $tdate</span></td>\n".
+    "<td align=left><span class=\"tiny\">$tdate</span></td>\n".
     "<td align=center><span class=\"tiny\"><b>MyT</b>: ".
     "<span id=\"mtt\">$mytick</span></span></td>\n".
     "<td align=center>$player_ip</td><td align=right>".

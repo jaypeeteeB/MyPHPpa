@@ -32,14 +32,44 @@ TABLE
     border-color: gray;
     font-family: verdana, arial, sans-serif;
 }
+
+TABLE.top 
+{
+  width:670px;
+  background: #010528 url(img/myphppa/top.jpg) repeat;
+  font-size:9pt; font-family:verdana, arial, sans-serif;
+}
+table.top td
+{
+  border: 1px solid;
+  border-color: #a0a0a0;
+}
+
+table.titlebox 
+{
+ width: 650px;
+}
+
+table.std 
+{
+ width: 650px;
+}
+table.std th
+{
+  border: 1px solid;
+  border-color: #a0a0a0;
+}
+table.std td
+{
+  border: 1px solid;
+  border-color: #a0a0a0;
+}
+
+
 TR { text-align: left; }
 TH { text-align: center; }
 TH.left { text-align: left; }
 TH.right { text-align: right; }
-TABLE.report { color:#000000; background-color:#e0e0e0; }
-TH.report { background-color:#d0d0d0; text-align: left; }
-TR.report { background-color:#d0d0d0; }
-TD.report { background-color:#d0d0d0; }
 TH.a { background-color:#494f80; }
 
 TH.f0 { background-color:#494f80; }
@@ -207,7 +237,6 @@ table.scm td {
 }
 
 div.nav {
-  width: 150px;
   position: fixed;
 }
 
@@ -257,42 +286,63 @@ div.nav > a:focus { color: white; }
   width: 120px;
   background-color: #000020;
   position: absolute;
-  z-index: 1;
+  z-index: 5;
 }
 
 #nav li:hover > ul {
   display: block;
 }
 
-
+@media screen and (max-width: 670px) {
+TABLE.top 
+{
+  width:480px;
+}
+table.titlebox
+{
+  width: 480px;
+}
+table.std
+{
+  width: 480px;
+}
+}
 @media screen and (max-width: 850px) {
 #menu-icon {
 		color: #000;
-		width: 42px;
+		width: 0px;
 		height: 30px;
 		background: #ecebeb url(img/menu-icon.png) no-repeat 10px center;
-		padding: 8px 10px 0px 42px;
+		padding: 8px 10px 0px 32px;
 		cursor: pointer;
 		border: solid 1px #666;
 		display: block; /* show menu icon */
 	}
 div.nav {
-  width: 0px;
+  width: 120px;
 }
-#nav {
-  display: none; 
+#nav { 
+  display: none;
+  background-color: #494f80;
+  z-index: 2;
+  border: 1px  solid;
+  border-color: white;
 }
 #main {
   margin-left: 0px;
 }
-#menu-icon nav:hover > ul {
-  display: inline-block;
+div.nav:hover ul#nav{
+  display: block;
 }
 }
 
 @media screen and (min-width: 850px) {
 #menu-icon {
 	display: none; /* hide menu icon initially */
+}
+div.nav {
+  width: 150px;
+  background: #494f80 url(img/myphppa/navbg.jpg) repeat;
 }
 #main {
   margin-left: 151px;

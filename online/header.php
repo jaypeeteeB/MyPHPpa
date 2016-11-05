@@ -40,7 +40,7 @@ function my_header ($extra=0,$sess=1,$tickjs=1) {
    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
    <META HTTP-EQUIV="Expires" CONTENT="Sat, 1 Jan 2002 00:00:00 GMT">
    <META NAME="Author" CONTENT="khan@web.de (Jens Beyer)">
-
+   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
 <?php
 
 if (file_exists('/tmp/ticker.run') && ($mysettings&16) && $tickjs==1) {

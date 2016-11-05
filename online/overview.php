@@ -34,7 +34,7 @@ top_header($myrow);
 titlebox("Overview");
 ?>
 <center>
-<table width="650" border="1" cellpadding="5" >
+<table class="std" cellpadding="5" >
 <tr><th class="a">Message of the Day</th></tr>
 <tr><td><?php include "motd.php" ?></td></tr>
 </table>
@@ -211,7 +211,7 @@ if ($res && mysqli_num_rows ($res)>0) {
 
 if ($system_message!="") {
 ?>
-<table width="650" border="1" cellpadding="5" >
+<table class="std" cellpadding="5" >
 <tr><th class="a">System Message</th></tr>
 <tr><td><?php echo $system_message ?></td></tr>
 </table>
@@ -220,7 +220,7 @@ if ($system_message!="") {
 }
 ?>
 
-<table width="650" border="1" cellpadding="5">
+<table  class="std" cellpadding="5">
 <tr><th class="a">Message from your Commander</th></tr>
 <tr><td>
 <?php
@@ -290,7 +290,7 @@ if ($unit_res && mysqli_num_rows ($unit_res) > 0) {
   if ($total) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"25%\"></td><td width=\"15%\"></td></tr>";
-    echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
+    echo "<table  class=\"std\" cellpadding=\"5\" >".
       "<tr><th class=\"a\" colspan=\"5\">" .
       "Ships ($total units total)</th></tr>\n$table";
     echo "</table>";
@@ -325,7 +325,7 @@ if ($pds_res && mysqli_num_rows ($pds_res) > 0) {
   if ($total) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"25%\"></td><td width=\"15%\"></td></tr>";
-    echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
+    echo "<table  class=\"std\" cellpadding=\"5\" >".
       "<tr><th class=\"a\" colspan=\"5\">" .
       "Planetarian Defence System ($total units total)</th></tr>\n$table";
     echo "</table>";
@@ -338,7 +338,7 @@ echo "<br>\n";
 $total = $myrow["metalroids"] + $myrow["crystalroids"] + $myrow["eoniumroids"]  
          + $myrow["uniniroids"];
 
-echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
+echo "<table  class=\"std\" cellpadding=\"5\" >".
       "<tr><th class=\"a\" colspan=\"5\">" .
       "Asteroids ($total total)</th></tr>";
 

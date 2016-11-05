@@ -34,11 +34,12 @@ function print_empty() {
 }
 
 if (ISSET($imgpath) && $imgpath != "") {
-  echo "<div class=\"nav\" style=\"background-image: url($imgpath/myphppa/navbg.jpg\" text=\"#FFFFFF\">\n";
+  # echo "<div class=\"nav\" style=\"background-image: url($imgpath/myphppa/navbg.jpg\" text=\"#FFFFFF\">\n";
+  echo "<div class=\"nav\">\n";
 } else {
   echo "<div class=\"nav\"\n";
 }
-echo "<div id=\"menu-icon\">Menu</div>\n";
+echo "<div id=\"menu-icon\"></div>\n";
 
 echo "<nav><ul id=\"nav\">\n";
 

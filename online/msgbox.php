@@ -22,12 +22,12 @@
 function titlebox ($title, $msg="") {
 
   $line = "<td width=\"40%\"><hr></td>";
-  echo "<center><table width=\"650\" border=\"0\" cellpadding=\"10\">".
+  echo "<center><table class=\"titlebox\" cellpadding=\"10\">".
     "<tr>$line<td width=\"20%\" style=\"font-size:16px\" align=\"center\">".
     "<b>$title</b></td>$line</tr></table></center>";
   
   if ($msg != "") {
-    echo "<center><table width=\"650\" border=\"1\" cellpadding=\"10\">".
+    echo "<center><table width=\"std\" cellpadding=\"10\">".
       "<tr><td><font color=\"red\"><b>$msg</b></font></td></tr></table>".
       "</center><br>";
   }
