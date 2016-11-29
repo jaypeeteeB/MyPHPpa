@@ -103,7 +103,7 @@ titlebox("News", $msg);
 ?>
 
 <center>
-<table  width="650" border="1" cellpadding="2" >
+<table  class="std" width="650" border="1" cellpadding="2" >
 <tr><th class="a" colspan="10">Legend</th></tr>
 <?php
 if ($imgpath && $imgpath!= "") {
@@ -144,7 +144,7 @@ if ($imgpath && $imgpath!= "") {
 <br>
 <br>
 
-<table  width="650" border="1" cellpadding="2" >
+<table  class="std" width="650" border="1" cellpadding="2" >
 <tr><th class="a" colspan="3">Private News</th></tr>
 
 <?php
