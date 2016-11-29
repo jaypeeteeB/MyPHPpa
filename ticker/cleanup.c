@@ -453,15 +453,18 @@ void do_clean_ups (MYSQL *mysql)
   mysql_free_result(res);
 
   /* delete old accounts */
-  res = do_query (mysql, "SELECT planet.id FROM planet,user "\
+  /* only if mytick > 12 hours = 120*12 = 1440 */
+  if (mytick > 1440) {
+    res = do_query (mysql, "SELECT planet.id FROM planet,user "\
                   "WHERE planet.id=user.planet_id "\
                   "AND (metalroids+crystalroids+eoniumroids+uniniroids) < 4 " \
                   "AND (user.last < NOW() - INTERVAL 12 HOUR " \
 		  "OR (user.last IS NULL "\
 		  "AND user.signup < NOW() - INTERVAL 12 HOUR))");
-  if (res && mysql_num_rows(res)) {
-    while ((row = mysql_fetch_row (res)))
-      delete_user(mysql, atoi(row[0]));
+    if (res && mysql_num_rows(res)) {
+      while ((row = mysql_fetch_row (res)))
+        delete_user(mysql, atoi(row[0]));
+    }
   }
 
   /* delete deleted accounts */
