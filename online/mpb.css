@@ -296,15 +296,15 @@ div.nav > a:focus { color: white; }
 @media screen and (max-width: 670px) {
 TABLE.top 
 {
-  width:480px;
+  width:100%;
 }
 table.titlebox
 {
-  width: 480px;
+  width: 95%;
 }
 table.std
 {
-  width: 480px;
+  width: 100%;
 }
 }
 @media screen and (max-width: 850px) {

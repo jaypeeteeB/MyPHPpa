@@ -19,26 +19,25 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-function print_td ($link, $desc, $target="main", $option="") {
+function print_td ($link, $desc, $target="", $option="") {
   global $imgpath;
   $mlink = "$link.php";
   if ($option && $option!="")
     $mlink .= "?$option";
 
-  echo "<li><a href=\"$mlink\" target=\"$target\">".
+  if ($target == "") {
+    echo "<li><a href=\"$mlink\"><b>$desc</b></a></li>\n";
+  } else {
+    echo "<li><a href=\"$mlink\" target=\"$target\">".
        "<b>$desc</b></a></li>\n";
+  }
 }
 
 function print_empty() {
   echo "<li class=\"hidden\"></li>\n";
 }
 
-if (ISSET($imgpath) && $imgpath != "") {
-  # echo "<div class=\"nav\" style=\"background-image: url($imgpath/myphppa/navbg.jpg\" text=\"#FFFFFF\">\n";
-  echo "<div class=\"nav\">\n";
-} else {
-  echo "<div class=\"nav\"\n";
-}
+echo "<div class=\"nav\">\n";
 echo "<div id=\"menu-icon\"></div>\n";
 
 echo "<nav><ul id=\"nav\">\n";
@@ -98,7 +97,7 @@ print_empty();
   echo "</ul>\n";
   echo "</li>\n";
 
-  print_td("logout","Logout","_top");
+  print_td("logout","Logout");
   
   if ($Username == "admin" || $Username == "moderator") {
     print_empty();

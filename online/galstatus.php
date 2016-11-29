@@ -210,7 +210,7 @@ titlebox("Galstatus");
 ?>
 
 <center>
-<table width="650" border="1">
+<table class="std" width="650" border="1">
   <tr><th class="a" colspan="5">Incoming</th></tr>
   <tr><th width="120" >Coordinates</th>
       <th width="300">Planet</th>
