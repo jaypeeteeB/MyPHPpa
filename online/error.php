@@ -51,7 +51,7 @@ my_header($topscript);
 <br><br>
 
 There seems to be an ERROR - perhaps your session timed out (30 mins)<br>
-Please try to <a href="index.php" target="_top">Login</a> again<br>
+Please try to <a href="index.php">Login</a> again<br>
 </center>
 
 <?php
