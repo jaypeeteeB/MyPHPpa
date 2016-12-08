@@ -349,7 +349,7 @@ titlebox("Affairs", $msg);
 
 <center>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="3" class="a">Change GC Vote
 </td></tr>
 <tr><td colspan="3">Vote for GC: your gal must have at least 2 members.<br>
@@ -411,7 +411,7 @@ if ($mytick>0 && $res && mysqli_num_rows($res)>0) {
   echo <<<EOF
     <br>
     <form method="post" action="$_SERVER[PHP_SELF]">
-    <table width="650" border="1" cellpadding="5">
+    <table class="std" width="650" border="1" cellpadding="5">
     <tr><th colspan="3" class="a">Exile voting</th></tr>
     <tr><td colspan="3">There is an exile vote running against $exwho[leader] of 
           $exwho[planetname] ($exwho[x]:$exwho[y]:$exwho[z]). 
@@ -439,7 +439,7 @@ if ($galcommander_id == $myrow["id"]) {
 
   echo <<<EOF
  <form method="post" action="$_SERVER[PHP_SELF]">
- <table width="650" border="1" cellpadding="5">
+ <table class="std" width="650" border="1" cellpadding="5">
     <tr><th colspan="3" class="a">Commander options</th></tr>
     <tr><th colspan="3" bgcolor="#ff0000">
          Using offensive or insulting pictures or names leads to deletion of Your planet !!!</th></td></tr>

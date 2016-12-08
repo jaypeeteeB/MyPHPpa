@@ -19,8 +19,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-// $db = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname, $dbport, $dbsock)
-$db = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname, $dbport)
+// $db = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname, $dbport)
+$db = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname, $dbport, $dbsock)
      or die ("Could not connect to database");
 
 mysqli_select_db($db, $dbname);

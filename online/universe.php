@@ -32,7 +32,7 @@ titlebox("Universe");
 
 echo <<<EOF
 <center>
-<table border="0" width="650">
+<table class="std" border="0" width="650">
   <tr><td width="200">&nbsp;</td>
       <td width="10" align="center"><hr></td>
       <td align="center" width="100"><b><a href="$_SERVER[PHP_SELF]">Player</a></b></td>
@@ -65,7 +65,7 @@ $gal_rank = get_universe_galaxy_report ($mygalrank);
 
 if (($rank > 40 && $rtype == 1) || 
     ($mygalrank > 0 && $rtype == 2)) {
-  echo "<table width=\"650\" border=\"1\" cellpadding=\"5\">\n";
+  echo "<table class=\"std\" width=\"650\" border=\"1\" cellpadding=\"5\">\n";
 
   if ($rank > 40 && $rtype == 1) {
     echo "<tr><td>You are currently ranked #$rank</td></tr>\n";
@@ -80,7 +80,7 @@ if (($rank > 40 && $rtype == 1) ||
 if ($rtype == 1) {
 
   echo <<<EOF
-<table width="650" border="1">
+<table class="std" width="650" border="1">
   <tr><th colspan="7" class="a">Top 40 Player Ranking</tr>
   <tr><th width="40">Rank</th>
       <th width="155">Leader</th>
@@ -96,7 +96,7 @@ EOF;
 } else if ($rtype == 2) {
 
 echo <<<EOF
-<table width="650" border="1">
+<table class="std" width="650" border="1">
   <tr><th colspan="5" class="a">Galaxy Ranking</tr>
   <tr><th width="40">Rank</th>
       <th width="280">Galaxy</th>
@@ -110,7 +110,7 @@ EOF;
 } else if ($rtype == 3) {
 
 echo <<<EOF
-<table width="650" border="1">
+<table class="std" width="650" border="1">
   <tr><th colspan="5" class="a">Alliance Ranking</tr>
   <tr><th width="40">Rank</th>
       <th width="60">Tag</th>

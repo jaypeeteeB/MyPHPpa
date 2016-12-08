@@ -65,6 +65,22 @@ table.std td
   border-color: #a0a0a0;
 }
 
+table.stdsmall
+{
+ width: 450px;
+}
+table.stdsmall th
+{
+  border: 1px solid;
+  border-color: #a0a0a0;
+}
+table.stdsmall td
+{
+  border: 1px solid;
+  border-color: #a0a0a0;
+}
+
+
 
 TR { text-align: left; }
 TH { text-align: center; }
@@ -292,6 +308,14 @@ div.nav > a:focus { color: white; }
 #nav li:hover > ul {
   display: block;
 }
+
+@media screen and (max-width: 470px) {
+table.stdsmall
+{   
+  width: 100%;
+}   
+}   
+
 
 @media screen and (max-width: 670px) {
 TABLE.top 

@@ -52,7 +52,7 @@ function print_mail ($r) {
     $info = "From:  $ir[leader] of $ir[planetname] ($ir[x]:$ir[y]:$ir[z])";
   }
  
-  echo "<br><table width=\"650\" border=\"1\" cellpadding=\"5\">\n".
+  echo "<br><table class=\"std\" width=\"650\" border=\"1\" cellpadding=\"5\">\n".
     "<tr class=\"a\">".
     "<th class=\"left\" width=\"400\">$info".
     "</th><th class=\"right\">$r[date] CEST</th></tr>";
@@ -122,7 +122,7 @@ function msg_menu ($folder) {
 
   echo <<<EOF
 <center>
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th class="a" colspan="6">Global Message Options</th></tr>
 <tr>
 EOF;
@@ -180,7 +180,7 @@ function moc_menu ($x, $y) {
 
   echo <<<EOF
 <br>
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th class="a" colspan="6">Minister of Communication ($x:$y)</th></tr>
 <tr>
 EOF;

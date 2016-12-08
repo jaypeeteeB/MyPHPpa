@@ -76,7 +76,7 @@ function print_thread_line($row, $authorized) {
 function print_threads ($fstyle, $gal_id,$authorized) {
   global $db;
 
-  echo "\n<table width=\"650\" border=\"1\" cellpadding=\"3\">\n".
+  echo "\n<table class=\"std\" width=\"650\" border=\"1\" cellpadding=\"3\">\n".
     "<tr class=\"f$fstyle\">\n".
     "<th width=\"290\" align=\"left\">Subject</th>\n".
     "<th width=\"100\" align=\"left\">Creator</th>\n".
@@ -155,7 +155,7 @@ function show_thread ($fstyle, $fthread, $menu, $authorized) {
   global $Planetid, $db, $mysettings;
 
 echo <<<EOF
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
   <tr class="f$fstyle">
   <th width="150">Date / Author</th>
   <th width="500">Post</th><tr>
@@ -287,7 +287,7 @@ function forum_head ($fstyle, $fid, $fthread=0) {
   }
  
   echo <<<EOF
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
   <tr>$fline</tr>
   <tr><td align="center">$menu</td></tr>
 </table>

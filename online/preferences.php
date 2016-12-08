@@ -58,7 +58,7 @@ function do_logout ($msg) {
   require "header.php";
   my_header("<meta http-equiv=\"refresh\" content=\"1; URL=index.php\">",0,0);
 
-  echo "<center><table width=\"650\" border=\"1\" cellpadding=\"5\">";
+  echo "<center><table class=\"std\" width=\"650\" border=\"1\" cellpadding=\"5\">";
   echo "<tr><td><span class=\"red\"><b>$msg</b></span></td></tr>".
 	"<tr><td>Goto <a href=\"index.php\" target=\"_parent\">".
 	"Login page</a></td></tr></table>"; 
@@ -273,7 +273,7 @@ titlebox ("Preferences", $msg);
 <center>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Feature settings</th></tr>
 
 <?php
@@ -302,7 +302,7 @@ titlebox ("Preferences", $msg);
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Sleep Mode
 </th></tr>
 <tr><td colspan="2">Sleep mode will protect Your planet against offensive acts 
@@ -342,7 +342,7 @@ if ($mytick > $end_of_round) {
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Change Password</th></tr>
 <tr><td width="50%">Old Password</td>
     <td width="50%" align="center">
@@ -362,7 +362,7 @@ if ($mytick > $end_of_round) {
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Change Email</th></tr>
 <?php
    $q = "SELECT email FROM user WHERE planet_id='$Planetid'";
@@ -396,7 +396,7 @@ EOF;
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Images</th></tr>
 <tr><th align=left colspan=2>Path to images</th></tr>
 <tr><td colspan=2>Download the Zip-file and unzip it. You get a directory 
@@ -424,7 +424,7 @@ Thanx to Fann for these ones
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Vacation Mode</th></tr>
 <tr><td colspan="2">Vacation mode will disable your account for at least 48 Hours (not ticks!).
 After this time You may login anytime to reenable Your account.<p>
@@ -442,7 +442,7 @@ You cannot go into vacation if You are attacking or under attack (or defending).
 
 echo<<<EOF
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th class="a">Delete</th></tr>
 <tr><td>To delete your planet You have to press the delete button - 
 and stop playing. <b>After beeing 12 h idle</b> your account will be 

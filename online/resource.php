@@ -268,7 +268,7 @@ titlebox("Resource",$msg);
 ?>
 
 <center>
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
   <tr><th colspan="4" class="a">Planet Income</th></tr>
   <tr><th width="150">Type</th><th width="100">Number</th>
       <th width="100">Planet</th><th width="100">Total</th></tr>
@@ -345,7 +345,7 @@ EOF;
     echo<<<EOF
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
   <tr><th colspan="4" align="center" class="a">Donate to Galaxy Fund</th></tr>
   <tr><th width="150">Resource</th><th width="100">Fund</th>
     <th width="100">Yours</th><th width="100">Amount</th></tr>
@@ -370,7 +370,7 @@ EOF;
 
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
 <tr><th align="center" class="a">Trade with the 
 Galaxy Fund</th></tr>
 <tr><td align="center" valign="center">Trade 
@@ -402,7 +402,7 @@ EOF;
         echo <<<EOF
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
   <tr><th class="a" colspan="3">Galaxy fund administration</th></tr>
   <tr><td colspan=3>Donation is possible <b>once per 24 hours</b> to one 
 of the two lowest galaxy members by score. The amount is limited 

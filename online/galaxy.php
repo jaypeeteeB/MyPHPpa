@@ -133,7 +133,7 @@ if ($gpic) {
 }
 ?>
 
-<table width="650" border="1">
+<table class="std" width="650" border="1">
   <tr><td style="visibility:hidden"></td><th width="630" colspan="5" class="a"><?php echo $gname ?></th></tr>
   <tr><td style="visibility:hidden"></td>
       <th width="35">Id</th>

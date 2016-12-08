@@ -140,7 +140,8 @@ function send_password($pid) {
     } 
   } 
   
-  $gameurl = $game_proto . $_SERVER['HTTP_HOST'] . $pu['path'];
+  // $gameurl = $game_proto . $_SERVER['HTTP_HOST'] . $pu['path'];
+  $gameurl = $game_proto . $_SERVER['HTTP_HOST'];
 
   mail("$rowu[email]", "$game signup password", 
        "\nLogin: $rowu[login]\n".

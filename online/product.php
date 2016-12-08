@@ -129,7 +129,7 @@ titlebox("Production", $msg);
 
 <center>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="5" class="a">Ship Production</th></tr>
 <tr><th width="100">Unit</th>
     <th width="360">Description</th>
@@ -177,7 +177,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 </form>
 
 <br>
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="25" class="a">Current Production</th></tr>
 <tr><td width="150"></td>
 <?php 
