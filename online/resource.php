@@ -120,7 +120,7 @@ if (ISSET($_POST["submit"])) {
   if (!$metal && !$crystal && !$eon) {
      $msg = "You dont have enough Metal to initialize Asteroids<br>\n";
   }
-  if ($tcost>0) $msg .= "For a total of $tcost Metal\n";
+  if (ISSET($tcost) && $tcost>0) $msg .= "For a total of $tcost Metal\n";
 } else {
 
   if (ISSET($_POST["donate"])) {
@@ -297,7 +297,7 @@ if ($myrow["uniniroids"] >0) {
   $cost = calc_init_cost ($myrow);
 ?>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-  <table width="450" border="1">
+  <table class="stdsmall" width="450" border="1">
 
   <tr><th colspan="2" align="center" class="a">
   <?php echo $myrow["uniniroids"] ?> Uninitiated Asteroids</th></td></tr>

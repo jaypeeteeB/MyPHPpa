@@ -79,6 +79,18 @@ table.stdsmall td
   border: 1px solid;
   border-color: #a0a0a0;
 }
+table.std_nb
+{
+ width: 650px;
+}
+table.std_nb th
+{
+  border: 0px;
+}
+table.std_nb td
+{
+  border: 0px;
+}
 
 
 
@@ -327,6 +339,10 @@ table.titlebox
   width: 95%;
 }
 table.std
+{
+  width: 100%;
+}
+table.std_nb
 {
   width: 100%;
 }

@@ -32,7 +32,7 @@ titlebox("Universe");
 
 echo <<<EOF
 <center>
-<table class="std" border="0" width="650">
+<table class="std_nb" border="0" width="650">
   <tr><td width="200">&nbsp;</td>
       <td width="10" align="center"><hr></td>
       <td align="center" width="100"><b><a href="$_SERVER[PHP_SELF]">Player</a></b></td>
