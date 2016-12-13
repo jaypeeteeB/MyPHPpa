@@ -27,9 +27,11 @@ if (ISSET($_REQUEST["playerid"])) echo "Playerid ".$_REQUEST["playerid"]."<br>";
 if (ISSET($_REQUEST["verification"])) echo "Verification: ".$_REQUEST["verification"]."<br>";
 
 if (ISSET($_REQUEST["submit"]) && ISSET($_REQUEST["ip"]) ) {
+  $ip = ''+$_REQUEST["ip"];
 
-  if (ISSET($_REQUEST["verification"]) && $_REQUEST["verification"]==$_REQUEST["ip"]) {
-      $q = "INSERT INTO iptables set ip='".$_REQUEST["ip"]."',comment='$comment'";
+  if (ISSET($_REQUEST["verification"]) && $_REQUEST["verification"]==$ip) {
+      $comment = ''+$_REQUEST["comment"];
+      $q = "INSERT INTO iptables set ip='".$ip."',comment='$comment'";
       mysqli_query ($db, $q );
       echo "<center>IP banned</center>";
   } else {
