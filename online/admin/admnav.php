@@ -67,13 +67,14 @@ if ($Planetid==1) {
  <center>
     <table border="1" width="640">
     <tr>
-    <th colspan="5"> Administration </th>
+    <th colspan="6"> Administration </th>
     <tr>
     <td width="20%"><a href="pinfo.php" target="admmain">Player Info</a></td>
     <td width="20%"><a href="plog.php" target="admmain">Player Log</a></td>
     <td width="20%"><a href="pban.php" target="admmain">Ban Player</a></td>
     <td width="20%"><a href="pmail.php" target="admmain">Player Mail</a></td>
     <td width="20%"><a href="pnews.php" target="admmain">Planet News</a></td>
+    <td width="20%"><a href="biplist.php" target="admmain">List banned IPs</a></td>
     </tr>
     <tr>
     <td width="20%"><a href="apol.php" target="admmain">Politics</a></td>
@@ -81,6 +82,7 @@ if ($Planetid==1) {
     <td width="20%"><a href="amem.php" target="admmain">A Members</a></td>
     <td width="20%"><a href="afor.php" target="admmain">A Forum</a></td>
     <td width="20%"><a href="ptop.php" target="admmain">Player Top</a></td>
+    <td width="20%"><a href="bplayerlist.php" target="admmain">List banned Player</a></td>
     </tr>
     <tr>
     <td width="20%"><a href="pdelete.php" target="admmain">Delete Player</a></td>
@@ -88,6 +90,7 @@ if ($Planetid==1) {
     <td width="20%"><a href="pidle.php" target="admmain">Idle New</a></td>
     <td width="20%"><a href="pidle2.php" target="admmain">Idle old</a></td>
     <td width="20%"><a href="pmove.php" target="admmain">Player move</a></td>
+    <td width="20%"><a href="bdomainlist.php" target="admmain">List banned Domains</a></td>
     <tr>
     </tr>
     <td width="20%"><a href="scan.php" target="admmain">Scans</a></td>
