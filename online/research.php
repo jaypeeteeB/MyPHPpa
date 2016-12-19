@@ -156,7 +156,7 @@ if ($mysettings & 128) {
 
 echo <<<EOF
 <center>
-<table class="std" border="0" width="650">
+<table class="std_nb" border="0" width="650">
 <tr><td align="right"><a href="$_SERVER[PHP_SELF]?toggle=$toggle">
     <span class="small">Toggle visibility</span></a></td></tr>
 </table>
