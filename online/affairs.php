@@ -189,7 +189,8 @@ if ($galcommander_id == $myrow["id"]) {
     $pend = strtolower(substr($newpic, -3));
     if ($newpic != "CLEAR" &&
 	(strlen($newpic)<10 ||
-         strtolower(substr($newpic, 0, 7)) != "http://" ||
+         ( strtolower(substr($newpic, 0, 7)) != "http://" &&
+         strtolower(substr($newpic, 0, 8)) != "https://" ) ||
          ($pend != "jpg" && $pend != "gif" && 
 	  $pend != "png" && $pend != "tif"))) {
  
