@@ -64,7 +64,6 @@ if (!empty($_POST["submit"]) && $_POST["submit"]) {
       $mres = mail("$email", "$game password reminder", 
 	"\nLogin: $login\nPassword: ". $pw ."\n\nHave Fun!!\n",
 	"From: MyPHPpa@web.de\n" .
-	"BCC: MyPHPpa@web.de\n" .
 	"Reply-To: MyPHPpa@web.de\n" .
 	"X-Mailer: PHP/" . phpversion());
     }
