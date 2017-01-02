@@ -9,7 +9,14 @@ db_socket = /var/run/mysql/mysql.sock
 db_port   = 3306
 
 #sql_log = ticker.sql
+# Default value
 logfile   = ticker.log
+
+## where to place status files
+# Default values
+#tickstart = /tmp/ticker.run
+#tickend   = /tmp/ticker.end
+
 
 #alt: havoc, normal
 #resource  = havoc
