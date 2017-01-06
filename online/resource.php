@@ -330,7 +330,7 @@ if ($myrow["uniniroids"] >0) {
   $cost = calc_init_cost ($myrow);
 
   echo <<<EOF
-  <table width="450" border="1">
+  <table class="stdsmall" width="450" border="1">
   <tr><th colspan="2" align="center">Cost for next Initialization: $cost Metal</th></tr>
   </table>
 EOF;

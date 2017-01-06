@@ -1,6 +1,7 @@
+online/img/*.txt
 online/admin/admin_pw.inc
 online/options.php
-scripts/
+scripts/db.cfg
 ticker/Makefile.lucky
 ticker/battle.o
 ticker/cleanup.o
@@ -17,3 +18,5 @@ ticker/tick_sleep.o
 ticker/ticker
 ticker/ticker.o
 ticker/update.o
+scripts/*.cfg
+scripts/*.cfg.life
