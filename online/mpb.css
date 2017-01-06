@@ -321,6 +321,11 @@ div.nav > a:focus { color: white; }
   display: block;
 }
 
+progress {
+  width: 100%;
+  display: block;
+}
+
 @media screen and (max-width: 470px) {
 table.stdsmall
 {   
@@ -346,6 +351,11 @@ table.std_nb
 {
   width: 100%;
 }
+
+#legend {
+  display: none;
+}
+
 }
 @media screen and (max-width: 850px) {
 #menu-icon {

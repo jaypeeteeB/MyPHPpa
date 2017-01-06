@@ -103,7 +103,7 @@ titlebox("News", $msg);
 ?>
 
 <center>
-<table  class="std" width="650" border="1" cellpadding="2" >
+<table  class="std" width="650" border="1" cellpadding="2" id="legend">
 <tr><th class="a" colspan="10">Legend</th></tr>
 <?php
 if ($imgpath && $imgpath!= "") {
