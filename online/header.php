@@ -82,11 +82,18 @@ EOF;
    } else {
      echo "   <TITLE>$game $version</TITLE>\n";
    }
+
+// currently disabled detection (not needed)
 require_once "mobile.inc";
  
   if ($mobile_detect) {
      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
   } else {
+      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
+/*
+ * not needed and supported anymore 
+ * used for local data caching and styling
+
    if (ISSET($imgpath) && $imgpath != "") { 
     
     if ($mysettings&32)
@@ -99,6 +106,7 @@ require_once "mobile.inc";
     else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">";
    }
+*/
   }
     
   

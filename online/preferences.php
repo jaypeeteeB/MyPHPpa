@@ -282,11 +282,12 @@ titlebox ("Preferences", $msg);
   show_preference("Show galaxy pictures", array("Yes", "No"), 4);
   show_preference("Limit News scan to 20 entries", array("Full", "Limit"), 8);
   show_preference("Use Javascript for last tick &sup1;", array("No", "Yes"), 16);
+/*
   if ($mobile_detect)
     echo "<tr><td colspan=2>Font selection disabled on mobile</td></tr>";
   else
     show_preference("Use small fonts", array("Large", "Small"), 32);
-
+*/
   show_preference("Use popup for scans in galaxy view", array("No", "Yes"), 64);
   show_preference("Reduced visibility in Res/Con", array("Max", "Min"), 128);
 ?>

@@ -35,8 +35,13 @@ pre_auth($Username,$Password,$Planetid,$_COOKIE["Valid"]);
 require "dblogon.php";
 db_auth($db,$Username,$Password,$Planetid);
 
+// currently not used and disabled
 require_once "mobile.inc";
 
+echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
+/* 
+ * styling and local data caching
+ * old style....
 if (ISSET($imgpath) && $imgpath != "") {
   echo "<html>\n<head>\n";
   if ($mobile_detect) {
@@ -54,6 +59,8 @@ if (ISSET($imgpath) && $imgpath != "") {
   else
     echo "<LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">";
 }
+*/
+
 echo <<<EOF
 </head>
 <body class="nav">
