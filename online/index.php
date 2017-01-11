@@ -287,6 +287,13 @@ if ($mytick > $end_of_round) {
        "Signup and create<br>your own account!</a></B></td>\n";
 }
 
+if (file_exists('gitrev.inc')) {
+	include 'gitrev.inc';
+	$rev_text = "last applied commit: " . $rev;
+} else {
+	$rev_text='';
+}
+
 echo <<<EOF
  </tr>
  <tr><td><a href="sendpass.php">Lost</a> your password?</td></tr>
@@ -295,12 +302,11 @@ echo <<<EOF
 </center>
 
 </td></tr>
-<tr><td align=right colspan=3>
-
+<tr><td colspan=3>
 <div style="font-size: 10px;text-align:right;">
-<a href="mailto:MyPHPpa@web.de">MyPHPpa@web.de</a>
+<a href="mailto:MyPHPpa@web.de">MyPHPpa@web.de</a><br>
+$rev_text
 </div>
-
 </td></tr>
 </table>
 
