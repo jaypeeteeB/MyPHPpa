@@ -25,8 +25,10 @@ include_once "../get_ip.php";
 
 include_once "../session.inc";
 session_init();
-if (session_check(get_ip())) {
-  echo "error check session admnav";
+$ret=0;
+if (($ret=session_check(get_ip()))) {
+  var_dump($_SESSION);
+  echo "error check session admhead: $ret (". get_ip() .")" ;
 //  Header("Location: ../index.php");
   die;
  }
