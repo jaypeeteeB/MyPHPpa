@@ -35,6 +35,7 @@ function session_init()
   global $session_lifetime;
   session_cache_expire($session_lifetime);
   session_start ();
+
 }
 
 function session_create($ip, $login, $pw_hash, $planetid, $imgpath="")
@@ -117,8 +118,9 @@ function session_kill()
 {
   global $Planetid;
   session_cache_expire(0);
-  session_destroy();
-
+  if (session_status() == PHP_SESSION_ACTIVE) {
+	 session_destroy();
+  }
   $Planetid = -1;
 }
 
