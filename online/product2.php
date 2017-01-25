@@ -179,7 +179,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 <br>
 <table class="std" border="1" width="650">
 <tr><th colspan="4" class="a">Current Production</th></tr>
-<tr><td width="16%"></td> <td width="10%"></td> <td width="10%"></td> <td width="65%"></td></tr>
+<tr><td width="16%">Unit</td> <td width="10%">Remain/Build</td> <td width="10%">Count</td> <td width="65%">Progress</td></tr>
 
 <?php
 
@@ -216,7 +216,7 @@ if (mysqli_num_rows($result) > 0) {
         /* name of it */
         echo "<tr><td>$myunit[1]</td>";
         /* build ticks */
-        echo "<td>$myunit[2]</td>";
+        echo "<td align=\"center\">$myunit[2]</td>";
         echo "<td colspan=\"2\">&nbsp;</td></tr>";
     }
 

@@ -3,13 +3,59 @@ MyPHPpa
 Copyright (C) 2016 Jens Beyer
 */
 
+#idx_container {
+  display: block;
+  width: 730px;
+  margin: auto;
+  padding: 10px;
+}
+
+div.full_box {
+  float: left;
+  width:100%;
+  display: block;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+border-right: 1px solid #fff;
+border-bottom: 1px solid #fff;
+  text-align: left;
+  padding: 5px;
+}
+div.float_box {
+  float: left;
+  position: relative;
+width: 230px;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+border-right: 1px solid #fff;
+border-bottom: 1px solid #fff;
+  padding: 5px;
+  margin: 5px
+}
+
+#index_txt{
+}
+
 #gpl{
   display:none;
   font-size: 80%;
   color: #e0e0e0;
   margin: 20px;
 }
+@media screen and (min-width: 731px) {
 #index_txt:hover #gpl{
   display:block;
+}
+}
+
+@media screen and (max-width: 731px) {
+#idx_container {
+  width: 95%;
+}
+@media screen and (max-width: 470px) {
+div.float_box {
+  width: 100%;
+}
+
 }
 
