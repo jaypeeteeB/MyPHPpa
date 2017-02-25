@@ -946,7 +946,6 @@
 						$row[2] += (int)$row[5];
 				}
 
-
 				switch ( trim($row[1]) )
 				{
 					case "Metal" : $ShipAddArray[$Array["Addtype"]]["Metal roid"] = $row[2]; break;
@@ -979,7 +978,8 @@
 		// $Array["input"] = preg_replace( "/\r\n/", " ", $Array["input"]);
 			global $NumCalcs;
 
-			preg_match_all( "|(\w*\s?[\w]+)\s*((\s[0-9]+)+)|", $Array["input"], $output, PREG_SET_ORDER  );
+			// preg_match_all( "/(\w*\s?[\w]+)\s*((\s[0-9]+)+)/i", $Array["input"], $output, PREG_SET_ORDER  );
+			preg_match_all( "/(\w*\s*[A-Za-z]+)((\s+[0-9]+)+)/i", $Array["input"], $output, PREG_SET_ORDER  );
 
 			if ( $NumCalcs != 1 )
 			{
@@ -989,6 +989,7 @@
 
 			foreach ( (array)$output as $row )
 			{
+
 				switch ( trim($row[1]) )
 				{
 					case "Metal" : $ShipType = "Metal roid"; break;
