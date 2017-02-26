@@ -43,9 +43,10 @@ function my_header ($extra=0,$sess=1,$tickjs=1) {
    <meta name="viewport" content="width=device-width,user-scalable=yes" />
 <?php
 
-if (file_exists('/tmp/ticker.run') && ($mysettings&16) && $tickjs==1) {
- $diff = time() - filemtime('/tmp/ticker.run');
- $dtick = time() - filemtime('/tmp/ticker.end');
+global $tickfile;
+if (file_exists($tickfile . '.run') && ($mysettings&16) && $tickjs==1) {
+ $diff = time() - filemtime($tickfile . '.run');
+ $dtick = time() - filemtime($tickfile . '.end');
 
 echo <<<EOF
 <script type="text/javascript">
@@ -90,27 +91,10 @@ require_once "mobile.inc";
      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
   } else {
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
-/*
- * not needed and supported anymore 
- * used for local data caching and styling
-
-   if (ISSET($imgpath) && $imgpath != "") { 
-    
-    if ($mysettings&32)
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
-    else
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
-   } else {
-    if ($mysettings&32)
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npa.css\">";
-    else
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">";
-   }
-*/
   }
     
   
-  if (file_exists('/tmp/ticker.run') && ($mysettings &16) && $tickjs==1) {
+  if (file_exists($tickfile . '.run') && ($mysettings &16) && $tickjs==1) {
     echo "</head>\n<body class=\"a\" ".
       "onLoad=\"window.setTimeout('MyTick()',800)\">\n";
   } else {

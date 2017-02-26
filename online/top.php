@@ -89,15 +89,14 @@ function top_header($myrow) {
     }
   }
 
-  // $gdate = date("d/m H:i:s");
   global $date_format;
   $gdate = date($date_format);
   $online = get_online();
 
-  if (file_exists('/tmp/ticker.run')) {
-    $diff = time() - filemtime('/tmp/ticker.run');
+  global $tickfile;
+  if (file_exists($tickfile . '.run')) {
+    $diff = time() - filemtime($tickfile . '.run');
     if ($diff < 60) {
-      //  $tdate = "$diff sec ago";
       if ($diff < 30) 
 	$tdate = "Last: <span class=\"norm\" id=\"myt\">$diff</span> sec ago";
       else
@@ -105,7 +104,6 @@ function top_header($myrow) {
     } else {
       $tdate = sprintf("Last: %02d:%02d:%02d ago", ($diff/3600),($diff%3600)/60, $diff%60);
     }
-    // $tdate = date("d/m H:i:s", filemtime('/tmp/ticker.run'));
   } else {
     $tdate = "<span class=\"red\">Ticks stopped</span>";
   }

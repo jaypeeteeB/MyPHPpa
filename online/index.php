@@ -189,8 +189,8 @@ $myrow = mysqli_fetch_row($result);
 $numonline = $myrow[0];
 
 
-if (file_exists('/tmp/ticker.run')) {
-  $tdate = date("d/M H:i e", filemtime('/tmp/ticker.run'));
+if (file_exists($tickfile . '.run')) {
+  $tdate = date("d/M H:i e", filemtime($tickfile . '.run'));
 } else {
    $tdate = "<b><span class=\"red\">Ticker stopped</span></b>";
 }
