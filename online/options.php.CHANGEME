@@ -26,6 +26,10 @@ function getmicrotime(){
 
 $start_time = getmicrotime();
 
+// Path to a directory readable by php code
+// file is written by ticker
+$tickfile = "/home/khan/GIT/MyPHPpa/online/tmp/ticker"; // gets .run, .end etc appended
+
 // $dbsock = "/tmp/mysql.sock";
 // $dbuser = "mysql";
 
