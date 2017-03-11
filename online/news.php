@@ -106,7 +106,7 @@ titlebox("News", $msg);
 <table  class="std" width="650" border="1" cellpadding="2" id="legend">
 <tr><th class="a" colspan="10">Legend</th></tr>
 <?php
-if ($imgpath && $imgpath!= "") {
+
   // image urls
   echo "<tr align=\"center\">";
   echo "<td class=\"c\">".add_img_path("battle.png","Bat")."</td>\n";
@@ -120,7 +120,7 @@ if ($imgpath && $imgpath!= "") {
   echo "<td class=\"c\">".add_img_path("recall.png","Rec")."</td>\n";
   echo "<td class=\"c\">".add_img_path("message.png","Msg")."</td>\n";
   echo "</tr>";
-}
+
 ?>
 <tr align="center" >
 <td class=\"c\">Combat</td>
