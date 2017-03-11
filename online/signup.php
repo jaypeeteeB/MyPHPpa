@@ -95,11 +95,20 @@ function check_taken_user ($l, $e) {
 
 function check_email ($e) {
 
-  if ($e && (!preg_match ("/@/", $e) || !preg_match ("/\./", $e) ||
-	     strlen ($e) < 7))
+  if ($e && (!filter_var($e,FILTER_VALIDATE_EMAIL) ||
+	     !preg_match ("/@/", $e) || 
+             !preg_match ("/\./", $e) ||
+	     strlen ($e) < 7
+            )
+     )
     return 4;
+
   /* should check domain here */
-  return 0;
+  list($name,$_) = explode('@',$e); 
+  $domain = strtolower($_);
+  if (in_array($domain, array("sharklasers.com", "pokemail.com"))) 
+    return 41;
+ return 0;
 }
 
 function send_password($pid) {
@@ -140,7 +149,8 @@ function send_password($pid) {
     } 
   } 
   
-  $gameurl = $game_proto . $_SERVER['HTTP_HOST'] . $pu['path'];
+  // $gameurl = $game_proto . $_SERVER['HTTP_HOST'] . $pu['path'];
+  $gameurl = $game_proto . $_SERVER['HTTP_HOST'];
 
   mail("$rowu[email]", "$game signup password", 
        "\nLogin: $rowu[login]\n".
@@ -299,6 +309,10 @@ if (ISSET($_POST["submit"])) {
     break;
   case 4:
     echo "Your email seems unbelievable";
+    $email = "";
+    break;
+  case 41:
+    echo "Your email domain is not accepted";
     $email = "";
     break;
   case 51:

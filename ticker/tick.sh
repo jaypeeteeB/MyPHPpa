@@ -18,22 +18,35 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
+CFG=mypa.cfg
+
+# might be changed by cfg
+TSTART=/tmp/ticker.run
+TEND=/tmp/ticker.end
+
 trap clean_up EXIT SIGTERM SIGKILL SIGABRT
 
 function clean_up() {
 
   echo "Quiting through clean_up"
-  rm /tmp/tick*
+  rm ${TSTART}*
+  rm ${TEND}*
 
   trap EXIT
   exit 0
 }
 
-if [ ! -f mypa.cfg ]; then
-  echo "Config file mypa.cfg missing"
+if [ ! -f ${CFG} ]; then
+  echo "Config file ${CFG} missing"
   echo "Fix first this or core_sql.c"
   exit 1
 fi 
+
+tstart=$(gawk '/^tickstart/ {print $3}' ${CFG})
+tend=$(gawk '/^tickend/ {print $3}' ${CFG})
+
+[ -n ${tstart} ] && TSTART=${tstart}
+[ -n ${tend} ]   && TEND=${tend}
 
 if [ $# -eq 1 ]; then
   tick=$1
@@ -41,14 +54,14 @@ else
   tick=30
 fi
 
-if [ ! -f /tmp/ticker.end ]; then
-  touch /tmp/ticker.end
+if [ ! -f ${TEND} ]; then
+  touch ${TEND}
 fi
-touch /tmp/ticker.run.timer
+touch ${TSTART}.timer
 
 while [ 1 ]; do
   echo "*** "`date`" ***"
   ./ticker mypa.cfg
   echo "*sleeping $sleep"
-  ./tick_sleep $tick /tmp/ticker.run.timer
+  ./tick_sleep $tick ${TSTART}.timer
 done

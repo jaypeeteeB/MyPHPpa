@@ -39,10 +39,10 @@ function print_gal_row ($row, $x, $y, $scans, $tag="") {
     $str = "(&nbsp;$str&nbsp;)";
   break;
   case 4: /* vacation */
-    $str = "\{&nbsp;$str&nbsp;}";
+    $str = "{&nbsp;$str&nbsp;}";
   break;
   case 5: /* vacation */
-    $str = "\{&nbsp;$str&nbsp;}";
+    $str = "{&nbsp;$str&nbsp;}";
   break;
   }
   if ($row[6] & 0xF0) {

@@ -351,11 +351,6 @@ table.std_nb
 {
   width: 100%;
 }
-
-#legend {
-  display: none;
-}
-
 }
 @media screen and (max-width: 850px) {
 #menu-icon {
@@ -384,6 +379,9 @@ div.nav {
 div.nav:hover ul#nav{
   display: block;
 }
+div.mobile_hide {
+  display: none;
+}
 }
 
 @media screen and (min-width: 850px) {
@@ -396,6 +394,10 @@ div.nav {
 }
 #main {
   margin-left: 151px;
+}
+
+div.mobile_hide {
+  display: block;:
 }
 }
 

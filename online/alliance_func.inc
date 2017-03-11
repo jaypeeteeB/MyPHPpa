@@ -50,7 +50,7 @@ function print_alliance_status ($all) {
   }
 
   echo <<<EOF
-<table border="1" width="650" cellpadding="2">
+<table class="std" border="1" width="650" cellpadding="2">
   <tr><th colspan="2" class="a">Alliance Status</th></tr>
   <tr><td width="150" align="right">Alliance&nbsp;</td>
       <td>&nbsp;$all[name]</td></tr>
@@ -115,7 +115,7 @@ function list_alliances() {
     return;
   }
 
-  echo "<table border=\"1\" width=\"650\" cellpadding=\"2\">\n".
+  echo "<table class=\"std\" border=\"1\" width=\"650\" cellpadding=\"2\">\n".
    "<tr><th colspan=\"4\" class=\"a\">Alliance listing</th></tr>\n".
    "<tr><th width=\"60\">Tag</th><th width=\"60\">Members</th>".
    "<th>Name</th><th width=\"80\">HC Name</th></tr>\n";
@@ -140,7 +140,7 @@ function list_alliances_admin($ref) {
     return;
   }
 
-  echo "<table border=\"1\" width=\"650\" cellpadding=\"2\">\n".
+  echo "<table class=\"std\" border=\"1\" width=\"650\" cellpadding=\"2\">\n".
    "<tr><th colspan=\"5\" class=\"a\">Alliance listing</th></tr>\n".
    "<tr><th width=\"60\">Tag</th><th width=\"60\">Members</th>".
    "<th width=\"30\">Id</th>".
@@ -158,7 +158,7 @@ function list_alliances_admin($ref) {
 }
 
 function untrusted_msg() {
-  echo "<table border=\"1\" width=\"650\" cellpadding=\"2\">\n".
+  echo "<table class=\"std\" border=\"1\" width=\"650\" cellpadding=\"2\">\n".
       "<tr><td><span class=\"red\">Sorry you need to be trusted by HC first</span>".
       "</td></tr></table>\n";
 }
@@ -180,7 +180,7 @@ function list_alliance_members ($all) {
     return;
   }
 
-  echo "<table border=\"1\" width=\"650\" cellpadding=\"2\">\n".
+  echo "<table class=\"std\" border=\"1\" width=\"650\" cellpadding=\"2\">\n".
    "<tr><th colspan=\"3\" class=\"a\">Member listing [$all[tag]]</th></tr>\n".
    "<tr><th width=\"100\">Coords</th><th>Name</th><th>Score</th></tr>\n";
   
@@ -304,7 +304,7 @@ function off_menu () {
     echo <<<EOF
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table border="1" width="650" cellpadding="2">
+<table class="std" border="1" width="650" cellpadding="2">
   <tr><th colspan="2" class="a">Officer options</th></tr>
   <tr>
     <td align="left" width="540">Send a message to <b>all</b> members</td>
@@ -399,7 +399,7 @@ function hc_menu () {
   echo <<<EOF
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table border="1" width="650" cellpadding="2">
+<table class="std" border="1" width="650" cellpadding="2">
   <tr><th colspan="3" class="a">HC options</th></tr>
   <tr>
     <td align="left" width="540" colspan="2">Send a message to <b>all</b> members</td>
@@ -429,7 +429,7 @@ function join_menu () {
 
   echo <<<EOF
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="5" class="a">Join an existing alliance</th></tr>
 <tr>
     <th width="150">Secret:</th>
@@ -447,7 +447,7 @@ function create_menu () {
 
   echo <<<EOF
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="3" class="a">Create a new alliance</th></tr>
 <tr><th width="100">HC public name</th>
     <td align="right">25 chars</td>

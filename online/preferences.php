@@ -58,7 +58,7 @@ function do_logout ($msg) {
   require "header.php";
   my_header("<meta http-equiv=\"refresh\" content=\"1; URL=index.php\">",0,0);
 
-  echo "<center><table width=\"650\" border=\"1\" cellpadding=\"5\">";
+  echo "<center><table class=\"std\" width=\"650\" border=\"1\" cellpadding=\"5\">";
   echo "<tr><td><span class=\"red\"><b>$msg</b></span></td></tr>".
 	"<tr><td>Goto <a href=\"index.php\" target=\"_parent\">".
 	"Login page</a></td></tr></table>"; 
@@ -262,16 +262,18 @@ if (ISSET($extra_header)) {
   my_header("",0,0);
 }
 
-/* top table is written now */
-/* top_header ($myrow); */
+require_once "navigation.inc";
 
+echo "<div id=\"main\">\n";
+
+/* top_header ($myrow); */
 titlebox ("Preferences", $msg);
 ?>
 
 <center>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Feature settings</th></tr>
 
 <?php
@@ -280,11 +282,12 @@ titlebox ("Preferences", $msg);
   show_preference("Show galaxy pictures", array("Yes", "No"), 4);
   show_preference("Limit News scan to 20 entries", array("Full", "Limit"), 8);
   show_preference("Use Javascript for last tick &sup1;", array("No", "Yes"), 16);
+/*
   if ($mobile_detect)
     echo "<tr><td colspan=2>Font selection disabled on mobile</td></tr>";
   else
     show_preference("Use small fonts", array("Large", "Small"), 32);
-
+*/
   show_preference("Use popup for scans in galaxy view", array("No", "Yes"), 64);
   show_preference("Reduced visibility in Res/Con", array("Max", "Min"), 128);
 ?>
@@ -300,7 +303,7 @@ titlebox ("Preferences", $msg);
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Sleep Mode
 </th></tr>
 <tr><td colspan="2">Sleep mode will protect Your planet against offensive acts 
@@ -340,7 +343,7 @@ if ($mytick > $end_of_round) {
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Change Password</th></tr>
 <tr><td width="50%">Old Password</td>
     <td width="50%" align="center">
@@ -360,7 +363,7 @@ if ($mytick > $end_of_round) {
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Change Email</th></tr>
 <?php
    $q = "SELECT email FROM user WHERE planet_id='$Planetid'";
@@ -394,7 +397,7 @@ EOF;
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Images</th></tr>
 <tr><th align=left colspan=2>Path to images</th></tr>
 <tr><td colspan=2>Download the Zip-file and unzip it. You get a directory 
@@ -422,7 +425,7 @@ Thanx to Fann for these ones
 <br>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="2" class="a">Vacation Mode</th></tr>
 <tr><td colspan="2">Vacation mode will disable your account for at least 48 Hours (not ticks!).
 After this time You may login anytime to reenable Your account.<p>
@@ -440,7 +443,7 @@ You cannot go into vacation if You are attacking or under attack (or defending).
 
 echo<<<EOF
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th class="a">Delete</th></tr>
 <tr><td>To delete your planet You have to press the delete button - 
 and stop playing. <b>After beeing 12 h idle</b> your account will be 
@@ -455,6 +458,7 @@ EOF;
 ?>
 
 </center>
+</div>
 
 <?php
 

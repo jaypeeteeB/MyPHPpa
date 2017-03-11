@@ -588,6 +588,9 @@ function rtime () {
   echo "Runtime: ". number_format($diff_time, 3) ." s<br>";
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -596,7 +599,7 @@ titlebox("Military", $msg);
 ?>
 
 <center>
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="5" class="a">Fleet Status</th></tr>
 <tr><th width="170">Ship Type</th>
 <?php
@@ -703,7 +706,7 @@ echo "</tr>\n";
 
 <br>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="4" class="a">Ship Movement</th></tr>
 <tr><th width="195">Ship Type</th>
     <th width="165">Number</th>
@@ -734,7 +737,7 @@ Hint: to move all ships of a type dont fill in any number</td></tr>
 </form>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="5" class="a">Fleet Movement</th></tr>
 <tr><th width="53">Fleet</th>
     <th width="53">Mission</th>
@@ -769,7 +772,7 @@ while ($row = mysqli_fetch_row($result)) {
 if ($missile_id!=0) {
   echo <<<EOF
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="5" class="a">Missile Attack</th></tr>
 <tr><th width="55">Group</th>
     <th width="55">Mission</th>
@@ -835,6 +838,9 @@ EOF;
 
 }
 ?>
+
+</center>
+</div>
 
 <?php
 require "footer.php";

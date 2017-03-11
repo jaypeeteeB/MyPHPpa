@@ -40,12 +40,13 @@ function my_header ($extra=0,$sess=1,$tickjs=1) {
    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
    <META HTTP-EQUIV="Expires" CONTENT="Sat, 1 Jan 2002 00:00:00 GMT">
    <META NAME="Author" CONTENT="khan@web.de (Jens Beyer)">
-
+   <meta name="viewport" content="width=device-width,user-scalable=yes" />
 <?php
 
-if (file_exists('/tmp/ticker.run') && ($mysettings&16) && $tickjs==1) {
- $diff = time() - filemtime('/tmp/ticker.run');
- $dtick = time() - filemtime('/tmp/ticker.end');
+global $tickfile;
+if (file_exists($tickfile . '.run') && ($mysettings&16) && $tickjs==1) {
+ $diff = time() - filemtime($tickfile . '.run');
+ $dtick = time() - filemtime($tickfile . '.end');
 
 echo <<<EOF
 <script type="text/javascript">
@@ -82,27 +83,18 @@ EOF;
    } else {
      echo "   <TITLE>$game $version</TITLE>\n";
    }
+
+// currently disabled detection (not needed)
 require_once "mobile.inc";
  
   if ($mobile_detect) {
      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
   } else {
-   if (ISSET($imgpath) && $imgpath != "") { 
-    
-    if ($mysettings&32)
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npb.css\">";
-    else
       echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
-   } else {
-    if ($mysettings&32)
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"npa.css\">";
-    else
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpa.css\">";
-   }
   }
     
   
-  if (file_exists('/tmp/ticker.run') && ($mysettings &16) && $tickjs==1) {
+  if (file_exists($tickfile . '.run') && ($mysettings &16) && $tickjs==1) {
     echo "</head>\n<body class=\"a\" ".
       "onLoad=\"window.setTimeout('MyTick()',800)\">\n";
   } else {

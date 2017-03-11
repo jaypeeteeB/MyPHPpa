@@ -54,9 +54,11 @@ void write_ticker_file(char *tname)
 {
   FILE *fd;
   time_t now = time(NULL);
-  fd = fopen(tname,"a");
-  fprintf(fd, "%s\n", ctime(&now));
-  fclose (fd);
+  if( (fd = fopen(tname,"a"))) {
+    fprintf(fd, "%s\n", ctime(&now));
+    fclose (fd);
+  } else 
+    fprintf (logfile, "Failed to open ticker_file %s\n", tname);
 }
 
 /***********************************/
@@ -103,6 +105,8 @@ int main(int argc, char *argv[])
   struct timeval start, end;
   time_t now;
   char *tickerlog = "ticker.log";
+  char *tickstartf = "/tmp/ticker.run";
+  char *tickendf   = "/tmp/ticker.end";
   options *opt = NULL;
   int game_mode = 0;
 
@@ -115,11 +119,13 @@ int main(int argc, char *argv[])
   if (argc > 1) {
     opt = read_cfg (argc, argv);
     if (opt->logfile) tickerlog = strdup (opt->logfile);
+    if (opt->tickstart) tickstartf = strdup (opt->tickstart);
+    if (opt->tickend)   tickendf   = strdup (opt->tickend);
     game_mode = opt->resource;
   }
 
   if (!(logfile = fopen(tickerlog,"a"))) {
-    fprintf (stderr, "Could not open logfile: ticker.log\n");
+    fprintf (stderr, "Could not open logfile: %s\n", tickerlog);
     logfile = stderr;
   }
 
@@ -128,7 +134,7 @@ int main(int argc, char *argv[])
   mysql = init_connection(opt);
 
   mytick = get_tick(mysql);
-  write_ticker_file("/tmp/ticker.run");
+  write_ticker_file(tickstartf);
 
   update_build (mysql); 
   move_fleets (mysql); 
@@ -160,7 +166,7 @@ int main(int argc, char *argv[])
   /* update ticks */
   /* do_query (mysql, "UPDATE general set tick=tick+1");
    */
-  write_ticker_file("/tmp/ticker.end");
+  write_ticker_file(tickendf);
 
   close_connection(mysql);
   

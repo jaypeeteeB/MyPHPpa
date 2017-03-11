@@ -89,6 +89,10 @@ if (ISSET($_REQUEST["hide"])) {
     "WHERE planet_id='$Planetid' AND id='$hide'" );
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -99,7 +103,7 @@ titlebox("News", $msg);
 ?>
 
 <center>
-<table  width="650" border="1" cellpadding="2" >
+<table  class="std" width="650" border="1" cellpadding="2" id="legend">
 <tr><th class="a" colspan="10">Legend</th></tr>
 <?php
 if ($imgpath && $imgpath!= "") {
@@ -140,7 +144,7 @@ if ($imgpath && $imgpath!= "") {
 <br>
 <br>
 
-<table  width="650" border="1" cellpadding="2" >
+<table  class="std" width="650" border="1" cellpadding="2" >
 <tr><th class="a" colspan="3">Private News</th></tr>
 
 <?php
@@ -163,6 +167,8 @@ if ($result && mysqli_num_rows($result) > 0) {
 ?>
 </table>
 </center>
+</div>
+
 <?php
 
 require "footer.php";

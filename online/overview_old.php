@@ -26,15 +26,13 @@ function print_coords ($x, $y, $z) {
   return "<A HREF=\"galaxy.php?submit=1&x=$x&y=$y\">$x:$y:$z</A>";
 }
 
-require_once "navigation.inc";
-
-echo "<div id=\"main\">\n";
 /* top table is written now */
+
 top_header($myrow);
 titlebox("Overview");
 ?>
 <center>
-<table class="std" cellpadding="5" >
+<table width="650" border="1" cellpadding="5" >
 <tr><th class="a">Message of the Day</th></tr>
 <tr><td><?php include "motd.php" ?></td></tr>
 </table>
@@ -211,7 +209,7 @@ if ($res && mysqli_num_rows ($res)>0) {
 
 if ($system_message!="") {
 ?>
-<table class="std" cellpadding="5" >
+<table width="650" border="1" cellpadding="5" >
 <tr><th class="a">System Message</th></tr>
 <tr><td><?php echo $system_message ?></td></tr>
 </table>
@@ -220,7 +218,7 @@ if ($system_message!="") {
 }
 ?>
 
-<table  class="std" cellpadding="5">
+<table width="650" border="1" cellpadding="5">
 <tr><th class="a">Message from your Commander</th></tr>
 <tr><td>
 <?php
@@ -290,8 +288,8 @@ if ($unit_res && mysqli_num_rows ($unit_res) > 0) {
   if ($total) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"25%\"></td><td width=\"15%\"></td></tr>";
-    echo "<table  class=\"std\" cellpadding=\"5\" >".
-      "<tr><th class=\"a\" colspan=\"5\">" .
+    echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
+      "<th class=\"a\" colspan=\"5\">" .
       "Ships ($total units total)</th></tr>\n$table";
     echo "</table>";
   }
@@ -325,8 +323,8 @@ if ($pds_res && mysqli_num_rows ($pds_res) > 0) {
   if ($total) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"25%\"></td><td width=\"15%\"></td></tr>";
-    echo "<table  class=\"std\" cellpadding=\"5\" >".
-      "<tr><th class=\"a\" colspan=\"5\">" .
+    echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
+      "<th class=\"a\" colspan=\"5\">" .
       "Planetarian Defence System ($total units total)</th></tr>\n$table";
     echo "</table>";
   }
@@ -338,21 +336,20 @@ echo "<br>\n";
 $total = $myrow["metalroids"] + $myrow["crystalroids"] + $myrow["eoniumroids"]  
          + $myrow["uniniroids"];
 
-echo "<table  class=\"std\" cellpadding=\"5\" >".
-      "<tr><th class=\"a\" colspan=\"5\">" .
+echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
+      "<th class=\"a\" colspan=\"5\">" .
       "Asteroids ($total total)</th></tr>";
 
-echo "<tr><td width=\"25%\">Metal</td><td width=\"15%\" align=\"right\">".
+echo "<td width=\"25%\">Metal</td><td width=\"15%\" align=\"right\">".
       $myrow["metalroids"] . "</td><td width=\"20%\">&nbsp;</td>";
 echo "<td width=\"25%\">Crystal</td><td width=\"15%\" align=\"right\">".
       $myrow["crystalroids"] . "</td></tr>\n";
-echo "<tr><td width=\"25%\">Eonium</td><td width=\"15%\" align=\"right\">".
+echo "<td width=\"25%\">Eonium</td><td width=\"15%\" align=\"right\">".
       $myrow["eoniumroids"] . "</td><td width=\"20%\">&nbsp;</td>";
 echo "<td width=\"25%\">Uninitiated</td><td width=\"15%\" align=\"right\">".
       $myrow["uniniroids"] . "</td></tr>\n";
 
 echo "</table>\n</center>\n";
-echo "</div>\n";
 
 require "footer.php";
 ?>

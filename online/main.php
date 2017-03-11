@@ -29,36 +29,15 @@ if (session_check()) {
   die;
  }
 
-
-// if ( !$Username || $Username=="" || 
-//      !$Password || $Password=="" || 
-//      !$Planetid || $Planetid==0 ||
-//      !$Valid || $Valid!=md5($round)) {
-//
-//   setcookie("Username","");
-//   setcookie("Password","");
-//   setcookie("Planetid","-1");
-//   Header("Location: index.php");
-//   die;
-// }
-
 require "dblogon.php";
 
-// $result = mysqli_query($db, "SELECT login,settings FROM user ".
-//                      "WHERE login='$Username' AND md5(password)='$Password' ".
-//		      "AND planet_id='$Planetid'");
 $result = mysqli_query($db, "SELECT login,settings FROM user ".
                       "WHERE planet_id='$Planetid'");
 
 if (!$result || mysqli_num_rows($result) != 1) {
-
   session_kill();
-  //   setcookie("Username","");
-  //   setcookie("Password","");
-  //   setcookie("Planetid","-1");
   echo "No such user error";
   Header("Location: error.php");
-
   die;
 }
 
@@ -67,10 +46,10 @@ require "headerf.php";
 ?>
 
 <FRAMESET COLS="150,*"  frameborder="0" framespacing="0">
-  <FRAME SRC="navigation.php" NAME="navigation" noresize frameborder="0">
+  <FRAME SRC="nav.php" NAME="navigation" noresize frameborder="0">
   <FRAME SRC="overview.php" NAME="main" frameborder="0">
   <NOFRAMES>
-    <A HREF="navigation.php">Navigation</A><br>
+    <A HREF="nav.php">Navigation</A><br>
     <A HREF="overview.php">Overview</A>
   </NOFRAMES>
 </FRAMESET>

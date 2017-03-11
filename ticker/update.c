@@ -422,11 +422,11 @@ void update_resources (MYSQL *mysql, int havoc)
 
   if (havoc) {
     do_query (mysql,"UPDATE planet SET metal=metal+planet_m+" \
-	      "metalroids*greatest(350+1-metalroids,150), " \
+	      "metalroids*greatest(350+1-least(metalroids,202),150), " \
 	      "crystal=crystal+planet_c+" \
-	      "crystalroids*greatest(350+1-crystalroids, 150), " \
+	      "crystalroids*greatest(350+1-least(crystalroids,202), 150), " \
 	      "eonium=eonium+planet_e+" \
-	      "eoniumroids*greatest(350+1-eoniumroids, 150) " \
+	      "eoniumroids*greatest(350+1-least(eoniumroids,202), 150) " \
 	      "WHERE mode!=4");
   } else {
     do_query (mysql, "UPDATE planet SET metal=metal+planet_m+"  

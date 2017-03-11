@@ -122,6 +122,10 @@ function calc_exile_cost() {
   return (int) ($row[0]*0.05);
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header ($myrow);
 
@@ -185,7 +189,8 @@ if ($galcommander_id == $myrow["id"]) {
     $pend = strtolower(substr($newpic, -3));
     if ($newpic != "CLEAR" &&
 	(strlen($newpic)<10 ||
-         strtolower(substr($newpic, 0, 7)) != "http://" ||
+         ( strtolower(substr($newpic, 0, 7)) != "http://" &&
+         strtolower(substr($newpic, 0, 8)) != "https://" ) ||
          ($pend != "jpg" && $pend != "gif" && 
 	  $pend != "png" && $pend != "tif"))) {
  
@@ -345,7 +350,7 @@ titlebox("Affairs", $msg);
 
 <center>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-<table width="650" border="1" cellpadding="5">
+<table class="std" width="650" border="1" cellpadding="5">
 <tr><th colspan="3" class="a">Change GC Vote
 </td></tr>
 <tr><td colspan="3">Vote for GC: your gal must have at least 2 members.<br>
@@ -407,7 +412,7 @@ if ($mytick>0 && $res && mysqli_num_rows($res)>0) {
   echo <<<EOF
     <br>
     <form method="post" action="$_SERVER[PHP_SELF]">
-    <table width="650" border="1" cellpadding="5">
+    <table class="std" width="650" border="1" cellpadding="5">
     <tr><th colspan="3" class="a">Exile voting</th></tr>
     <tr><td colspan="3">There is an exile vote running against $exwho[leader] of 
           $exwho[planetname] ($exwho[x]:$exwho[y]:$exwho[z]). 
@@ -435,7 +440,7 @@ if ($galcommander_id == $myrow["id"]) {
 
   echo <<<EOF
  <form method="post" action="$_SERVER[PHP_SELF]">
- <table width="650" border="1" cellpadding="5">
+ <table class="std" width="650" border="1" cellpadding="5">
     <tr><th colspan="3" class="a">Commander options</th></tr>
     <tr><th colspan="3" bgcolor="#ff0000">
          Using offensive or insulting pictures or names leads to deletion of Your planet !!!</th></td></tr>
@@ -484,7 +489,7 @@ EOF;
         Resources are taken from Galaxy Fund in the order E, C and last M.</td></tr>
     <tr><td>Start Exile</td>
 	  <td><select name="exilevote">
-              <option value="-1">Clear</option>$moc_list</select></td></td>
+              <option value="-1">Clear</option>$moc_list</select></td>
 	  <td align="center">
             <input type=submit value="  Exile  " name="startexile"></td></tr>
 EOF;
@@ -496,6 +501,7 @@ EOF;
 }
 
 echo "\n</center>\n";
+echo "</div>\n";
 
 require "footer.php";
 ?>

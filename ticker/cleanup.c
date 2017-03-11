@@ -35,6 +35,11 @@ void delete_user (MYSQL *mysql, unsigned int id)
   char buf[256];
   char leader[25], pname[25];
 
+  if (id < 3) {
+    /* dont delete admin or moderator */
+    return ;
+  }
+
   res = vx_query (mysql, 
                   "SELECT x,y,z,leader,planetname,alliance_id FROM planet WHERE id=%d",
                   id);
@@ -452,16 +457,20 @@ void do_clean_ups (MYSQL *mysql)
   check_error (mysql);
   mysql_free_result(res);
 
-  /* delete old accounts */
-  res = do_query (mysql, "SELECT planet.id FROM planet,user "\
+  /* delete idle/old/test accounts */
+  /* only if mytick > 24 hours = 120*24 = 1440 */
+  if (mytick > 2880) {
+    res = do_query (mysql, "SELECT planet.id FROM planet,user "\
                   "WHERE planet.id=user.planet_id "\
+                  "AND planet.id>2 "\
                   "AND (metalroids+crystalroids+eoniumroids+uniniroids) < 4 " \
-                  "AND (user.last < NOW() - INTERVAL 12 HOUR " \
+                  "AND (user.last < NOW() - INTERVAL 24 HOUR " \
 		  "OR (user.last IS NULL "\
-		  "AND user.signup < NOW() - INTERVAL 12 HOUR))");
-  if (res && mysql_num_rows(res)) {
-    while ((row = mysql_fetch_row (res)))
-      delete_user(mysql, atoi(row[0]));
+		  "AND user.signup < NOW() - INTERVAL 24 HOUR))");
+    if (res && mysql_num_rows(res)) {
+      while ((row = mysql_fetch_row (res)))
+        delete_user(mysql, atoi(row[0]));
+    }
   }
 
   /* delete deleted accounts */

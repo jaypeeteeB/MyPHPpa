@@ -48,6 +48,9 @@ if (ISSET($_POST["odel"]))
 if (ISSET($_POST["oela"]) && ISSET($_POST["offa"]))
   $msg .= elect_offa($_POST["offa"]);
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -75,6 +78,7 @@ if (!$all || $myrow["alliance_id"] == 0) {
 }
 ?>
 </center>
+</div>
 
 <?php
 require "footer.php";

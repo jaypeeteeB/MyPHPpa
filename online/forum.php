@@ -24,6 +24,10 @@ require_once "standard.php";
 
 require_once "forum.inc";
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 $fstyle = 0;
 $fid = 0;
 
@@ -56,5 +60,6 @@ if (ISSET($_REQUEST["fthread"])) {
   forum_list_thread ($fstyle, $fid);
 }
 
+echo "</div>\n";
 require "footer.inc";
 ?>

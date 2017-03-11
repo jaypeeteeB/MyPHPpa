@@ -170,7 +170,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
     do_log_id($myrow[0], 1, 2, get_type()); 
     // event:login=1, class:login/out=1    
  
-    Header("Location: main.php");
+    Header("Location: overview.php");
 
     die;
   } else {
@@ -189,8 +189,8 @@ $myrow = mysqli_fetch_row($result);
 $numonline = $myrow[0];
 
 
-if (file_exists('/tmp/ticker.run')) {
-  $tdate = date("d/M H:i e", filemtime('/tmp/ticker.run'));
+if (file_exists($tickfile . '.run')) {
+  $tdate = date("d/M H:i e", filemtime($tickfile . '.run'));
 } else {
    $tdate = "<b><span class=\"red\">Ticker stopped</span></b>";
 }
@@ -287,6 +287,13 @@ if ($mytick > $end_of_round) {
        "Signup and create<br>your own account!</a></B></td>\n";
 }
 
+if (file_exists('gitrev.inc')) {
+	include 'gitrev.inc';
+	$rev_text = "last applied commit: " . $rev;
+} else {
+	$rev_text='';
+}
+
 echo <<<EOF
  </tr>
  <tr><td><a href="sendpass.php">Lost</a> your password?</td></tr>
@@ -295,12 +302,11 @@ echo <<<EOF
 </center>
 
 </td></tr>
-<tr><td align=right colspan=3>
-
+<tr><td colspan=3>
 <div style="font-size: 10px;text-align:right;">
-<a href="mailto:MyPHPpa@web.de">MyPHPpa@web.de</a>
+<a href="mailto:MyPHPpa@web.de">MyPHPpa@web.de</a><br>
+$rev_text
 </div>
-
 </td></tr>
 </table>
 

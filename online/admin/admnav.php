@@ -27,8 +27,10 @@ include_once "../get_ip.php";
 
 include_once "../session.inc";
 session_init();
-if (session_check(get_ip())) {
-  echo "error check session admnav";
+$ret=0;
+if (($ret=session_check(get_ip()))) {
+  var_dump($_SESSION);
+  echo "error check session admnav: $ret (". get_ip() .")" ;
 //  Header("Location: ../index.php");
   die;
  }
@@ -65,43 +67,46 @@ mysqli_query($db, "UPDATE user set last=NOW(),last_tick='$mytick'".
 if ($Planetid==1) {
   ?>
  <center>
-    <table border="1" width="640">
+    <table border="1" width="800">
     <tr>
-    <th colspan="5"> Administration </th>
+    <th colspan="6"> Administration </th>
     <tr>
-    <td width="20%"><a href="pinfo.php" target="admmain">Player Info</a></td>
-    <td width="20%"><a href="plog.php" target="admmain">Player Log</a></td>
-    <td width="20%"><a href="pban.php" target="admmain">Ban Player</a></td>
-    <td width="20%"><a href="pmail.php" target="admmain">Player Mail</a></td>
-    <td width="20%"><a href="pnews.php" target="admmain">Planet News</a></td>
+    <td width="16%"><a href="pinfo.php" target="admmain">Player Info</a></td>
+    <td width="16%"><a href="plog.php" target="admmain">Player Log</a></td>
+    <td width="16%"><a href="pban.php" target="admmain">Ban Player</a></td>
+    <td width="16%"><a href="pmail.php" target="admmain">Player Mail</a></td>
+    <td width="16%"><a href="pnews.php" target="admmain">Planet News</a></td>
+    <td width="16%"><a href="biplist.php" target="admmain">List banned IPs</a></td>
     </tr>
     <tr>
-    <td width="20%"><a href="apol.php" target="admmain">Politics</a></td>
-    <td width="20%"><a href="aalist.php" target="admmain">Alliances</a></td>
-    <td width="20%"><a href="amem.php" target="admmain">A Members</a></td>
-    <td width="20%"><a href="afor.php" target="admmain">A Forum</a></td>
-    <td width="20%"><a href="ptop.php" target="admmain">Player Top</a></td>
+    <td width="16%"><a href="apol.php" target="admmain">Politics</a></td>
+    <td width="16%"><a href="aalist.php" target="admmain">Alliances</a></td>
+    <td width="16%"><a href="amem.php" target="admmain">A Members</a></td>
+    <td width="16%"><a href="afor.php" target="admmain">A Forum</a></td>
+    <td width="16%"><a href="ptop.php" target="admmain">Player Top</a></td>
+    <td width="16%"><a href="bplayerlist.php" target="admmain">List banned Player</a></td>
     </tr>
     <tr>
-    <td width="20%"><a href="pdelete.php" target="admmain">Delete Player</a></td>
-    <td width="20%"><a href="ipban.php" target="admmain">Ban IP</a></td>
-    <td width="20%"><a href="pidle.php" target="admmain">Idle New</a></td>
-    <td width="20%"><a href="pidle2.php" target="admmain">Idle old</a></td>
-    <td width="20%"><a href="pmove.php" target="admmain">Player move</a></td>
+    <td width="16%"><a href="pdelete.php" target="admmain">Delete Player</a></td>
+    <td width="16%"><a href="ipban.php" target="admmain">Ban IP</a></td>
+    <td width="16%"><a href="pidle.php" target="admmain">Idle New</a></td>
+    <td width="16%"><a href="pidle2.php" target="admmain">Idle old</a></td>
+    <td width="16%"><a href="pmove.php" target="admmain">Player move</a></td>
+    <td width="16%"><a href="bdomainlist.php" target="admmain">List banned Domains</a></td>
     <tr>
     </tr>
-    <td width="20%"><a href="scan.php" target="admmain">Scans</a></td>
-    <td width="20%"><a href="units.php" target="admmain">Units</a></td>
-    <td width="20%"><a href="rc.php" target="admmain">Res/Con</a></td>
-    <td width="20%"><a href="high.php" target="admmain">Set Highscore</a></td>
-    <td width="20%"><a href="opt.php" target="admmain">Optimize</a></td>
+    <td width="16%"><a href="scan.php" target="admmain">Scans</a></td>
+    <td width="16%"><a href="units.php" target="admmain">Units</a></td>
+    <td width="16%"><a href="rc.php" target="admmain">Res/Con</a></td>
+    <td width="16%"><a href="high.php" target="admmain">Set Highscore</a></td>
+    <td width="16%"><a href="opt.php" target="admmain">Optimize</a></td>
     </tr>
     <tr>
-    <td width="20%"><a href="galpic.php" target="admmain">Galpic</a></td>
-    <td width="20%"><a href="pshuffle.php" target="admmain">Shuffle</a></td>
-    <td width="20%"><a href="freset.php" target="admmain">Reset All</a></td>
-    <td width="20%"><a href="havoc.php" target="admmain">Havoc</a></td>
-    <td width="20%"><a href="expand.php" target="admmain">Expand</a></td>
+    <td width="16%"><a href="galpic.php" target="admmain">Galpic</a></td>
+    <td width="16%"><a href="pshuffle.php" target="admmain">Shuffle</a></td>
+    <td width="16%"><a href="freset.php" target="admmain">Reset All</a></td>
+    <td width="16%"><a href="havoc.php" target="admmain">Havoc</a></td>
+    <td width="16%"><a href="expand.php" target="admmain">Expand</a></td>
     </tr>
   
     </table>

@@ -134,6 +134,10 @@ if (ISSET($_REQUEST["toggle"])) {
                "WHERE planet_id='$Planetid'");
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -152,11 +156,11 @@ if ($mysettings & 128) {
 
 echo <<<EOF
 <center>
-<table border="0" width="650">
+<table class="std_nb" border="0" width="650">
 <tr><td align="right"><a href="$_SERVER[PHP_SELF]?toggle=$toggle">
     <span class="small">Toggle visibility</span></a></td></tr>
 </table>
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr class="a"><th width="140">Research</th>
     <th width="350">Description</th>
     <th width="70">Ticks</th>
@@ -179,7 +183,9 @@ if (mysqli_num_rows($result) > 0) {
 } else {
   echo "<tr><td colspan=4>No researches available</td></tr>";
 }
-echo "</table>\n";
+echo "</table>\n</center>\n";
+
+echo "</div>\n";
 
 require "footer.php";
 ?>

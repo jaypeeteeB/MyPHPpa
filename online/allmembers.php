@@ -34,6 +34,9 @@ if ($all && ISSET($_GET["otrust"]) && 0 != (int)$_GET["otrust"])
 if ($all && ISSET($_GET["okick"]) && 0 != (int)$_GET["okick"] && $_GET["okick"] != $Planetid)
   $msg .= kick_alliance($_GET["okick"]);
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
 /* top table is written now */
 top_header($myrow);
 
@@ -57,6 +60,7 @@ if (!$all || $myrow["alliance_id"] == 0) {
 
 ?>
 </center>
+</div>
 
 <?php
 require "footer.php";

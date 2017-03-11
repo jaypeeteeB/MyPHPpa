@@ -28,6 +28,17 @@ my_header("",0,0);
 
 require "msgbox.php";
 
+require_once "session.inc";
+session_init();
+$need_navigation=0;
+if (!session_check()) 
+  $need_navigation=1;
+
+if($need_navigation == 1) {
+  require_once "navigation.inc";
+  echo "<div id=\"main\">\n";
+}
+
 titlebox("General");
 ?>
 <center>
@@ -38,7 +49,7 @@ titlebox("General");
 This means: I make the rules
 how and whenever I want. If You dont have fun leave the game.</td></tr>
 <tr><td valign="top">2.</td><td>If I dont have fun anymore the game stops.</td></tr>
-<tr><td valign="top">3.</td><td>So called multies arent allowed - account sharing is interpreted as multiing, as is account switching/hopping.</td></tr>
+<tr><td valign="top">3.</td><td>So called multies arent allowed - account sharing is interpreted as multiing, as is account switching/hopping. Thus dont use fake emails or anonymizers.</td></tr>
 <tr><td valign="top">4.</td><td>So called bots, scripting and farming or donating roids, ships or salvage is forbidden.</td></tr>
 <tr><td valign="top">5.</td><td>Spamming the forum or via mail isnt allowed.</td></tr>
 <tr><td valign="top">6.</td><td>If you and friends or whatever play over
@@ -53,11 +64,14 @@ names/pictures/posts/mails/whatever may lead to direct deletion.</td></tr>
 <tr><td colspan=2><b>By logging into this game You accept these terms.</td></tr>
 <tr><td colspan=2>&nbsp;</td></tr>
 <tr><td colspan=2 align=left>Khan, 1. Nov 2002</td></tr>
-<tr><td colspan=2 align=left><em>Last update: 1. July 2016</em></td></tr>
+<tr><td colspan=2 align=left><em>Last update: December 2016</em></td></tr>
 </table>
 
 </center>
 
 <?php
+if($need_navigation == 1) 
+  echo "</div>\n";
+
 require "footer.php";
 ?>

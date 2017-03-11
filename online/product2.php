@@ -178,14 +178,8 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 <br>
 <table class="std" border="1" width="650">
-<tr><th colspan="25" class="a">Current Production</th></tr>
-<tr><td width="150"></td>
-<?php 
-  for ($i=1; $i<=24; $i++) {
-     echo "<td width=\"20\">$i</td>"; 
-  }
-?>
-</tr>
+<tr><th colspan="4" class="a">Current Production</th></tr>
+<tr><td width="16%">Unit</td> <td width="10%">Remain/Build</td> <td width="10%">Count</td> <td width="65%">Progress</td></tr>
 
 <?php
 
@@ -202,27 +196,30 @@ if (mysqli_num_rows($result) > 0) {
   $mybuild = mysqli_fetch_row($prod_res);
 
   while ($myunit = mysqli_fetch_row($result)) {
-    /* name of it */
-    echo "<tr><td>$myunit[1]</td>";
-
     if ($mybuild && $mybuild[0] == $myunit[0]) {
+      while ($mybuild && $mybuild[0] == $myunit[0]) {
+        /* name of it */
+        echo "<tr><td>$myunit[1]</td>";
+        /* build ticks */
+        $remain_tick = $mybuild[2];
+        echo "<td align=\"center\">$remain_tick / $myunit[2]</td>";
 
-      for ($i=1; $i<=$myunit[2]; $i++) {
-	if ($i == $mybuild[2] && $mybuild && $mybuild[0] == $myunit[0]) {
-	  /* in bau */
-	  echo "<td>$mybuild[1]</td>";
-	  $mybuild = mysqli_fetch_row($prod_res);
-	} else {
-	  echo "<td>&nbsp;</td>";
-	}
+        /* count */
+        echo "<td align=\"right\">$mybuild[1]</td>";
+        echo "<td><progress value=\"$remain_tick\" max=\"24\"><div>$remain_tick</div></progress></td></tr>";
+
+        /* fetch next */
+        $mybuild = mysqli_fetch_row($prod_res);
       }
     } else {
-      /* momentan keine schiffe des typs in bau */
-      for ($i=1; $i<=$myunit[2]; $i++) {
-	echo "<td>&nbsp;</td>";
-      }
+	/* no built of this type atm */
+        /* name of it */
+        echo "<tr><td>$myunit[1]</td>";
+        /* build ticks */
+        echo "<td align=\"center\">$myunit[2]</td>";
+        echo "<td colspan=\"2\">&nbsp;</td></tr>";
     }
-    echo "</tr>\n";
+
   }
 }
 

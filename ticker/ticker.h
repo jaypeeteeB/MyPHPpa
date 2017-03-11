@@ -36,6 +36,8 @@ typedef struct options_strct {
   char * db_socket;
   char * logfile;
   char * sql_log;
+  char * tickstart;
+  char * tickend;
   int db_port;
   int resource;
 } options;

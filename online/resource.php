@@ -120,7 +120,7 @@ if (ISSET($_POST["submit"])) {
   if (!$metal && !$crystal && !$eon) {
      $msg = "You dont have enough Metal to initialize Asteroids<br>\n";
   }
-  if ($tcost>0) $msg .= "For a total of $tcost Metal\n";
+  if (ISSET($tcost) && $tcost>0) $msg .= "For a total of $tcost Metal\n";
 } else {
 
   if (ISSET($_POST["donate"])) {
@@ -257,6 +257,10 @@ require "news_util.php";
   }
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -264,7 +268,7 @@ titlebox("Resource",$msg);
 ?>
 
 <center>
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
   <tr><th colspan="4" class="a">Planet Income</th></tr>
   <tr><th width="150">Type</th><th width="100">Number</th>
       <th width="100">Planet</th><th width="100">Total</th></tr>
@@ -293,7 +297,7 @@ if ($myrow["uniniroids"] >0) {
   $cost = calc_init_cost ($myrow);
 ?>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-  <table width="450" border="1">
+  <table class="stdsmall" width="450" border="1">
 
   <tr><th colspan="2" align="center" class="a">
   <?php echo $myrow["uniniroids"] ?> Uninitiated Asteroids</th></td></tr>
@@ -326,7 +330,7 @@ if ($myrow["uniniroids"] >0) {
   $cost = calc_init_cost ($myrow);
 
   echo <<<EOF
-  <table width="450" border="1">
+  <table class="stdsmall" width="450" border="1">
   <tr><th colspan="2" align="center">Cost for next Initialization: $cost Metal</th></tr>
   </table>
 EOF;
@@ -341,7 +345,7 @@ EOF;
     echo<<<EOF
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
   <tr><th colspan="4" align="center" class="a">Donate to Galaxy Fund</th></tr>
   <tr><th width="150">Resource</th><th width="100">Fund</th>
     <th width="100">Yours</th><th width="100">Amount</th></tr>
@@ -366,7 +370,7 @@ EOF;
 
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
 <tr><th align="center" class="a">Trade with the 
 Galaxy Fund</th></tr>
 <tr><td align="center" valign="center">Trade 
@@ -398,7 +402,7 @@ EOF;
         echo <<<EOF
 <br>
 <form method="post" action="$_SERVER[PHP_SELF]">
-<table width="450" border="1">
+<table class="stdsmall" width="450" border="1">
   <tr><th class="a" colspan="3">Galaxy fund administration</th></tr>
   <tr><td colspan=3>Donation is possible <b>once per 24 hours</b> to one 
 of the two lowest galaxy members by score. The amount is limited 
@@ -429,10 +433,12 @@ EOF;
 </table>
 EOF;
       }
-    }
     echo "</form>\n";
+    }
   }
 }
+echo "</center>\n";
+echo "</div>\n";
 
 require "footer.php";
 ?>

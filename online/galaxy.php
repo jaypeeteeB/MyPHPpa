@@ -35,8 +35,12 @@ $extra_header .= "\n<SCRIPT LANGUAGE=\"javascript\">\n".
 "}\n// END\n//-->\n</SCRIPT>";
 
 require "standard.php";
-/* top table is written now */
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
+/* top table is written now */
 top_header($myrow);
 
 require "gal_report.inc";
@@ -129,7 +133,7 @@ if ($gpic) {
 }
 ?>
 
-<table width="650" border="1">
+<table class="std" width="650" border="1">
   <tr><td style="visibility:hidden"></td><th width="630" colspan="5" class="a"><?php echo $gname ?></th></tr>
   <tr><td style="visibility:hidden"></td>
       <th width="35">Id</th>
@@ -142,6 +146,7 @@ if ($gpic) {
 print_gal_report ($target_x, $target_y);
 
 echo "</table>\n</center>\n";
+echo "</div>\n";
 
 require "footer.php";
 ?>

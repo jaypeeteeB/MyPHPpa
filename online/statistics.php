@@ -22,6 +22,9 @@
 require "standard.php";
 require "planet_util.inc";
 
+  require_once "navigation.inc";
+  echo "<div id=\"main\">\n";
+
 /* top table is written now */
 
 top_header($myrow);
@@ -58,7 +61,7 @@ if ($unit_res && mysqli_num_rows ($unit_res) > 0) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"40%\" colspan=\"2\"></td></tr>";
     echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<th class=\"a\" colspan=\"5\">" .
+      "<tr><th class=\"a\" colspan=\"5\">" .
       "Ships (".pval($total)." units total)</th></tr>\n$table";
     echo "</table>";
   }
@@ -92,7 +95,7 @@ if ($pds_res && mysqli_num_rows ($pds_res) > 0) {
     if ( ($row_counter % 2) == 1) 
       $table .= "<td width=\"40%\" colspan=\"2\"></td></tr>";
     echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<th class=\"a\" colspan=\"5\">" .
+      "<tr><th class=\"a\" colspan=\"5\">" .
       "Planetarian Defence System (".pval($total)." units total)</th></tr>\n$table";
     echo "</table>";
   }
@@ -113,15 +116,15 @@ if ($roid_res && mysqli_num_rows ($roid_res) > 0) {
          + $roid_row[3];
 
   echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<th class=\"a\" colspan=\"5\">" .
+      "<tr><th class=\"a\" colspan=\"5\">" .
       "Asteroids (".pval($total)." total)</th></tr>";
 
   echo "<tr>";
   echo "<td width=\"20%\">Metal</td><td width=\"20%\" align=\"right\">".
       pval($roid_row[0]) . "</td><td width=\"20%\">&nbsp;</td>";
   echo "<td width=\"20%\">Crystal</td><td width=\"20%\" align=\"right\">".
-      pval($roid_row[1]) . "</td></tr>\n";
-  echo "<td width=\"20%\">Eonium</td><td width=\"20%\" align=\"right\">".
+pval($roid_row[1]) . "</td></tr>\n";
+  echo "<tr><td width=\"20%\">Eonium</td><td width=\"20%\" align=\"right\">".
       pval($roid_row[2]) . "</td><td width=\"20%\">&nbsp;</td>";
   echo "<td width=\"20%\">Uninitiated</td><td width=\"20%\" align=\"right\">".
       pval($roid_row[3]) . "</td></tr>\n";
@@ -142,7 +145,7 @@ if ($res_res && mysqli_num_rows ($res_res) > 0) {
   $total = $res_row[0] + $res_row[1] + $res_row[2];
 
   echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<th class=\"a\" colspan=\"5\">" .
+      "<tr><th class=\"a\" colspan=\"5\">" .
       "Resources (".pval($total)." total)</th></tr>";
 
   echo "<tr>";
@@ -150,7 +153,7 @@ if ($res_res && mysqli_num_rows ($res_res) > 0) {
       pval($res_row[0]) . "</td><td width=\"20%\">&nbsp;</td>";
   echo "<td width=\"20%\">Crystal</td><td width=\"20%\" align=\"right\">".
       pval($res_row[1]) . "</td></tr>\n";
-  echo "<td width=\"20%\">Eonium</td><td width=\"20%\" align=\"right\">".
+  echo "<tr><td width=\"20%\">Eonium</td><td width=\"20%\" align=\"right\">".
       pval($res_row[2]) . "</td><td width=\"20%\">&nbsp;</td>";
   echo "<td width=\"40%\" colspan=\"2\"></td></tr>\n";
 
@@ -181,7 +184,7 @@ if ($res && mysqli_num_rows ($res) > 0) {
 if ($defends!=0 || $attacks !=0) {
   echo "<br>\n";
   echo "<table width=\"650\" border=\"1\" cellpadding=\"5\" >".
-      "<th class=\"a\" colspan=\"5\">" .
+      "<tr><th class=\"a\" colspan=\"5\">" .
       "Fleet Movements (".($attacks+$defends)." total) in last hour</th></tr>";
 
   echo "<tr>";
@@ -194,6 +197,6 @@ if ($defends!=0 || $attacks !=0) {
 }
 
 echo "</center>\n";
-
+  echo "</div>\n";
 require "footer.php";
 ?>

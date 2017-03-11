@@ -179,6 +179,10 @@ if (ISSET($_POST["submit"])) {
   if (ISSET($_POST["scan_8"])) prod_scan (8, $_POST["scan_8"]);
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -206,7 +210,7 @@ if (ISSET($_REQUEST["scan"]) && ISSET($_REQUEST["number"]) &&
 
   echo <<<EOF
 <center>
-<table border=0 width=650>
+<table class="std" border=0 width=650>
 <tr><td align="left">$save_link</td><td align="right">
 <a href="galaxy.php?submit=1&x=$x&y=$y">To galaxy $x:$y</a></td></tr>
 </table>
@@ -235,7 +239,7 @@ EOF;
 
       echo <<<EOF
 <center>
-<table border=0 width=650><tr><td align="right">
+<table class="std" border=0 width=650><tr><td align="right">
 <a href="galaxy.php?submit=1&x=$x&y=$y">To galaxy $x:$y</a></td></tr>
 </table>
 </center>
@@ -274,7 +278,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
   }
 
-  echo "<table border=\"1\" width=\"650\"><tr>".
+  echo "<table class=\"std\" border=\"1\" width=\"650\"><tr>".
     "<th colspan=\"4\" class=\"a\">Launch Wave Scans</th></tr>".
     "<tr><th width=\"175\">Wave Type</th><th width=\"175\">Target</th>".
     "<th width=\"150\">Number</th><th width=\"150\">Execute</th></tr>\n";
@@ -314,7 +318,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 ?>
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="5" class="a">Purchase Energy Packs</th></tr>
 <tr><th width="110">Wave Type</th>
     <th width="360">Description</th>
@@ -352,7 +356,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 </form>
 
 <br>
-<table border="1" width="650">
+<table class="std" border="1" width="650">
 <tr><th colspan="18" class="a">Current Production</th></tr>
 <tr><td width="150"></td>
 <?php 
@@ -409,6 +413,7 @@ if (mysqli_num_rows($result) > 0) {
 </tr>
 </table>
 </center>
+</div>
 
 <?php
 require "footer.php";

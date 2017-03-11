@@ -62,8 +62,10 @@ if (!empty($_POST["submit"]) && $_POST["submit"]) {
       do_log_id($row[1], 6, 3, "Request new pw from ". get_ip() );
       
       $mres = mail("$email", "$game password reminder", 
-	   "\nLogin: $login\nPassword: ". $pw ."\n\nHave Fun!!\n",
-	   "From: MyPHPpa@web.de\nReply-To: MyPHPpa@web.de\nX-Mailer: PHP/" . phpversion());
+	"\nLogin: $login\nPassword: ". $pw ."\n\nHave Fun!!\n",
+	"From: MyPHPpa@web.de\n" .
+	"Reply-To: MyPHPpa@web.de\n" .
+	"X-Mailer: PHP/" . phpversion());
     }
     // If login / email is wrong you wont get a different message
     if ($mres == FALSE) {

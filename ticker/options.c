@@ -74,6 +74,10 @@ options *read_cfg (int argc, char *argv[])
       ret->db_port = atoi(opt);
     } else if (!strncmp (cmd, "logfile", 7)) {
       ret->logfile = strdup (opt);
+    } else if (!strncmp (cmd, "tickstart", 9)) {
+      ret->tickstart = strdup (opt);
+    } else if (!strncmp (cmd, "tickend", 7)) {
+      ret->tickend = strdup (opt);
     } else if (!strncmp (cmd, "sql_log", 7)) {
       ret->sql_log = strdup (opt);
     } else if (!strncmp (cmd, "resource", 7)) {

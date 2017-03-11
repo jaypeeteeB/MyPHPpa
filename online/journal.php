@@ -33,6 +33,10 @@ if (ISSET($_GET["hide"]) && $_GET["hide"] != 0) {
     "WHERE planet_id='$Planetid' AND target_id='$hide'" );
 }
 
+require_once "navigation.inc";
+
+echo "<div id=\"main\">\n";
+
 /* top table is written now */
 top_header($myrow);
 
@@ -53,7 +57,7 @@ if (ISSET($_REQUEST["tid"]) && $_REQUEST["tid"]>0) {
   echo <<<EOF
 <div class=cent>
 <div class=st>
-<table width="650" border="1" cellpadding="2">
+<table class="std" width="650" border="1" cellpadding="2">
 <tr><th colspan="4" class="a">Private Journal - $who[leader] 
 of $who[planetname] ($who[x]:$who[y]:$who[z])</th></tr>
 <tr>
@@ -78,14 +82,14 @@ EOF;
       echo "<br>\n$row[3]\n";
     }
   } else {
-    echo "<table width=650><tr><td>No data available.</td></tr></table>\n";
+    echo "<table class='std' width=650><tr><td>No data available.</td></tr></table>\n";
   }
   echo "</div></div>\n";
 } else {
 
   echo <<<EOF
 <div class="st">
-<table  width="650" border="1" cellpadding="2" >
+<table class="std" width="650" border="1" cellpadding="2" >
 <tr><th class="a" colspan="5">Private Journal Overview</th></tr>
 <tr><td align=center colspan="5">
 <a href="$_SERVER[PHP_SELF]?clear=1">Clear all entries</a></td></tr>
@@ -169,6 +173,8 @@ EOF;
 ?>
 
 </center>
+</div>
+
 <?php
 require "footer.php";
 ?>
