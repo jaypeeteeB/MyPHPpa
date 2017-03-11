@@ -87,12 +87,7 @@ EOF;
 // currently disabled detection (not needed)
 require_once "mobile.inc";
  
-  if ($mobile_detect) {
-     echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mobile.css\">";
-  } else {
-      echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
-  }
-    
+  echo "   <LINK rel=stylesheet type=\"text/css\" href=\"mpb.css\">";
   
   if (file_exists($tickfile . '.run') && ($mysettings &16) && $tickjs==1) {
     echo "</head>\n<body class=\"a\" ".
