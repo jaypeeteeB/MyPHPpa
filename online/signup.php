@@ -106,7 +106,7 @@ function check_email ($e) {
   /* should check domain here */
   list($name,$_) = explode('@',$e); 
   $domain = strtolower($_);
-  if (in_array($domain, array("sharklasers.com", "pokemail.com"))) 
+  if (in_array($domain, array("sharklasers.com", "pokemail.com", "mvrht.net"))) 
     return 41;
  return 0;
 }
