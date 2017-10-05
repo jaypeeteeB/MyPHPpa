@@ -74,12 +74,12 @@ if (ISSET($_REQUEST["scan"]) && ISSET($_REQUEST["number"])
 }
 
 if ($msg != "") {
-  echo "<center><table width=\"650\" border=\"1\" cellpadding=\"10\">".
+  echo "<center><table width=\"650\" class=\"std\"  border=\"1\" cellpadding=\"10\">".
       "<tr><td><font color=\"red\"><b>$msg</b></font></td></tr></table>";
 }
 
 echo <<<EOF
-<table width="650" border="0"><tr><td align="left">$save_link</td>
+<table width="650" class="std_nb" border="0"><tr><td align="left">$save_link</td>
 <td align="right"><a href="javascript:close()">Close this Window</a></td>
 </tr></table>
 EOF;
