@@ -351,6 +351,10 @@ table.std_nb
 {
   width: 100%;
 }
+table.sc
+{
+  width: 100%;
+}
 
 #legend {
   display: none;
@@ -380,6 +384,9 @@ div.nav {
 }
 #main {
   margin-left: 0px;
+}
+div.nav:active ul#nav{
+  display: block;
 }
 div.nav:hover ul#nav{
   display: block;
