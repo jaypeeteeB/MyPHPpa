@@ -42,7 +42,7 @@ if($need_navigation == 1) {
 titlebox("General");
 ?>
 <center>
-<table border=0 width="650">
+<table class="std_nb" border=0 width="650">
 <tr class="a"><th colspan=2>Rules</th></tr>
 <tr><td><br></td></tr>
 <tr><td valign="top">1.</td><td>This is a private fun game. <br>

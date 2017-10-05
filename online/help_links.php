@@ -43,7 +43,7 @@ titlebox("Links");
 ?>
 
 <center>
-<table border=1 width="650" cellpadding="3">
+<table class="std" border=1 width="650" cellpadding="3">
 <tr class="a"><th colspan=2>A collection of links related to this game</th></tr>
 <tr class="b"><th width="100">Link</th><th>Description</th></tr>
 <tr><td align="center"><a href="https://github.com/jaypeeteeB/MyPHPpa">GitHub</a></td><td>Clone or contribute at GitHub</td></tr>

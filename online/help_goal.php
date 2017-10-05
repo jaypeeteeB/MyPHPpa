@@ -42,7 +42,7 @@ if($need_navigation == 1) {
 titlebox("Goals");
 ?>
 <center>
-<table border=0 width="650">
+<table class="std_nb">
 <tr class="a"><th colspan=>Goals of the Game</th></tr>
 <tr><td><br>
 This game is a round or better <b>tick</b> based tactical/strategical

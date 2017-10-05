@@ -43,7 +43,7 @@ titlebox("Military Stat");
 ?>
 <center>
 
-<table border="0" width="650" style="font-size: 10px;text-align:center;">
+<table class="std_nb" border="0" width="650" style="font-size: 10px;text-align:center;">
 <tr class="a"><th colspan="19">Ship/PDS stats</th></tr>
 <tr class="b">
     <th>Name</th>

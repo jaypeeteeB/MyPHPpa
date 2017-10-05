@@ -30,7 +30,7 @@ titlebox("Help");
 
 <center>
 <br>
-<table border="0" width="650">
+<table class="std_nb">
 <tr><td align="center">I didnt write a lot manual page till now, but you might want to have a look at:</td></tr>
 <tr><td align="center"><a href="help_general.php">General rules</a></td></tr>
 <tr><td align="center"><a href="help_goal.php">Game goals</a></td></tr>

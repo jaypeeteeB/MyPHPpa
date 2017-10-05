@@ -42,7 +42,7 @@ if($need_navigation == 1) {
 titlebox("Stories from beyond");
 ?>
 <center>
-<table border=0 width="550">
+<table class="std_small" border=0 width="550">
 <tr><td>Sep. 2002 by <a name="top">BobBigMac</a><br>
 Episode <a href="#one">1</a> <a href="#two">2</a> <a href="#three">3</a>
 <a href="#four">4</a> <a href="#five">5</a> <a href="#six">6</a>

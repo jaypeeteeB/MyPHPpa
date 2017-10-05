@@ -42,7 +42,7 @@ if($need_navigation == 1) {
 titlebox("Formulas");
 ?>
 <center>
-<table border=1 width="650" cellpadding="3">
+<table class="std" border=1 width="650" cellpadding="3">
 <tr class="a"><th colspan=3>A collection of formulas used in the game</th></tr>
 <tr class="b"><th width="100">Name</th>
               <th width="150">Formula</th>

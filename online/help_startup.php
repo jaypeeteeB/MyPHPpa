@@ -42,12 +42,12 @@ if($need_navigation == 1) {
 titlebox("Startup");
 ?>
 <center>
-<table border=0 width="650">
+<table class="std_nb">
 <tr><td>Nov. 2002 by Olrik<br>
 </td></tr>
 </table>
 
-<table border=0 width="650">
+<table class="std_nb" border=0 width="650">
 <tr class="a"><th>10 steps to get your planet started
 </th></tr>
 <tr><td>

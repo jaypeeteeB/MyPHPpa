@@ -85,7 +85,7 @@ if($need_navigation == 1) {
 titlebox("Res / Con");
 ?>
 <center>
-<table border="0" width="650" style="font-size: 12px;">
+<table  class="std_nb" border="0" width="650" style="font-size: 12px;">
 <tr class="a"><th colspan="7">Research paths</th></tr>
 <tr class="b">
   <th width="108">War</th>
