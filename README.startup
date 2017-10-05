@@ -7,16 +7,17 @@ mine was named pa), and PHP-4.
 Version 0.8.16 is an update to run on PHP-5 (eg 5.1) and
 MySQL-4.1/5.0 (the 5.0 is less tested as is 0.8.16 at all).
 
-On GitHUb there is a realease called 0.9 working on MariaDB-10 and 
-PHP 7.x (/ 5.x)
+The actual Version on GitHUb there is a realease called 0.9.1 working 
+on MariaDB-10.1 and PHP 7.1 (Should be runnable under MySQL 5.6, PHP 5.6)
 
 
 To get it runnable you need to edit:
 
 online/options.php  (especially dbname/login/pass)
-online/sendpass.php (fill in your email)
+online/sendpass.php (fill in your email, check that you php-mail interface)
 ticker/myppa.cfg    (especially dbname/login/pass
 online/motd.php for message-of-the.day
+online/admin/admin_pw.inc (see below)
 
 To create the database struct use paDump.sql, pipe it to mysql to the
 created db. 
@@ -24,9 +25,7 @@ eg: mysql -u my_db_user -p myphppa_db  < paDump.sql
 
 You probably should edit the 'send_pass' to put in an email 
 account scanned by yourself, and edit the frontpage (index.php)
-for email and index_msg.inc for messages. 
-
-Same goes for all places with links to 'khan.stoney.cinetic.de'.
+for your email and index_msg.inc for messages. 
 
 The admin pw is per default admin, mod's pw is moderator, both set
 in last line of paDump.sql and ./online/admin/admin_pw.inc
