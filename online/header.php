@@ -78,6 +78,14 @@ function MyTick() {
 EOF;
 }
 
+echo <<<EOF
+<script type="text/javascript">
+<!--
+document.addEventListener("touchstart", function(){},true);
+// -->
+</script>
+EOF;
+
    if ($extra) {
      echo $extra;
    } else {
