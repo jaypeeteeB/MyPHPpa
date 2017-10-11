@@ -372,23 +372,30 @@ table.sc
 		border: solid 1px #666;
 		display: block; /* show menu icon */
 	}
+
 div.nav {
-  width: 120px;
+  width: 180px;
+/*  max-height: calc(100vh -20px); */
+/*  overflow-y: auto;*/
   onclick()="";
 }
 #nav { 
+  width: 120px;
   display: none;
   background-color: #494f80;
   z-index: 2;
   border: 1px  solid;
   border-color: white;
 }
+#nav ul { 
+  width: 90px;
+}
 #main {
   margin-left: 0px;
 }
 div.nav:hover ul#nav{
   display: block;
-  -webkit-user-select: none; -webkit-touch-callout: none;
+/*  -webkit-user-select: none; -webkit-touch-callout: none; */
 } 
 }
 
@@ -396,6 +403,7 @@ div.nav:hover ul#nav{
 #menu-icon {
 	display: none; /* hide menu icon initially */
 }
+
 div.nav {
   width: 150px;
   background: #494f80 url(img/myphppa/navbg.jpg) repeat;
