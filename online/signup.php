@@ -209,15 +209,16 @@ if (ISSET($_POST["submit"]) && $_POST["submit"] != "") {
 
   $taken = 0;
 
-  $login = trim(chop($_POST["login"]));
-  $email = trim(chop($_POST["email"]));
+  $login = mysqli_real_escape_string($db,trim(chop($_POST["login"])));
+  $email = mysqli_real_escape_string($db,trim(chop($_POST["email"])));
+
   $nick  = trim(chop($_POST["nick"]));
   $planet= trim(chop($_POST["planet"]));
   $pat = array("/^\((.*)\)/","/^{(.*)}/","/^\[(.*)\]/","/</","/'/");
   $rep =  array("\\1","\\1","\\1","","");
   $planet = preg_replace ($pat, $rep, $planet);
-  $nick = htmlspecialchars ($nick);
-  $planet = htmlspecialchars ($planet);
+  $nick = mysqli_real_escape_string($db, htmlspecialchars ($nick));
+  $planet = mysqli_real_escape_string($db,htmlspecialchars ($planet));
   $nick = trim(chop($nick));
   $planet= trim(chop($planet));
 

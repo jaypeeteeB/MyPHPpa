@@ -173,6 +173,8 @@ if ($galcommander_id == $myrow["id"]) {
 
   if (ISSET($_POST["newname"]) && ISSET($_POST["changename"])) {
     $newname = htmlspecialchars ($_POST["newname"]);
+    $newname = mysqli_real_escape_string($db, $newname);
+
     $res = mysqli_query($db, "UPDATE galaxy set name='$newname' ".
 		       "WHERE x='$myrow[x]' AND y='$myrow[y]'" );
   } else {
@@ -204,7 +206,8 @@ if ($galcommander_id == $myrow["id"]) {
 
     } else {
       if ($newpic == "CLEAR")
-	$newpic = "";
+	      $newpic = "";
+      $newpic = mysqli_real_escape_string($db, $newpic);
       $res = mysqli_query($db, "UPDATE galaxy set pic='$newpic' ".
 		       "WHERE x='$myrow[x]' AND y='$myrow[y]'" );
     }
@@ -219,10 +222,13 @@ if ($galcommander_id == $myrow["id"]) {
 
   if (ISSET($_POST["newmsg"]) && ISSET($_POST["changemsg"])) {
     $rmsg = htmlspecialchars ($_POST["newmsg"]);
+    $rmsg = mysqli_real_escape_string($db, $rmsg);
+
     if (strlen ($rmsg) > 2047 ) $newmsg = substr($rmsg, 0, 2047);
     else $newmsg = $rmsg;
     $res = mysqli_query($db, "UPDATE galaxy set text='$newmsg' ".
-		       "WHERE x='$myrow[x]' AND y='$myrow[y]'" );
+	    "WHERE x='$myrow[x]' AND y='$myrow[y]'" );
+
   } else {
     $res = mysqli_query($db, "SELECT text from galaxy ".
 		       "WHERE x='$myrow[x]' AND y='$myrow[y]'" );
