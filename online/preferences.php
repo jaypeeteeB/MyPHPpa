@@ -186,7 +186,7 @@ if(ISSET($_REQUEST["pwchange"])) {
       // setcookie("Password",md5($newpw));
       $Password = md5($newpw);
       $_SESSION["Password"] =  $Password;
-      mysqli_query ($db, "UPDATE user SET password='$newpw' ".
+      $res = mysqli_query ($db, "UPDATE user SET password='$newpw' ".
 		   "WHERE planet_id='$Planetid'" );
       $msg = "Password successfully changed<br>\n";
     }
@@ -206,7 +206,7 @@ if(ISSET($_REQUEST["emchange"])) {
       $msg = "New emails do not match !<br>\n";
     } else {
       $newem = $_REQUEST["newem"];
-      mysqli_query ($db, "UPDATE user SET email='$newem' ".
+      $res = mysqli_query ($db, "UPDATE user SET email='$newem' ".
 		   "WHERE planet_id='$Planetid'" );
       $msg = "Email successfully changed<br>\n";
     }

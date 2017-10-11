@@ -22,6 +22,10 @@
 function insert_message ($target_id,  $tname, $subject, $text, $copy=1) {
   global $db, $Planetid;
 
+  $text = mysqli_real_escape_string($db, $text);
+  $subject = mysqli_real_escape_string($db, $subject);
+
+
   $q = "INSERT INTO mail SET planet_id='$target_id',sender_id='$Planetid',".
        "date=now(),subject='$subject',text='$text', ref=2";
   $res = mysqli_query ($db, $q );
@@ -224,6 +228,9 @@ if (ISSET($_REQUEST["submit"])) {
     
       while ($row=mysqli_fetch_row($resp)) {
 
+        $text = mysqli_real_escape_string($db, $text);
+        $subject = mysqli_real_escape_string($db, $subject);
+
         $q = "INSERT INTO mail SET planet_id='$row[0]',sender_id='$Planetid',".
              "date=now(),subject='$subject',text='$text', ref=1";
         $res = mysqli_query ($db, $q );
@@ -260,6 +267,10 @@ if (ISSET($_REQUEST["submit"])) {
 	$cnt = mysqli_num_rows($resp);
 
 	while ($cnt && $row=mysqli_fetch_row($resp)) {
+	
+	  $text = mysqli_real_escape_string($db, $text);
+          $subject = mysqli_real_escape_string($db, $subject);
+
 	  $q = "INSERT INTO mail SET planet_id='$row[0]',sender_id='$Planetid',".
 	    "date=now(),subject='[$alc]: $subject',text='$text', ref=1";
 	  $res = mysqli_query ($db, $q );

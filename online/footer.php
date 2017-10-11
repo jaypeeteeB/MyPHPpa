@@ -22,10 +22,12 @@
 require_once "session.inc";
 session_flush();
 
-$end_time = getmicrotime();
-$diff_time = $end_time - $start_time ;
-if ( $Planetid == 1 ) {
-  echo "Runtime: ". number_format($diff_time, 3) ." s<br>";
+if (ISSET($Planetid) && ISSET($start_time)) {
+  $end_time = getmicrotime();
+  $diff_time = $end_time - $start_time ;
+  if ( $Planetid == 1 ) {
+    echo "Runtime: ". number_format($diff_time, 3) ." s<br>";
+  }
 }
 ?>
 

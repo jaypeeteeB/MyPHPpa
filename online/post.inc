@@ -109,6 +109,7 @@ if (ISSET($_REQUEST["submit"])) {
       } else {
 	$creator = "$myrow[leader]";
       }
+      $subject = mysqli_real_escape_string($db, $subject);
       $q = "INSERT INTO politics SET planet_id='$Planetid', date=NOW(),".
 	 "subject='$subject',gal_id='$gal_id',creator='$creator'";
       $result = mysqli_query ($db, $q);
@@ -151,7 +152,8 @@ if (ISSET($_REQUEST["submit"])) {
 	  }
         }
       } else {
-	echo "Wrong parameter found - this incidence will be reported<br>";
+        echo "Wrong parameter found - this incidence will be reported<br>";
+        $text = mysqli_real_escape_string($db, $text);
 	$q = "INSERT INTO news set planet_id=1,date=now(),type=10,".
 	   "text='$fname warning\npid: $Planetid\ntext=$text\n'";
 	$result = mysqli_query ($db, $q);
@@ -161,12 +163,13 @@ if (ISSET($_REQUEST["submit"])) {
 
     if ($thid) {
       if (!$edit) {
+        $text = mysqli_real_escape_string($db, $text);
         $q = "INSERT INTO poltext SET thread_id='$thid',text='$text',".
 	   "planet_id='$Planetid',date=NOW()";
         $msg = "Successfully posted";
       } else {
         // edit
-        $dbtext = $text . "\n*** Edited ***";
+        $dbtext = mysqli_real_escape_string($db, $text . "\n*** Edited ***");
         $q = "UPDATE poltext SET text='$dbtext' ".
            "WHERE id='$thid' AND planet_id='$Planetid'";
         $text = $dbtext;

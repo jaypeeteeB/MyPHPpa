@@ -492,9 +492,9 @@ function create_alliance ($nhc, $ntag, $nname) {
     $nname = preg_replace ($pat, $rep, $nname);
     $ntag  = preg_replace ($pat, $rep, $ntag);
 
-    $nhc   = htmlspecialchars ($nhc);
-    $nname = htmlspecialchars ($nname);
-    $ntag  = htmlspecialchars ($ntag);
+    $nhc   = mysqli_real_escape_string($db,htmlspecialchars ($nhc));
+    $nname = mysqli_real_escape_string($db,htmlspecialchars ($nname));
+    $ntag  = mysqli_real_escape_string($db,htmlspecialchars ($ntag));
 
     $nhc  = trim(chop($nhc));
     $nname= trim(chop($nname));
