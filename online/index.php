@@ -90,7 +90,7 @@ if (ISSET($_POST['submit']) && $_POST['login'] && $_POST['password']) {
 	Header("Location: error.php");
 	die;
       }
-    } else if (($myrow[1] & 0x0F) == 3 && $force != 1) {
+    } else if (($myrow[1] & 0x0F) == 3 && ISSET($_POST['force']) && $_POST['force'] != 1) {
       // sleep mode
       $result = mysqli_query($db, "SELECT last_sleep+INTERVAL 6 HOUR < now(), ".
                             "last_sleep+INTERVAL 6 HOUR FROM user ".
