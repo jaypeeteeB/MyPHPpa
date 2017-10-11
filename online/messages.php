@@ -86,7 +86,8 @@ function print_jtd ($text, $cp, $link="", $jscript=0) {
     if ($jscript)
       $l = "\"$link\"";
     else 
-      $l = "\"window.open('$link', 'main')\"";
+      $l = "\"window.open('$link', '_self')\"";
+      // $l = "\"window.open('$link', 'main')\"";
 
     if ($imgpath && $imgpath != "") {
       $td = "<td align=\"center\" bgcolor=\"\" colspan=\"$cp\" ".
