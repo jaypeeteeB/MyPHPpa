@@ -374,6 +374,7 @@ table.sc
 	}
 div.nav {
   width: 120px;
+  onclick()="";
 }
 #nav { 
   display: none;
@@ -385,12 +386,10 @@ div.nav {
 #main {
   margin-left: 0px;
 }
-div.nav:active ul#nav{
-  display: block;
-}
 div.nav:hover ul#nav{
   display: block;
-}
+  -webkit-user-select: none; -webkit-touch-callout: none;
+} 
 }
 
 @media screen and (min-width: 850px) {
