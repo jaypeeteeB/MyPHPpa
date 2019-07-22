@@ -373,7 +373,7 @@ $q = "SELECT sc.id, sc.name, sc.build_ticks FROM scan_class AS sc, rc ".
 
 $qq = "SELECT scan_id, sum(num), build_ticks FROM scan_build ".
       "WHERE planet_id='$Planetid' ".
-      "AND build_ticks!=0 GROUP BY scan_id, build_ticks";
+      "AND build_ticks!=0 GROUP BY scan_id, build_ticks ORDER BY scan_id ASC";
 
 $result = mysqli_query ($db, $q );
 if (mysqli_num_rows($result) > 0) {
