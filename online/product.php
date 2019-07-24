@@ -193,7 +193,7 @@ $q = "SELECT uc.id, uc.name, uc.build_ticks FROM unit_class AS uc, rc ".
      "WHERE rc.planet_id='$Planetid' AND rc.status=3 AND uc.rc_id=rc.rc_id AND uc.class!=5 ";
 
 $qq = "SELECT unit_id, sum(num), build_ticks FROM unit_build WHERE planet_id='$Planetid' ".
-      "AND build_ticks!=0 GROUP BY unit_id, build_ticks";
+      "AND build_ticks!=0 GROUP BY unit_id, build_ticks ORDER BY unit_id ASC";
 
 $result = mysqli_query ($db, $q );
 if (mysqli_num_rows($result) > 0) {
