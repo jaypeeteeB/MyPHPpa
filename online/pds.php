@@ -172,7 +172,7 @@ $q = "SELECT uc.id, uc.name, uc.build_ticks FROM unit_class AS uc, rc ".
 
 $qq = "SELECT pds_id, sum(num), build_ticks FROM pds_build ".
       "WHERE planet_id='$Planetid' ".
-      "AND build_ticks!=0 GROUP BY pds_id, build_ticks";
+      "AND build_ticks!=0 GROUP BY pds_id, build_ticks ORDER BY pds_id ASC";
 
 $result = mysqli_query ($db, $q );
 if ($result && mysqli_num_rows($result) > 0) {
