@@ -619,9 +619,9 @@ for ($i=0; $i<$number_of_fleets; $i++) {
 }
 
 $q = "SELECT units.unit_id, fleet.num, sum(units.num), ".
-  "fleet.ticks+fleet.type+fleet.full_eta FROM fleet, units ".
+  "ANY_VALUE(fleet.ticks+fleet.type+fleet.full_eta) FROM fleet, units ".
   "WHERE fleet.planet_id='$Planetid' AND fleet.fleet_id=units.id ".
-  "GROUP BY units.unit_id,fleet.num";
+  "GROUP BY units.unit_id,fleet.num ORDER BY units.unit_id";
 
 $res = mysqli_query($db, $q );
 // preselect first row
